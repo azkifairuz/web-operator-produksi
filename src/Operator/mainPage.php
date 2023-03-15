@@ -1,6 +1,10 @@
 <?php
-include("navbar.php")
-  ?>
+    session_start();
+    $userNip = $_SESSION['NIP'];
+    include("navbar.php");
+    include("../koneksi.php");
+    $getDataOperator = mysqli_query($con,"SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ")?>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,17 +44,45 @@ include("navbar.php")
               </li>
             </ul>
           </div>
-          <div class="bg-pink-400 w-fit lg:h-full lg:w-full  flex justify-evenly gap-2 items-center h-5/6">
-            <div class="profil hidden  gap-2  ">
-              <div class="w-20 lg:w-52 bg-white">
-                <img class="w-20 lg:w-52 text-center"
+          <div class="bg-pink-400 w-fit lg:h-full lg:w-full flex  gap-2 items-center h-5/6">
+            <div class="profil w-full m-10 flex justify-around gap-5  ">
+              <div class="w-20 lg:w-52 lg:h-20 h-20 bg-white">
+                <img class="w-20 lg:w-52 lg:h-52 h-20 text-center"
                   src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
                   alt="profil" />
               </div>
 
-              <div class="w-3/5  overflow-scroll">
+              <div class="bg-white w-1/2">
                 <table class="border-2  w-full text-left mx-auto table-auto">
-                  <tr class="bg-black text-white">
+                  <tr>
+                    <th class="border p-2 bg-black text-white">NIP</th>
+                    <td class=" p-2">1211000</td>
+                  </tr>
+                  <tr>
+                    <th class="border p-2 bg-black text-white">Nama</th>
+                    <td class="p-2">1211000</td>
+                  </tr>
+                  <tr>
+                    <th class="border p-2 bg-black text-white">Departemen</th>
+                    <td  class="p-2">1211000</td>
+                  </tr>
+                  <tr>
+                    <th class="border p-2 bg-black text-white">Hire_date</th>
+                    <td class="p-2">1211000</td>
+                  </tr>
+                  <tr>
+                    <th class="border p-2 bg-black text-white">Lokasi</th>
+                    <td class="p-2">1211000</td>
+                  </tr>
+                  <tr>
+                    <th class="border p-2 bg-black text-white">NPWP</th>
+                    <td class="p-2">1211000</td>
+                  </tr>
+                  <tr>
+                    <th class="border p-2 bg-black text-white">Title</th>
+                    <td class="p-2">1211000</td>
+                  </tr>
+                  <!-- <tr class=">
                     <th class="border p-2">NIP</th>
                     <th class="border p-2">Nama</th>
                     <th class="border p-2">departemen</th>
@@ -67,19 +99,19 @@ include("navbar.php")
                     <td class="border">tes</td>
                     <td class="border">tes</td>
                     <td class="border">tes</td>
-                  </tr>
+                  </tr> -->
                 </table>
               </div>
             </div>
-            <div class="ubah-profil flex  items-center justify-evenly gap-4 w-full">
-            <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
+            <div class="ubah-profil hidden  items-center justify-evenly gap-4 w-full">
+              <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
                 <img class="w-20 h-20 lg:w-52 lg:h-52 text-center"
                   src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
                   alt="profil" />
               </div>
               <form action="" method="post" class="form auto flex w-1/2  justify-start flex-col gap-4">
-                
-                <div >
+
+                <div>
                   <label for="name" class="text-white text-lg">NIP : </label>
                   <input class="py-2 px-4 rounded-md" type="text" name="name" placeholder="Masukan Nama">
                 </div>
