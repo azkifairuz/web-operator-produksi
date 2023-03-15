@@ -21,7 +21,7 @@
 
       <div class="mainPage container w-1/2 ml-20 mt-2">
         <h1 class="md:text-5xl mb-2 -ml-10 text-purple-700 font-bold">
-          Halaman Utama
+          Halaman Laporan
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -73,7 +73,7 @@
     </div>
   </div>
 
-  <script src="index.js"></script>
+  <script src="../index.js"></script>
 </body>
 
 </html>

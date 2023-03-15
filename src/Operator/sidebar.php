@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="sidebar h-screen top-0 bottom-0 w-1/3 lg:w-[200px] flex flex-col  gap-5 bg-purple-500 pt-10">
+    <div class="sidebar h-screen top-0 bottom-0 w-[200px] flex flex-col  gap-5 bg-purple-500 pt-10">
         <div class="p-2 -mt-4 box-border flex gap-4 items-center">
             <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
                 class="block center w-10 h-10 bg-slate-400" alt="profil" />
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="w-full flex flex-col gap-5 items-center justify-center p-2 cursor-pointer">
-            <button class="bg-purple-900 w-full hover:bg-purple-600 text-white p-2 px-4 cursor-pointer">
+            <button class="bg-purple-900 focus:bg-purple-600 active:bg-purple-600 w-full  hover:bg-purple-600 text-white p-2 px-4 cursor-pointer">
                 Halaman Utama
             </button>
             <div>
