@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    
     <div class="sidebar h-screen top-0 bottom-0 w-1/3 lg:w-[200px] flex flex-col  gap-5 bg-purple-500 pt-10">
         <div class="p-2 -mt-4 box-border flex gap-4 items-center">
             <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"

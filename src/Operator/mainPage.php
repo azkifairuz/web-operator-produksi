@@ -1,3 +1,6 @@
+<?php
+  include("navbar.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +16,8 @@
   <div>
     <div class="flex">
       <?php
-      include("sidebar.php")
-        ?>
+        include("sidebar.php");
+      ?>
 
       <div class="mainPage container w-1/2 ml-20 mt-2">
         <h1 class="md:text-5xl mb-2 -ml-10 text-purple-700 font-bold">
