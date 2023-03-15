@@ -8,5 +8,5 @@ laporan.addEventListener("click",()=>{
     window.location = "http://localhost/web-operator-produksi/src/Operator/laporanPage.php";
     arrowOpen.classList.toggle("hidden")
     arrowClose.classList.toggle("hidden")
-    listLaporan.classList.toggle("hidden")
+    
 })
