@@ -35,21 +35,21 @@ $data = mysqli_fetch_array($getDataOperator);
           <div class="inline">
             <ul class="flex">
               <li
-                class="bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
+                class="btnProfil bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                 profil
               </li>
               <li
-                class="bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnUbah bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Ubah Profil
               </li>
               <li
-                class="bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnPassword bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Ubah Sandi
               </li>
             </ul>
           </div>
           <div class="bg-pink-400 w-fit lg:h-full lg:w-full flex  gap-2 items-center h-5/6">
-            <section class="profil hidden">
+            <section class="profil ">
               <div class=" w-full m-10 flex justify-around gap-5  ">
                 <div class="w-20 lg:w-52 lg:h-20 h-20 bg-white">
                   <img class="w-20 lg:w-52 lg:h-52 h-20 text-center"
@@ -117,66 +117,66 @@ $data = mysqli_fetch_array($getDataOperator);
                 </div>
               </div>
             </section>
-            <section class="ubah-profil hidden ">
-            <div class=" items-center justify-evenly gap-4 w-full">
-              <form action="" method="post" enctype="multipart/form-data"
-                class="form auto flex w-full  justify-around  gap-4">
+            <section class="ubahProfil hidden ">
+              <div class=" items-center justify-evenly gap-4 w-full">
+                <form action="" method="post" enctype="multipart/form-data"
+                  class="form auto flex w-full  justify-around  gap-4">
 
-                <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
-                  <img class="w-20 h-20 lg:w-52 lg:h-52 text-center" src="../../item /<?php echo $data['gambar'] ?>"
-                    alt="profil" />
-                  <label for="foto"></label>
-                  <input type="file" name="foto" id="foto" class="block border-2 border-black rounded-md w-full"
-                    value="<?php echo $dataProduk["gambar"] ?>">
-                </div>
+                  <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
+                    <img class="w-20 h-20 lg:w-52 lg:h-52 text-center" src="../../item /<?php echo $data['gambar'] ?>"
+                      alt="profil" />
+                    <label for="foto"></label>
+                    <input type="file" name="foto" id="foto" class="block border-2 border-black rounded-md w-full"
+                      value="<?php echo $dataProduk["gambar"] ?>">
+                  </div>
 
-                <div class="grid grid-cols-2  gap-4">
-                  <div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="NIP">NIP</label>
-                      <input class="py-2 text-black px-4 rounded-md" type="text" name="NIP" readonly
-                        value="<?php echo $data["NIP"] ?>">
+                  <div class="grid grid-cols-2  gap-4">
+                    <div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="NIP">NIP</label>
+                        <input class="py-2 text-black px-4 rounded-md" type="text" name="NIP" readonly
+                          value="<?php echo $data["NIP"] ?>">
+                      </div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="nama">Nama</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="nama"
+                          value="<?php echo $data["nama"] ?>">
+                      </div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="departemen">Departemen</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="departemen" readonly
+                          value="<?php echo $data["departemen"] ?>">
+                      </div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="hire_date">hire_date</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly
+                          value="<?php echo $data["hire_date"] ?>">
+                      </div>
                     </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="nama">Nama</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="nama"
-                        value="<?php echo $data["nama"] ?>">
+                    <div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="lokasi">lokasi</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="lokasi" readonly
+                          value="<?php echo $data["lokasi"] ?>">
+                      </div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="NPWP">NPWP</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="NPWP" readonly
+                          value="<?php echo $data["NPWP"] ?>">
+                      </div>
+                      <div class="flex flex-col capitalize text-white">
+                        <label for="title">title</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="title" readonly
+                          value="<?php echo $data["title"] ?>">
+                      </div>
                     </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="departemen">Departemen</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="departemen" readonly
-                        value="<?php echo $data["departemen"] ?>">
-                    </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="hire_date">hire_date</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly
-                        value="<?php echo $data["hire_date"] ?>">
-                    </div>
+                    <button name="btn-simpan" id="btn-simpan" class="bg-blue-500  text-white px-4 py-2"> Ubah</button>
                   </div>
-                  <div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="lokasi">lokasi</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="lokasi" readonly
-                        value="<?php echo $data["lokasi"] ?>">
-                    </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="NPWP">NPWP</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="NPWP" readonly
-                        value="<?php echo $data["NPWP"] ?>">
-                    </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="title">title</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="title" readonly
-                        value="<?php echo $data["title"] ?>">
-                    </div>
-                  </div>
-                  <button name="btn-simpan" id="btn-simpan" class="bg-blue-500  text-white px-4 py-2"> Ubah</button>
-                </div>
-              </form>
-            </div>
+                </form>
+              </div>
             </section>
-            <section class="ubahSandi w-full">
-              <div class="mx-auto w-1/2" >
+            <section class="ubahPassword hidden w-full">
+              <div class="mx-auto w-1/2">
                 <form action="" method="post" class="flex flex-col gap-4">
                   <h1 class="text-white text-4xl mb-5 -mt-10 font-bold text-center capitalize ">reset password</h1>
                   <div class="flex flex-col text-white">
@@ -191,32 +191,32 @@ $data = mysqli_fetch_array($getDataOperator);
                 </form>
               </div>
             </section>
-            
+
           </div>
           <?php
-            if (isset($_POST['btn-reset'])) {
-              $old = htmlspecialchars($_POST['old']);
-              $new = htmlspecialchars($_POST['new']);
-              if ($old === $oldPassword['user_password']) {
-                $queryUpdate = mysqli_query($con, "UPDATE `user` SET `user_password` = '$new' WHERE `user_nip` = '$userNip'; ");
-                ?>
-                <div
-                  class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                  role="alert">
-                  <strong class="font-bold"> password berhasil direset</strong>
-                </div>
+          if (isset($_POST['btn-reset'])) {
+            $old = htmlspecialchars($_POST['old']);
+            $new = htmlspecialchars($_POST['new']);
+            if ($old === $oldPassword['user_password']) {
+              $queryUpdate = mysqli_query($con, "UPDATE `user` SET `user_password` = '$new' WHERE `user_nip` = '$userNip'; ");
+              ?>
+              <div
+                class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                role="alert">
+                <strong class="font-bold"> password berhasil direset</strong>
+              </div>
 
-                <?php
-              }else{
-                ?>
-                  <div
-                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold"> password lama salah</strong>
-                  </div>
-                <?php
-              }
+              <?php
+            } else {
+              ?>
+              <div
+                class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
+                role="alert">
+                <strong class="font-bold"> password lama salah</strong>
+              </div>
+              <?php
             }
+          }
           ?>
           <?php
           if (isset($_POST['btn-simpan'])) {
@@ -281,14 +281,39 @@ $data = mysqli_fetch_array($getDataOperator);
               }
             }
           }
-          
+
           ?>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="index.js"></script>
+  <script>
+
+    const btnProfil = document.querySelector(".btnProfil")
+    const btnUbah = document.querySelector(".btnUbah")
+    const btnPassword = document.querySelector(".btnPassword")
+
+    const profilPage = document.querySelector(".profil")
+    const ubahProfilPage = document.querySelector(".ubahProfil")
+    const ubahPasswordPage = document.querySelector(".ubahPassword")
+
+    btnProfil.addEventListener("click", () => {
+      profilPage.classList.remove("hidden")
+      ubahProfilPage.classList.add("hidden")
+      ubahPasswordPage.classList.add("hidden")
+    })
+    btnUbah.addEventListener("click", () => {
+      profilPage.classList.add("hidden")
+      ubahProfilPage.classList.remove("hidden")
+      ubahPasswordPage.classList.add("hidden")
+    })
+    btnPassword.addEventListener("click", () => {
+      profilPage.classList.add("hidden")
+      ubahProfilPage.classList.add("hidden")
+      ubahPasswordPage.classList.remove("hidden")
+    })
+  </script>
 </body>
 
 </html>

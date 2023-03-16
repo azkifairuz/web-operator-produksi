@@ -19,7 +19,8 @@
             </div>
         </div>
         <div class="w-full flex flex-col gap-5 items-center justify-center p-2 cursor-pointer">
-            <button class="bg-purple-900 focus:bg-purple-600 active:bg-purple-600 w-full  hover:bg-purple-600 text-white p-2 px-4 cursor-pointer">
+            <button
+                class="bg-purple-900 focus:bg-purple-600 active:bg-purple-600 w-full  hover:bg-purple-600 text-white p-2 px-4 cursor-pointer">
                 Halaman Utama
             </button>
             <div>
@@ -52,7 +53,19 @@
             </div>
         </div>
     </div>
-    <script src="../index.js"></script>
+    <script>
+        const arrowClose = document.querySelector(".arrowClose")
+const arrowOpen = document.querySelector(".arrowOpen")
+const laporan = document.querySelector(".laporan")
+const listLaporan = document.querySelector(".listLaporan")
+
+        laporan.addEventListener("click", () => {
+            arrowOpen.classList.toggle("hidden")
+            arrowClose.classList.toggle("hidden")
+            listLaporan.classList.toggle("hidden")
+        })
+
+    </script>
 </body>
 
 </html>
