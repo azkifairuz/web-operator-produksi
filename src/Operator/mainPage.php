@@ -4,6 +4,8 @@ $userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
+$getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE NIP ='$userNip' ");
+$oldPassword = mysqli_fetch_array($getDataOperator);
 $cekUser = mysqli_num_rows($getDataOperator);
 $data = mysqli_fetch_array($getDataOperator);
   ?>
@@ -95,58 +97,121 @@ $data = mysqli_fetch_array($getDataOperator);
                         <td class="p-2"><?php echo $data['title'] ?></td>
                       </tr>
                       <?php
-                    
                   }
                   ?>
                 </table>
               </div>
             </div>
-            <div class="ubah-profil flex  items-center justify-evenly gap-4 w-full">
-              <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
-                <img class="w-20 h-20 lg:w-52 lg:h-52 text-center"
-                  src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
-                  alt="profil" />
-              </div>
-              <form action="" method="post" class="form auto flex w-1/2  justify-start flex-col gap-4">
+            <div class="ubah-profil hidden flex  items-center justify-evenly gap-4 w-full">
+                <form action="" method="post"  enctype="multipart/form-data" class="form auto flex w-full  justify-around  gap-4">
 
-                <div class="grid grid-cols-2  gap-4">
+                  <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
+                    <img class="w-20 h-20 lg:w-52 lg:h-52 text-center"
+                      src="../../item /<?php echo $data['gambar'] ?>"
+                      alt="profil" />
+                      <label for="foto"></label>
+                      <input type="file" name="foto" id="foto" class="block border-2 border-black rounded-md w-full" value="<?php echo $dataProduk["gambar"] ?>" >
+                  </div>
+
+                  <div class="grid grid-cols-2  gap-4">
+                    <div>
+                        <div class="flex flex-col capitalize text-white">
+                          <label for="NIP">NIP</label>
+                          <input class="py-2 text-black px-4 rounded-md" type="text" name="NIP" readonly value="<?php echo $data["NIP"] ?>">
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <label for="nama">Nama</label>
+                          <input class="py-2 px-4 text-black rounded-md" type="text" name="nama"  value="<?php echo $data["nama"] ?>">
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <label for="departemen">Departemen</label>
+                          <input class="py-2 px-4 text-black rounded-md" type="text" name="departemen" readonly value="<?php echo $data["departemen"] ?>">
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <label for="hire_date">hire_date</label>
+                          <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly value="<?php echo $data["hire_date"] ?>">
+                        </div>
+                    </div>
                     <div>
                       <div class="flex flex-col capitalize text-white">
-                        <label for="NIP">NIP</label>
-                        <input class="py-2 text-black px-4 rounded-md" type="text" name="NIP" readonly value="<?php echo $data["NIP"] ?>">
+                        <label for="lokasi">lokasi</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="lokasi" readonly value="<?php echo $data["lokasi"] ?>">
                       </div>
                       <div class="flex flex-col capitalize text-white">
-                        <label for="nama">Nama</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="Nama"  value="<?php echo $data["nama"] ?>">
+                        <label for="NPWP">NPWP</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="NPWP" readonly value="<?php echo $data["NPWP"] ?>">
                       </div>
                       <div class="flex flex-col capitalize text-white">
-                        <label for="departemen">Departemen</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="departemen" readonly value="<?php echo $data["departemen"] ?>">
+                        <label for="title">title</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="title" readonly value="<?php echo $data["title"] ?>">
                       </div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="hire_date">hire_date</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly value="<?php echo $data["hire_date"] ?>">
-                      </div>
+                    </div>
+                    <button name="btn-simpan" id="btn-simpan" class="bg-blue-500  text-white px-4 py-2"> Ubah</button>
                   </div>
-                  <div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="lokasi">lokasi</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="lokasi" readonly value="<?php echo $data["lokasi"] ?>">
-                    </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="NPWP">NPWP</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="NPWP" readonly value="<?php echo $data["NPWP"] ?>">
-                    </div>
-                    <div class="flex flex-col capitalize text-white">
-                      <label for="title">title</label>
-                      <input class="py-2 px-4 text-black rounded-md" type="text" name="title" readonly value="<?php echo $data["title"] ?>">
-                    </div>
-                  </div>
-                </div>
-                
-              </form>
+                </form>            
+            </div>            
+            <div class="ubah sandi">
+                  <form action="" method="post">
+                    <label for="old">Masukan Sandi Lama</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly value="<?php echo $data["hire_date"] ?>">
+                  </form>
             </div>
           </div>
+          <?php
+            if(isset($_POST['btn-simpan'])){
+                $nama = htmlspecialchars($_POST['nama']);
+                
+                 //validasi gambar    
+                    $fileSize = $_FILES["foto"]["size"];
+                    $target_dir = "../../item/";
+                    $nama_file = basename($_FILES["foto"]["name"]);
+                    $target_file = $target_dir . $nama_file ;
+                    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    $image_size = $_FILES["foto"]["size"];
+                    $RandomAccountNumber = uniqid();
+
+                    
+                    $new_name = $RandomAccountNumber . "." . $imageFileType;
+                        if($nama == "" ){
+                            ?>
+                            <div class="bg-red-100 border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative" role="alert">
+                                <strong class="font-bold">Nama Tidak boleh kosong</strong>
+                            </div>
+                            <?php
+                        }else{
+                            $queryUpdate = mysqli_query($con , "UPDATE `data_operator_produksi` SET `nama` = '$nama' WHERE `NIP` = '$userNip'; ");
+                            if($nama_file != ""){
+                                if($image_size > 5000000){
+                                    ?>
+                                        <div class="bg-red-100 border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative" role="alert">
+                                            <strong class="font-bold">file lebih dri 50mb</strong>
+                                        </div>
+                                    <?php
+                                }else{
+                                    if($imageFileType !="jpg" && $imageFileType!= "png" && $imageFileType != "svg" && $imageFileType != "gif" && $imageFileType != "jpeg"){
+                                        ?>
+                                        <div class="bg-red-100 border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative" role="alert">
+                                            <strong class="font-bold">tipe file tidak sesuai</strong>
+                                        </div>
+                                        <?php
+                                    }else{
+                                        move_uploaded_file($_FILES["foto"]["tmp_name"],$target_dir . $new_name );
+                                        $queryUpdate = mysqli_query($con , "UPDATE `data_operator_produksi` SET `gambar` = '$new_name' WHERE `data_operator_produksi`.`NIP` = '$userNip'; ");
+                                        
+                                }
+                            }
+                            
+                            }
+                            if ($queryUpdate) {
+                                ?>
+                                <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative" role="alert">
+                                    <strong class="font-bold"> Profil berhasil diupdate</strong>
+                                </div>
+                                
+                                <?php
+                            }
+                        }
+            }?>
         </div>
       </div>
     </div>
