@@ -4,8 +4,8 @@ $userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE NIP ='$userNip' ");
-$oldPassword = mysqli_fetch_array($getDataOperator);
+$getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE `user_nip` ='$userNip' ");
+$oldPassword = mysqli_fetch_array($getOldPassword);
 $cekUser = mysqli_num_rows($getDataOperator);
 $data = mysqli_fetch_array($getDataOperator);
   ?>
@@ -49,7 +49,7 @@ $data = mysqli_fetch_array($getDataOperator);
             </ul>
           </div>
           <div class="bg-pink-400 w-fit lg:h-full lg:w-full flex  gap-2 items-center h-5/6">
-            <div class="profil w-full m-10 hidden justify-around gap-5  ">
+            <div class="profil w-full m-10 flex justify-around gap-5  ">
               <div class="w-20 lg:w-52 lg:h-20 h-20 bg-white">
                 <img class="w-20 lg:w-52 lg:h-52 h-20 text-center"
                   src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
@@ -57,7 +57,7 @@ $data = mysqli_fetch_array($getDataOperator);
               </div>
 
               <div class="bg-white  w-1/2">
-                <table class="border-2   w-fit text-left  table-auto">
+                <table class="border-2 w-ful text-left  table-auto">
                   <?php
                   if ($cekUser == 0) {
                     ?>
@@ -70,7 +70,7 @@ $data = mysqli_fetch_array($getDataOperator);
                       ?>
                       <tr class="border border-black">
                         <th class="border w-fit p-2 bg-black text-white">NIP</th>
-                        <td class="p-2"><?php echo $data['NIP'] ?></td>
+                        <td class="p-2 "><?php echo $data['NIP'] ?></td>
                       </tr>
                       <tr class="border border-black">
                         <th class="border w-fit p-2 bg-black text-white">Nama</th>
@@ -102,7 +102,7 @@ $data = mysqli_fetch_array($getDataOperator);
                 </table>
               </div>
             </div>
-            <div class="ubah-profil hidden flex  items-center justify-evenly gap-4 w-full">
+            <div class="ubah-profil hidden  items-center justify-evenly gap-4 w-full">
                 <form action="" method="post"  enctype="multipart/form-data" class="form auto flex w-full  justify-around  gap-4">
 
                   <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
@@ -150,7 +150,7 @@ $data = mysqli_fetch_array($getDataOperator);
                   </div>
                 </form>            
             </div>            
-            <div class="ubah sandi">
+            <div class="ubah hidden sandi">
                   <form action="" method="post">
                     <label for="old">Masukan Sandi Lama</label>
                     <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly value="<?php echo $data["hire_date"] ?>">
