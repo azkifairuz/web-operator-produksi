@@ -583,6 +583,10 @@ video {
   margin: auto;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -590,6 +594,10 @@ video {
 
 .-ml-10 {
   margin-left: -2.5rem;
+}
+
+.-mt-10 {
+  margin-top: -2.5rem;
 }
 
 .-mt-4 {
@@ -622,14 +630,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.-mt-5 {
-  margin-top: -1.25rem;
-}
-
-.-mt-10 {
-  margin-top: -2.5rem;
 }
 
 .box-border {
@@ -754,16 +754,32 @@ video {
   width: 100%;
 }
 
-.w-52 {
-  width: 13rem;
+.w-\[300px\] {
+  width: 300px;
 }
 
-.w-5 {
-  width: 1.25rem;
+.w-\[350px\] {
+  width: 350px;
 }
 
-.w-56 {
-  width: 14rem;
+.w-\[400px\] {
+  width: 400px;
+}
+
+.w-\[250px\] {
+  width: 250px;
+}
+
+.w-11\/12 {
+  width: 91.666667%;
+}
+
+.min-w-\[\] {
+  min-width: ;
+}
+
+.min-w-\[300px\] {
+  min-width: 300px;
 }
 
 .table-auto {
@@ -784,10 +800,6 @@ video {
 
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-center {
@@ -938,6 +950,10 @@ video {
   --tw-gradient-to: #c084fc;
 }
 
+.bg-center {
+  background-position: center;
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -1001,14 +1017,19 @@ video {
   line-height: 2rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-lg {
