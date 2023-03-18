@@ -14,8 +14,8 @@ $userNip = $_SESSION['NIP'];
     <link rel="stylesheet" href="../../dist/output.css">
 </head>
 
-<body>
-    <div class="sidebar h-screen top-0 bottom-0 w-[250px] flex flex-col  p-5 gap-5 bg-purple-500 pt-10">
+<body >
+    <div class="sidebar  h-[3000px] mt-10 bottom-0 top-0 w-[250px] flex flex-col  p-5 gap-5 bg-purple-500 pt-10">
         <div class="p-2 -mt-4 box-border flex gap-4 items-center">
             <img src="../../item/<?php echo $data['gambar']?>"
                 class="block center w-20 bg-center h-20 bg-slate-400" alt="profil" />
@@ -82,10 +82,13 @@ $userNip = $_SESSION['NIP'];
         })
 
         halaman.addEventListener("click",()=>{
-            changeLocation("Operator/mainPage.php")
+            changeLocation("Operator/index.php")
         })
         preparation.addEventListener("click",()=>{
-            changeLocation("Operator/laporanDepartemen/preparation.php")
+            changeLocation("Operator/preparation.php")
+        })
+        washing.addEventListener("click",()=>{
+            changeLocation("Operator/washing.php")
         })
     </script>
 </body>
