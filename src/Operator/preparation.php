@@ -27,7 +27,7 @@ $data = mysqli_fetch_array($getDataOperator);
       require "sidebar.php";
       ?>
 
-      <div class="mainPage container w-1/2 ml-20 mt-2">
+      <div class="mainPage container mt-20 w-1/2 ml-20 mt-2">
         <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
           Preparation
         </h1>

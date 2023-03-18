@@ -22,14 +22,14 @@ $data = mysqli_fetch_array($getDataOperator);
 
 <body>
   <div>
-    <div class="flex">
+    <div class="flex ">
       <?php
       require "sidebar.php";
       ?>
 
-      <div class="mainPage container w-1/2 ml-20 mt-2">
+      <div class="mainPage mt-20 container w-1/2 ml-20 ">
         <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
-          Preparation
+          Washing
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -153,7 +153,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <select name="kondisiAlat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option>Apakah alat bersih?</option>
-                            <option> Apakah alat berfungsi normal?</option>
+                            <option>Apakah alat berfungsi normal?</option>
                             <option>Apakah alat ada identitas?</option>
                             <option>Apakah alat bebas dari jamur?</option>
                           </select>
@@ -202,7 +202,7 @@ $data = mysqli_fetch_array($getDataOperator);
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_washing_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
                   ?>
                   <div
                     class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
@@ -223,24 +223,36 @@ $data = mysqli_fetch_array($getDataOperator);
                     <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
                   </div>
                   <div class="flex flex-col text-white">
-                    <label for="new">Raw Material</label>
+                    <label for="new">Nama mesin</label>
                     <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="">
                   </div>
                   <div class="flex flex-col text-white">
-                    <label for="new">Qty</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="qty" value="">
+                    <label for="new">mulai</label>
+                    <input type="time" class="py-2 px-4 text-black rounded-md" type="text" name="mulai" value="">
                   </div>
                   <div class="flex flex-col text-white">
-                    <label for="new">Jam Keluar</label>
-                    <input type="time" class="py-2 px-4 text-black rounded-md"  name="time" value="">
+                    <label for="new">berakhir</label>
+                    <input type="time" class="py-2 px-4 text-black rounded-md"  name="berakhir" value="">
                   </div>
                   <div class="flex flex-col text-white">
-                    <label for="new">Total Rm</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="totalRm" value="">
+                    <label for="new">durasi</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="int" name="durasi" value="">
                   </div>
                   <div class="flex flex-col text-white">
-                    <label for="new">Waste</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="">
+                    <label for="new">Jumlah</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="jumlah" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">total_RM </label>
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="totalRm" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">waste</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="waste" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">operator</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="operator" value="<?php echo $data['nama'] ?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">Tanggal</label>

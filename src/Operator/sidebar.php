@@ -87,6 +87,9 @@ $userNip = $_SESSION['NIP'];
         preparation.addEventListener("click",()=>{
             changeLocation("Operator/preparation.php")
         })
+        washing.addEventListener("click",()=>{
+            changeLocation("Operator/washing.php")
+        })
     </script>
 </body>
 
