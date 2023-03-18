@@ -28,261 +28,259 @@ $data = mysqli_fetch_array($getDataOperator);
       ?>
 
       <div class="mainPage container w-1/2 ml-20 mt-2">
-        <h1 class="md:text-5xl mb-2 -ml-10 text-purple-700 font-bold">
-          Halaman Utama
+        <h1 class="md:text-5xl mb-2 -ml-10 mb-5 text-purple-700 font-bold">
+          Preparation
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
             <ul class="flex">
               <li
                 class="btnProfil bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
-                profil
+                Cek list dan inpeksi area
               </li>
               <li
                 class="btnUbah bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Ubah Profil
+                Laporan produksi
               </li>
               <li
                 class="btnPassword bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Ubah Sandi
+                Laporan mesin brushing
               </li>
             </ul>
           </div>
-          <div class="bg-pink-400 w-fit lg:h-full lg:w-full flex  gap-2 items-center h-5/6">
-            <section class="profil ">
-              <div class=" w-full m-10 flex justify-around gap-5  ">
-                <div class="w-20 lg:w-52 lg:h-20 h-20 bg-white">
-                  <img class="w-20 lg:w-52 lg:h-52 h-20 text-center"
-                    src="../../item/<?php echo $data['gambar'] ?>"
-                    alt="profil" />
-                </div>
-                <div class="bg-white  w-1/2">
-                  <table class="border-2 w-ful text-left  table-auto">
-                    <?php
-                    if ($cekUser == 0) {
-                      ?>
-                      <tr rowspan=5>
-                        <td colspan=5>Belum Memiliki Data</td>
-                      </tr>
-                      <?php
-                    } else {
-
-                      ?>
-                      <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">NIP</th>
-                        <td class="p-2 ">
-                          <?php echo $data['NIP'] ?>
-                        </td>
-                      </tr>
-                      <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">Nama</th>
-                        <td class="p-2 w-full ">
-                          <?php echo $data['nama'] ?>
-                        </td>
-                      </tr>
-                      <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">Departemen</th>
-                        <td class="p-2">
-                          <?php echo $data['departemen'] ?>
-                        </td>
-                      </tr>
-                      <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">Hire_date</th>
-                        <td class="p-2">
-                          <?php echo $data['hire_date'] ?>
-                        </td>
-                      </tr>
-                      <tr class="border border-black">
-                        <th class="border  p-2 bg-black text-white">Lokasi</th>
-                        <td class="p-2">
-                          <?php echo $data['lokasi'] ?>
-                        </td>
-                      </tr>
-                      <tr class="border border-black">
-                        <th class="border p-2 bg-black text-white">NPWP</th>
-                        <td class="p-2">
-                          <?php echo $data['NPWP'] ?>
-                        </td>
-                      </tr>
-                      <tr class="border border-black">
-                        <th class="border p-2 bg-black text-white">title</th>
-                        <td class="p-2">
-                          <?php echo $data['title'] ?>
-                        </td>
-                      </tr>
-                      <?php
-                    }
-                    ?>
-                  </table>
-                </div>
-              </div>
-            </section>
-            <section class="ubahProfil hidden ">
+          <div class="bg-pink-400 w-fit   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
+            <section class="cekList">
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
-                <form action="" method="post" enctype="multipart/form-data"
-                  class="form auto flex w-full  justify-around  gap-4">
-
-                  <div class="w-20 h-20 lg:w-52 lg:h-52 bg-white">
-                    <img class="w-20 h-20 lg:w-52 lg:h-52 text-center" src="../../item/<?php echo $data['gambar'] ?>"
-                      alt="profil" />
-                    <label for="foto"></label>
-                    <input type="file" name="foto" id="foto" class="block border-2 border-black rounded-md w-full"
-                      value="<?php echo $dataProduk["gambar"] ?>">
-                  </div>
-
-                  <div class="grid grid-cols-2  gap-4">
-                    <div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="NIP">NIP</label>
-                        <input class="py-2 text-black px-4 rounded-md" type="text" name="NIP" readonly
-                          value="<?php echo $data["NIP"] ?>">
+                <form action="" method="post" enctype="multipart/form-data" class="p-4  w-full ">
+                  <div class="p-4 mx-auto flex flex-col gap-5">
+                    <div class="flex gap-5 w-full justify-between bg ">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>Inpeksi mesin/peralatan</h1>
+                          <select name="mesin"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option value="mesin">Mesin</option>
+                            <option value="Peralatan Produksi">Peralatan Produksi</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>Nama Item</h1>
+                          <select name="item"
+                            class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Brushing</option>
+                            <option>Conveyor 1</option>
+                            <option>Conveyor 2</option>
+                            <option>Timbangan 120kg</option>
+                            <option>Pisau</option>
+                            <option>Talenan</option>
+                            <option>Slat</option>
+                            <option>Keranjang</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>kondisi mesin/peralatan</h1>
+                          <select name="kondisiMesin"
+                            class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Apakah Tercium bau cleaner atau chemical?</option>
+                            <option>Apakah part berfungsi dengan baik?</option>
+                            <option>apakah ada bagian berjamur?</option>
+                            <option>Apakah ada bagian berkarat?</option>
+                            <option>apakah ada bagian yang kendor?</option>
+                            <option>apakah ada bagian pecah/sobek/bocor/patah</option>
+                            <option>apakah ada bagian yang hilang?</option>
+                          </select>
+                        </div>
                       </div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="nama">Nama</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="nama"
-                          value="<?php echo $data["nama"] ?>">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>keterangan mesin/peralatan</h1>
+                          <select name="keteranganMesin"
+                            class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option value="Iya">Iya</option>
+                            <option value="Tidak">tidak</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>Inpeksi Area</h1>
+                          <select name="area"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option value="Lantai">Lantai</option>
+                            <option value="Dinding"> Dinding</option>
+                            <option value="Plafond">Plafond</option>
+                            <option value="pintu">pintu</option>
+                            <option value="Plastic Curtain">Plastic Curtain</option>
+                            <option value="Gutter">Gutter</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>Kondisi Area</h1>
+                          <select name="kondisiArea"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Apakah area bersih?</option>
+                            <option> Apakah ada area yang terkelupas?</option>
+                            <option>Apakah ada area yang retak?</option>
+                            <option>Apakah ada area yang berjamur?</option>
+                            <option>Apakah ada sisa buah atau sayur?</option>
+                          </select>
+                        </div>
                       </div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="departemen">Departemen</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="departemen" readonly
-                          value="<?php echo $data["departemen"] ?>">
-                      </div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="hire_date">hire_date</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="hire_date" readonly
-                          value="<?php echo $data["hire_date"] ?>">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>keterangan area</h1>
+                          <select name="keteranganArea"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Iya</option>
+                            <option>Tidak</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>Inpeksi alat cleaning</h1>
+                          <select name="alat"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option value="Alat pel">Alat pel</option>
+                            <option value="Tarikan air"> Tarikan air</option>
+                            <option value="Kuraray">Kuraray</option>
+                            <option value="Sikat">Sikat</option>
+                            <option value="Sikat gagang">Sikat gagang</option>
+                            <option value="Sponges">Sponges</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>kondisi alat cleaning</h1>
+                          <select name="kondisiAlat"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Apakah alat bersih?</option>
+                            <option> Apakah alat berfungsi normal?</option>
+                            <option>Apakah alat ada identitas?</option>
+                            <option>Apakah alat bebas dari jamur?</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <h1>keterangan Alat cleaning</h1>
+                          <select name="keteranganAlat"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Iya</option>
+                            <option>Tidak</option>
+                          </select>
+                        </div>
+                        <div class="flex flex-col capitalize text-white">
+                          <label for="date">Tanggal</label>
+                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" />
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="lokasi">lokasi</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="lokasi" readonly
-                          value="<?php echo $data["lokasi"] ?>">
-                      </div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="NPWP">NPWP</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="NPWP" readonly
-                          value="<?php echo $data["NPWP"] ?>">
-                      </div>
-                      <div class="flex flex-col capitalize text-white">
-                        <label for="title">title</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="title" readonly
-                          value="<?php echo $data["title"] ?>">
-                      </div>
-                    </div>
-                    <button name="btn-simpan" id="btn-simpan" class="bg-blue-500  text-white px-4 py-2"> Ubah</button>
+                    <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
+                      Ubah</button>
                   </div>
                 </form>
               </div>
-            </section>
-            <section class="ubahPassword hidden w-full">
-              <div class="mx-auto w-1/2">
-                <form action="" method="post" class="flex flex-col gap-4">
-                  <h1 class="text-white text-4xl mb-5 -mt-10 font-bold text-center capitalize ">reset password</h1>
-                  <div class="flex flex-col text-white">
-                    <label for="old">Masukan Sandi Lama</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="old" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">Masukan Sandi Baru</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="new" value="">
-                  </div>
-                  <button name="btn-reset" class="py-2 px-4 text-white bg-blue-500">Ubah</button>
-                </form>
-              </div>
-            </section>
-
-          </div>
-          <?php
-          if (isset($_POST['btn-reset'])) {
-            $old = htmlspecialchars($_POST['old']);
-            $new = htmlspecialchars($_POST['new']);
-            if ($old === $oldPassword['user_password']) {
-              $queryUpdate = mysqli_query($con, "UPDATE `user` SET `user_password` = '$new' WHERE `user_nip` = '$userNip'; ");
-              ?>
-              <div
-                class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                role="alert">
-                <strong class="font-bold"> password berhasil direset</strong>
-              </div>
-
               <?php
-            } else {
-              ?>
-              <div
-                class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                role="alert">
-                <strong class="font-bold"> password lama salah</strong>
-              </div>
-              <?php
-            }
-          }
-          ?>
-          <?php
-          if (isset($_POST['btn-simpan'])) {
-            $nama = htmlspecialchars($_POST['nama']);
+              if (isset($_POST['btn-preparation'])) {
+                $isMesin = htmlspecialchars($_POST['mesin']);
+                $namaItem = htmlspecialchars($_POST['item']);
+                $kondisiMesin = htmlspecialchars($_POST['kondisiMesin']);
+                $keteranganMesin = htmlspecialchars($_POST['keteranganMesin']);
+                $inpeskiArea = htmlspecialchars($_POST['area']);
+                $kondisiArea = htmlspecialchars($_POST['kondisiArea']);
+                $keteranganArea = htmlspecialchars($_POST['keteranganArea']);
+                $inpeksiAlat = htmlspecialchars($_POST['alat']);
+                $kondisiAlat = htmlspecialchars($_POST['kondisiAlat']);
+                $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
+                $tanggal = htmlspecialchars($_POST['tgl']);
 
-            //validasi gambar    
-            $fileSize = $_FILES["foto"]["size"];
-            $target_dir = "../../item/";
-            $nama_file = basename($_FILES["foto"]["name"]);
-            $target_file = $target_dir . $nama_file;
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-            $image_size = $_FILES["foto"]["size"];
-            $RandomAccountNumber = uniqid();
+                if ($isMesin === "" && $namaItem === "" && $kondisiMesin === "") {
 
-
-            $new_name = $RandomAccountNumber . "." . $imageFileType;
-            if ($nama == "") {
-              ?>
-              <div
-                class="bg-red-100 border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                role="alert">
-                <strong class="font-bold">Nama Tidak boleh kosong</strong>
-              </div>
-              <?php
-            } else {
-              $queryUpdate = mysqli_query($con, "UPDATE `data_operator_produksi` SET `nama` = '$nama' WHERE `NIP` = '$userNip'; ");
-              if ($nama_file != "") {
-                if ($image_size > 5000000) {
                   ?>
                   <div
-                    class="bg-red-100 border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
+                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold">file lebih dri 50mb</strong>
+                    <strong class="font-bold"> tidak boleh kosong</strong>
                   </div>
+
                   <?php
                 } else {
-                  if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "svg" && $imageFileType != "gif" && $imageFileType != "jpeg") {
-                    ?>
-                    <div
-                      class="bg-red-100 border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                      role="alert">
-                      <strong class="font-bold">tipe file tidak sesuai</strong>
-                    </div>
-                    <?php
-                  } else {
-                    move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $new_name);
-                    $queryUpdate = mysqli_query($con, "UPDATE `data_operator_produksi` SET `gambar` = '$new_name' WHERE `data_operator_produksi`.`NIP` = '$userNip'; ");
-
-                  }
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
+                  ?>
+                  <div
+                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
+                    role="alert">
+                    <strong class="font-bold"> berhasil Input</strong>
+                  </div>
+                  <?php
                 }
-
               }
-              if ($queryUpdate) {
-                ?>
-                <div
-                  class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                  role="alert">
-                  <strong class="font-bold"> Profil berhasil diupdate</strong>
-                </div>
+              ?>
+            </section>
+            <section class="produksi hidden w-full">
+              <div class="mx-auto w-1/2">
+                <form action="" method="post" class="flex flex-col gap-4">
+                  <h1 class="text-white text-4xl mb-5 -mt-10 font-bold text-center capitalize "></h1>
+                  <div class="flex flex-col text-white">
+                    <label for="old">Kode Supplier</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">Raw Material</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">Qty</label>
+                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="qty" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">Jam Keluar</label>
+                    <input type="time" class="py-2 px-4 text-black rounded-md" type="text" name="time" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">Total Rm</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="totalRm" value="">
+                  </div>
+                  <div class="flex flex-col text-white">
+                    <label for="new">Waste</label>
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="">
+                  </div>
+                  <button name="btn-reset" class=" mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                </form>
+              </div>
+              <?php
+              if (isset($_POST['btn-preparation'])) {
+                $isMesin = htmlspecialchars($_POST['mesin']);
+                $namaItem = htmlspecialchars($_POST['item']);
+                $kondisiMesin = htmlspecialchars($_POST['kondisiMesin']);
+                $keteranganMesin = htmlspecialchars($_POST['keteranganMesin']);
+                $inpeskiArea = htmlspecialchars($_POST['area']);
+                $kondisiArea = htmlspecialchars($_POST['kondisiArea']);
+                $keteranganArea = htmlspecialchars($_POST['keteranganArea']);
+                $inpeksiAlat = htmlspecialchars($_POST['alat']);
+                $kondisiAlat = htmlspecialchars($_POST['kondisiAlat']);
+                $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
+                $tanggal = htmlspecialchars($_POST['tgl']);
 
-                <?php
+                if ($isMesin === "" && $namaItem === "" && $kondisiMesin === "") {
+
+                  ?>
+                  <div
+                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                    role="alert">
+                    <strong class="font-bold">tidak boleh kosong</strong>
+                  </div>
+
+                  <?php
+                } else {
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
+                  ?>
+                  <div
+                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
+                    role="alert">
+                    <strong class="font-bold"> berhasil Input</strong>
+                  </div>
+                  <?php
+                }
               }
-            }
-          }
+              ?>
+            </section>
+          </div>
 
-          ?>
         </div>
       </div>
     </div>
@@ -294,24 +292,24 @@ $data = mysqli_fetch_array($getDataOperator);
     const btnUbah = document.querySelector(".btnUbah")
     const btnPassword = document.querySelector(".btnPassword")
 
-    const profilPage = document.querySelector(".profil")
-    const ubahProfilPage = document.querySelector(".ubahProfil")
-    const ubahPasswordPage = document.querySelector(".ubahPassword")
+    const cekList = document.querySelector(".cekList")
+    const produksi = document.querySelector(".produksi")
+    const laporanMesin = document.querySelector(".laporanMesin")
 
     btnProfil.addEventListener("click", () => {
-      profilPage.classList.remove("hidden")
-      ubahProfilPage.classList.add("hidden")
-      ubahPasswordPage.classList.add("hidden")
+      cekList.classList.remove("hidden")
+      produksi.classList.add("hidden")
+      laporanMesin.classList.add("hidden")
     })
     btnUbah.addEventListener("click", () => {
-      profilPage.classList.add("hidden")
-      ubahProfilPage.classList.remove("hidden")
-      ubahPasswordPage.classList.add("hidden")
+      cekList.classList.add("hidden")
+      produksi.classList.remove("hidden")
+      laporanMesin.classList.add("hidden")
     })
     btnPassword.addEventListener("click", () => {
-      profilPage.classList.add("hidden")
-      ubahProfilPage.classList.add("hidden")
-      ubahPasswordPage.classList.remove("hidden")
+      cekList.classList.add("hidden")
+      produksi.classList.add("hidden")
+      laporanMesin.classList.remove("hidden")
     })
   </script>
 </body>

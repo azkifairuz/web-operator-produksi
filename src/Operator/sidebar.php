@@ -85,7 +85,7 @@ $userNip = $_SESSION['NIP'];
             changeLocation("Operator/mainPage.php")
         })
         preparation.addEventListener("click",()=>{
-            changeLocation("Operator/laporanDepartemen/preparation.php")
+            changeLocation("Operator/preparation.php")
         })
     </script>
 </body>
