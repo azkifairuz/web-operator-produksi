@@ -67,14 +67,17 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Nama Item</h1>
                           <select name="item"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option>Brushing</option>
-                            <option>Conveyor 1</option>
-                            <option>Conveyor 2</option>
-                            <option>Timbangan 120kg</option>
-                            <option>Pisau</option>
-                            <option>Talenan</option>
-                            <option>Slat</option>
-                            <option>Keranjang</option>
+                            <option>Washing 1</option>
+                            <option>Washing 2</option>
+                            <option>Washing 3</option>
+                            <option>Spinner 1</option>
+                            <option>Spinner 1</option>
+                            <option>Convayer 1 dan 2</option>
+                            <option>Bak stainless steel</option>
+                            <option>Container</option>
+                            <option>Saringan</option>
+                            <option>Dosing pump klorin</option>
+                            <option>Selang air</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">

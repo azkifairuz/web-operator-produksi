@@ -30,7 +30,7 @@ $data = mysqli_fetch_array($getDataOperator);
       include("sidebar.php");
       ?>
 
-      <div class="mainPage container w-1/2 ml-20 mt-2">
+      <div class="mainPage container w-1/2 ml-20 mt-20">
         <h1 class="md:text-5xl mb-2 -ml-10 text-purple-700 font-bold">
           Halaman Utama
         </h1>
