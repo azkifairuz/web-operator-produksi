@@ -1,8 +1,8 @@
 <?php
 session_start();
 $userNip = $_SESSION['NIP'];
-include("../navbar.php");
-include("../../koneksi.php");
+include("navbar.php");
+include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
 $getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE `user_nip` ='$userNip' ");
 $oldPassword = mysqli_fetch_array($getOldPassword);
@@ -24,7 +24,7 @@ $data = mysqli_fetch_array($getDataOperator);
   <div>
     <div class="flex">
       <?php
-      include("../sidebar.php");
+      require "sidebar.php";
       ?>
 
       <div class="mainPage container w-1/2 ml-20 mt-2">

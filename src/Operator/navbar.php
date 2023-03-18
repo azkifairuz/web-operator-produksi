@@ -10,9 +10,17 @@
 </head>
 
 <body>
-    <div class="sticky text-white p-2 text-2xl top-0 left-0 right-0 h-fit  bg-purple-800">
-        Laporan Operator
-    </div>
+    <nav class="sticky text-white p-2 text-2xl top-0 left-0 right-0 h-fit  bg-purple-800">
+        <ul class="flex justify-between">
+            <li>
+                Laporan Operator
+            </li>
+            <li class="px-4 py-2 bg-pink-500 hover:bg-pink-900 ">
+                <a class="w-full h-full block" href="logout.php">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("./koneksi.php")
+require("koneksi.php")
     ?>
 
 <!DOCTYPE html>
@@ -27,6 +27,7 @@ require("./koneksi.php")
                     class="text-purple-500 font-bold p-2 w-full rounded-md">
                 <button type="submit" name="loginbutton" class="text-white mt-10 w-24 text-2xl py-2 px-4 rounded-full justify-self-end self-end bg-gradient-to-t from-purple-700 to-purple-400">Login</button>
             </form>
+           
         </div>
       
     </div>
@@ -45,7 +46,7 @@ require("./koneksi.php")
                 if ($isUser > 0) {
                     if ($password === $user['user_password']) {
                         $_SESSION['NIP'] = $user['user_nip'];
-                        $_SESSION['Login'] = true;
+                        $_SESSION['login'] = true;
                         $_SESSION['status'] = $user['user_status'];
 
                         if ($user['user_status'] === 'Operator') {
