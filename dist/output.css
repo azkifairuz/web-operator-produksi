@@ -741,6 +741,10 @@ video {
   height: 3000px;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .w-1\/2 {
   width: 50%;
 }
