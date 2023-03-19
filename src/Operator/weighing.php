@@ -395,7 +395,7 @@ $data = mysqli_fetch_array($getDataOperator);
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
                                         <strong class="font-bold"> berhasil Input</strong>
-                                        <meta http-equiv="refresh" content="2; url=preparation.php">
+                                        <meta http-equiv="refresh" content="2; url=weighing.php">
                                     </div>
                                     <?php
                                 }
