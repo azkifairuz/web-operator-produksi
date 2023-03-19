@@ -55,34 +55,40 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Inpeksi mesin/peralatan</h1>
                           <select name="mesin"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option value="mesin">Mesin</option>
-                            <option value="Peralatan Produksi">Peralatan Produksi</option>
+                            <option value="X6">X6</option>
+                            <option value="X1">X1</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <h1>Nama Item</h1>
                           <select name="item"
-                            class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option>Timbangan 120kg</option>
-                            <option>Pisau</option>
-                            <option>Container 120 L</option>
-                            <option>Container 50 L</option>
-                            <option>Talenan</option>
-                            <option>Meja</option>
-                            <option>Selang air</option>
+                            class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">                            
+                            <option>HOPPER</option>
+                            <option>GRINDER</option>
+                            <option>MOVING PLATE</option>
+                            <option>PRESS RACK</option>
+                            <option>BAG PRESS</option>
+                            <option>SAFETY GUARD</option>
+                            <option>JUICE TRAY</option>
+                            <option>START/STOP SWITCH BOX</option>
+                            <option>PRESSURE GAUGE DAN FLOW CONTROL</option>
+                            <option>DIRECTIONAL CONTROL VALVE</option>
+                            <option>MOTOR HYDRAULIC DAN RESERVOIR</option>
+                            <option>AS MOVING PLATE</option>
+                            <option>SHIMS DAN RAIL</option>
+                            <option>CASTER</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <h1>kondisi mesin/peralatan</h1>
                           <select name="kondisiMesin"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option>Apakah Tercium bau cleaner atau chemical?</option>
-                            <option>Apakah part berfungsi dengan baik?</option>
-                            <option>apakah ada bagian berjamur?</option>
-                            <option>Apakah ada bagian berkarat?</option>
-                            <option>apakah ada bagian yang kendor?</option>
+                            <option>Apakah berbau bahan kimia?</option>
+                            <option>Apakah ada berjamur dan berkarat?</option>
+                            <option>Apakah sudah diberi pelumas?</option>
+                            <option>Apakah ada bagian yang kendor/part hilang?</option>
                             <option>apakah ada bagian pecah/sobek/bocor/patah</option>
-                            <option>apakah ada bagian yang hilang</option>
+                            <option>Apakah part berfungsi dengan baik?</option>
                           </select>
                         </div>
                       </div>
@@ -100,7 +106,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <select name="area"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option value="Lantai">Lantai</option>
-                            <option value="Dinding"> Dinding</option>
+                            <option value="Dinding">Dinding</option>
                             <option value="Plafond">Plafond</option>
                             <option value="pintu">pintu</option>
                             <option value="Plastic Curtain">Plastic Curtain</option>
@@ -134,10 +140,10 @@ $data = mysqli_fetch_array($getDataOperator);
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option value="Alat pel">Alat pel</option>
                             <option value="Tarikan air"> Tarikan air</option>
-                            <option value="Kuraray">Kuraray</option>
+                            <option value="Kuraray">Ember rendaman bag press</option>
                             <option value="Sikat">Sikat</option>
                             <option value="Sikat gagang">Sikat gagang</option>
-                            <option value="Sponges">Sponges</option>
+                            <option value="Sponges">Pembersih dinding</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
@@ -194,7 +200,7 @@ $data = mysqli_fetch_array($getDataOperator);
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_kupas_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_pressing_inspeksi_area`(`kode_mesin`, `part_mesin`, `kondisi_mesin`, `keterangan_mesin`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
