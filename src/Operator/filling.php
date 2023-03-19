@@ -45,7 +45,7 @@ $data = mysqli_fetch_array($getDataOperator);
                         </ul>
                     </div>
                     <div class="bg-pink-400 w-fit   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
-                        <section class="cekList">
+                        <section class="cekList hidden">
                             <div class=" items-center justify-evenly m-2 gap-4 w-full">
                                 <form action="" method="post" enctype="multipart/form-data" class="p-4  w-full ">
                                     <div class="p-4 mx-auto flex flex-col gap-5">
@@ -213,7 +213,7 @@ $data = mysqli_fetch_array($getDataOperator);
                             }
                             ?>
                         </section>
-                        <section class="produksi hidden w-full">
+                        <section class="produksi  w-full">
                             <div class="mx-auto w-1/2">
                                 <form action="" method="post" class="flex flex-col gap-4">
                                     <div class="flex flex-row gap-4">
@@ -275,8 +275,8 @@ $data = mysqli_fetch_array($getDataOperator);
                                                     name="noPlan" value="">
                                             </div>
                                             <div class="flex flex-col text-white">
-                                            <h1>plan</h1>
-                                                <select name="plan"
+                                            <h1>Hasil</h1>
+                                                <select name="hasil"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                                     <option>5000ML</option>
                                                     <option>1350ML</option>
@@ -319,18 +319,19 @@ $data = mysqli_fetch_array($getDataOperator);
                             </div>
                             <?php
                             if (isset($_POST['btn-mesin'])) {
-                                $kode = htmlspecialchars($_POST['kodeMesin']);
-                                $rawMaterial = htmlspecialchars($_POST['raw']);
-                                $untukProduk = htmlspecialchars($_POST['untukProduk']);
-                                $kodeSuplier = htmlspecialchars($_POST['beratJuiceKg']);
-                                $batch = htmlspecialchars($_POST['batch']);
+                                $variant = htmlspecialchars($_POST['variant']);
                                 $jamMulai = htmlspecialchars($_POST['jamMulai']);
-                                $jamKeluar = htmlspecialchars($_POST['jamKeluar']);
-                                $beratSetelahAngel = htmlspecialchars($_POST['beratSetelahAngel']);
+                                $jamSelesai = htmlspecialchars($_POST['jamSelesai']);
+                                $line = htmlspecialchars($_POST['line']);
+                                $plan = htmlspecialchars($_POST['plan']);
+                                $noPlan = htmlspecialchars($_POST['noPlan']);
+                                $hasil = htmlspecialchars($_POST['hasil']);
+                                $noHasil = htmlspecialchars($_POST['noHasil']);
+                                $waste = htmlspecialchars($_POST['waste']);
                                 $keterangan = htmlspecialchars($_POST['keterangan']);
                                 $operator = htmlspecialchars($_POST['operator']);
                                 $tanggal = htmlspecialchars($_POST['tgl']);
-                                if ($kode === "" || $batch === "" && $mulai === "") {
+                                if ($variant === "" || $waste === "" && $jamMulai === "") {
                                     ?>
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
@@ -340,12 +341,12 @@ $data = mysqli_fetch_array($getDataOperator);
 
                                     <?php
                                 } else {
-                                    $queryUpdate = mysqli_query($con, "INSERT INTO `form_filling_produksi`(`no_filling`, `varian_produk`, `jam_mulai`, `jam_selesai`, `line`, `plan`, `no_plan`, `hasil`, `no_hasil`, `keterangan`, `waste`, `operator`, `tanggal`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]','[value-13]')");
+                                    $queryUpdate = mysqli_query($con, "INSERT INTO `form_filling_produksi`(`varian_produk`, `jam_mulai`, `jam_selesai`, `line`, `plan`, `no_plan`, `hasil`, `no_hasil`, `keterangan`, `waste`, `operator`, `tanggal`) VALUES ('$variant','$jamMulai','$jamSelesai','$line','$plan','$noPlan','$hasil','$noHasil','$keterangan','$waste','$operator','$tanggal')");
                                     ?>
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
                                         <strong class="font-bold"> berhasil Input</strong>
-                                        <meta http-equiv="refresh" content="2; url=angel.php">
+                                        <meta http-equiv="refresh" content="2; url=filling.php">
                                     </div>
                                     <?php
                                 }
