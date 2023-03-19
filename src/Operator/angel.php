@@ -216,20 +216,33 @@ $data = mysqli_fetch_array($getDataOperator);
                   <div class="flex flex-row gap-4">
                     <div>
                       <div class="flex flex-col text-white">
+                        <h1>kode mesin</h1>
                         <select name="kodeMesin"
                           class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                          <option>X6</option>
-                          <option>X1</option>
+                          <option>AJ.A</option>
+                          <option>AJ.B</option>
+                          <option>AG.A</option>
+                          <option>AG.B</option>
                         </select>
                       </div>
                       <div class="flex flex-col text-white">
-                      <label for="new">Nama Produk</label>
-                        <input type="text" class="py-2 px-4 text-black rounded-md" name="namaProduk" value="">
+                      <label for="new">Raw Material</label>
+                        <input type="text" class="py-2 px-4 text-black rounded-md" name="raw" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">untuk produk</label>
+                        <input type="text" class="py-2 px-4 text-black rounded-md" name="untukProduk" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">kode suplier</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="kodeSupllier" value="">
                       </div>
                       <div class="flex flex-col text-white">
                         <label for="new">batch</label>
-                        <input type="number" class="py-2 px-4 text-black rounded-md" name="batch" value="">
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="batch" value="">
                       </div>
+                    </div>
+                    <div>
                       <div class="flex flex-col text-white">
                         <label for="new">Jam Mulai</label>
                         <input class="py-2 px-4 text-black rounded-md" type="time" name="jamMulai" value="">
@@ -238,16 +251,14 @@ $data = mysqli_fetch_array($getDataOperator);
                         <label for="new">Jam Keluar</label>
                         <input class="py-2 px-4 text-black rounded-md" type="time" name="jamKeluar" value="">
                       </div>
-                    </div>
-                    <div>
                       <div class="flex flex-col text-white">
-                        <label for="old">Berat Juice kg</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="number" name="beratJuiceKg" value="">
+                        <label for="old">berat setelah angel</label>
+                        <input  class="py-2 px-4 text-black rounded-md" type="number" name="beratSetelahAngel"
+                          value="">
                       </div>
                       <div class="flex flex-col text-white">
-                        <label for="new">keterangan</label>
-                        <textarea cols="10" rows="4" type="text" class="py-2 px-4 text-black rounded-md" name="keterangan"
-                          value=""></textarea>
+                        <label cols="5" rows="10" for="new">keterangan</label>
+                        <textarea class="py-2 px-4 text-black rounded-md" type="text" name="keterangan" value=""></textarea>
                       </div>
                       <div class="flex flex-col text-white">
                         <label for="old">Operator</label>
@@ -266,11 +277,13 @@ $data = mysqli_fetch_array($getDataOperator);
               <?php
               if (isset($_POST['btn-mesin'])) {
                 $kode = htmlspecialchars($_POST['kodeMesin']);
-                $namaProduk = htmlspecialchars($_POST['namaProduk']);
+                $rawMaterial = htmlspecialchars($_POST['raw']);
+                $untukProduk = htmlspecialchars($_POST['untukProduk']);
+                $kodeSuplier = htmlspecialchars($_POST['beratJuiceKg']);
                 $batch = htmlspecialchars($_POST['batch']);
                 $jamMulai = htmlspecialchars($_POST['jamMulai']);
                 $jamKeluar = htmlspecialchars($_POST['jamKeluar']);
-                $beratJuiceKg = htmlspecialchars($_POST['beratJuiceKg']);
+                $beratSetelahAngel = htmlspecialchars($_POST['beratSetelahAngel']);
                 $keterangan = htmlspecialchars($_POST['keterangan']);
                 $operator = htmlspecialchars($_POST['operator']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
@@ -280,18 +293,18 @@ $data = mysqli_fetch_array($getDataOperator);
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold">tidak boleh kosong</strong>
-                    <meta http-equiv="refresh" content="2; url=kupas.php">
+                    <meta http-equiv="refresh" content="2; url=angel.php">
                   </div>
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_pressing_produksi`(`kode_mesin`, `nama_produk`, `batch`, `jam_mulai`, `jam_keluar`, `berat_juice_kg`, `keterangan`, `operator`, `tanggal`) VALUES ('$kode','$namaProduk','$batch','$jamMulai','$jamKeluar','$beratJuiceKg','$keterangan','[$operator','$tanggal')");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_angel_produksi`(`kode_mesin`, `raw_material`, `untuk_produk`, `kode_supplier`, `batch`, `jam_mulai`, `jam_keluar`, `berat_setelah_angel`, `keterangan`, `operator`, `tanggal`) VALUES ('$kode','$rawMaterial','$untukProduk','$kodeSuplier','$batch','$jamMulai','$jamKeluar','$beratSetelahAngel','$keterangan','$operator','$tanggal')");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold"> berhasil Input</strong>
-                    <meta http-equiv="refresh" content="2; url=kupas.php">
+                    <meta http-equiv="refresh" content="2; url=angel.php">
                   </div>
                   <?php
                 }
