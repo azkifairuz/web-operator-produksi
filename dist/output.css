@@ -953,6 +953,10 @@ video {
   --tw-gradient-to: #c084fc;
 }
 
+.bg-cover {
+  background-size: cover;
+}
+
 .bg-center {
   background-position: center;
 }
