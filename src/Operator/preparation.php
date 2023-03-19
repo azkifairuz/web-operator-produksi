@@ -87,7 +87,7 @@ $data = mysqli_fetch_array($getDataOperator);
                             <option>Apakah ada bagian berkarat?</option>
                             <option>apakah ada bagian yang kendor?</option>
                             <option>apakah ada bagian pecah/sobek/bocor/patah</option>
-                            <option>apakah ada bagian yang hilang?</option>
+                            <option>apakah ada bagian yang hilang</option>
                           </select>
                         </div>
                       </div>
