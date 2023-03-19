@@ -42,10 +42,6 @@ $data = mysqli_fetch_array($getDataOperator);
                 class="btnUbah bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Laporan produksi
               </li>
-              <li
-                class="btnPassword bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan mesin brushing
-              </li>
             </ul>
           </div>
           <div class="bg-pink-400 w-fit   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
@@ -217,172 +213,85 @@ $data = mysqli_fetch_array($getDataOperator);
             <section class="produksi hidden w-full">
               <div class="mx-auto w-1/2">
                 <form action="" method="post" class="flex flex-col gap-4">
-                  <h1 class="text-white text-4xl mb-5 -mt-10 font-bold text-center capitalize "></h1>
-                  <div class="flex flex-col text-white">
-                    <label for="old">Kode Supplier</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">Nama mesin</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">mulai</label>
-                    <input type="time" class="py-2 px-4 text-black rounded-md" type="text" name="mulai" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">berakhir</label>
-                    <input type="time" class="py-2 px-4 text-black rounded-md"  name="berakhir" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">durasi</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="int" name="durasi" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">Jumlah</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="jumlah" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">total_RM </label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="totalRm" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">waste</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="waste" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">operator</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="operator" value="<?php echo $data['nama'] ?>">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">Tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
-                  </div>
-                  <button name="btn-produksi" class=" mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
-                </form>
-              </div>
-              <?php
-              if (isset($_POST['btn-produksi'])) {
-                $kode = htmlspecialchars($_POST['kode']);
-                $Raw = htmlspecialchars($_POST['raw']);
-                $Qty = htmlspecialchars($_POST['qty']);
-                $TotalRm = htmlspecialchars($_POST['totalRm']);
-                $JamKeluar = htmlspecialchars($_POST['time']);
-                $waste = htmlspecialchars($_POST['waste']);
-                $tanggal = htmlspecialchars($_POST['tgl']);
-
-                if ($kode === "" && $Raw === "" && $Qty === "") {
-
-                  ?>
-                  <div
-                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold">tidak boleh kosong</strong>
-                  </div>
-                  <meta http-equiv="refresh" content="2; url=preparation.php">
-
-                  <?php
-                } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_produksi`( `kode_supplier`, `raw_material`, `QTY`, `jam_keluar`, `total_RM`, `waste`, `tanggal`) VALUES ('$kode','$Raw','$Qty','$JamKeluar','$TotalRm','$waste','$tanggal') ");
-                  ?>
-                  <div
-                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold"> berhasil Input</strong>
-                  </div>
-                  <meta http-equiv="refresh" content="2; url=preparation.php">
-                  <?php
-                }
-              }
-              ?>
-            </section>
-            <section class="laporanMesin hidden w-full">
-              <div class="mx-auto w-1/2">
-                <form action="" method="post" class="flex flex-col gap-4">
                   <div class="flex flex-row gap-4">
-                  <div>
-                  <div class="flex flex-col text-white">
-                    <label for="old">Operator</label>
-                    <input readonly class="py-2 px-4 text-black rounded-md" type="text" name="operator" value="<?php echo $data["nama"] ?>">
+                    <div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">kode suplier</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <h1>Nama Mesin</h1>
+                        <select name="namaMesin"
+                          class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                          <option>washing</option>
+                          <option>spiner</option>
+                        </select>
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">mulai</label>
+                        <input type="time" class="py-2 px-4 text-black rounded-md" name="mulai" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">berakhir</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">durasi</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="">
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex flex-col text-white">
+                        <label for="old">jumlah</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="jumlah" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">total RM</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="total_RM" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">waste</label>
+                        <input type="number" class="py-2 px-4 text-black rounded-md" type="number" name="waste"
+                          value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="old">Operator</label>
+                        <input readonly class="py-2 px-4 text-black rounded-md" type="text" name="operator"
+                          value="<?php echo $data["nama"] ?>">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">tanggal</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
+                      </div>
+                    </div>
                   </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">kode suplier</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">raw material</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">QTY</label>
-                    <input type="text" class="py-2 px-4 text-black rounded-md"  name="qty" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">kg</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kg" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">mulai</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="time" name="mulai" value="">
-                  </div>
-                  </div>
-                  <div>
-                  <div class="flex flex-col text-white">
-                    <label for="old">berakhir</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">durasi</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">jumlah</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="jumlah" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">total_RM</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="totalRm" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">waste(kg)</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="">
-                  </div>
-                  <div class="flex flex-col text-white">
-                    <label for="new">tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
-                  </div>
-                </div>
-                  </div>
-                <button name="btn-mesin" class=" w-full mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                  <button name="btn-mesin" class=" w-full mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
                 </form>
               </div>
               <?php
               if (isset($_POST['btn-mesin'])) {
                 $kode = htmlspecialchars($_POST['kode']);
-                $Raw = htmlspecialchars($_POST['raw']);
-                $Qty = htmlspecialchars($_POST['qty']);
-                $TotalRm = htmlspecialchars($_POST['totalRm']);
+                $TotalRm = htmlspecialchars($_POST['total_RM']);
                 $Operator = htmlspecialchars($_POST['operator']);
                 $waste = htmlspecialchars($_POST['waste']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
-                $kg = htmlspecialchars($_POST['kg']);
                 $mulai = htmlspecialchars($_POST['mulai']);
                 $berakhir = htmlspecialchars($_POST['berakhir']);
                 $durasi = htmlspecialchars($_POST['durasi']);
                 $jumlah = htmlspecialchars($_POST['jumlah']);
-
-                if ($kode === "" && $Raw === "" && $Qty === "") {
-
+                $Mesin = htmlspecialchars($_POST['namaMesin']);
+                if ($kode === "" && $waste === "" && $mulai === "") {
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold">tidak boleh kosong</strong>
+                    <meta http-equiv="refresh" content="2; url=preparation.php">
                   </div>
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_mesin_brushing`(`operator`, `kode_supplier`, `raw_material`, `QTY`, `kg`, `mulai`, `berakhir`, `durasi`, `jumlah`, `total_RM`, `waste(kg)`, `tanggal`) VALUES ('$Operator','$kode','$Raw','$Qty','$kg','$mulai','$berakhir','$durasi','$jumlah','$TotalRm','$waste','$tanggal')");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_washing_produksi`(`kode_supplier`, `nama_mesin`, `mulai`, `berakhir`, `durasi`, `jumlah`, `total_RM`, `waste`, `operator`, `tanggal`) VALUES ('$kode','$Mesin','$mulai','$berakhir','$durasi','$jumlah','$TotalRm','$waste','$Operator','$tanggal')");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
@@ -395,9 +304,7 @@ $data = mysqli_fetch_array($getDataOperator);
               }
               ?>
             </section>
-              
           </div>
-
         </div>
       </div>
     </div>
@@ -407,7 +314,6 @@ $data = mysqli_fetch_array($getDataOperator);
 
     const btnProfil = document.querySelector(".btnProfil")
     const btnUbah = document.querySelector(".btnUbah")
-    const btnPassword = document.querySelector(".btnPassword")
 
     const cekList = document.querySelector(".cekList")
     const produksi = document.querySelector(".produksi")
@@ -421,13 +327,9 @@ $data = mysqli_fetch_array($getDataOperator);
     btnUbah.addEventListener("click", () => {
       cekList.classList.add("hidden")
       produksi.classList.remove("hidden")
-      laporanMesin.classList.add("hidden")
+      
     })
-    btnPassword.addEventListener("click", () => {
-      cekList.classList.add("hidden")
-      produksi.classList.add("hidden")
-      laporanMesin.classList.remove("hidden")
-    })
+
   </script>
 </body>
 
