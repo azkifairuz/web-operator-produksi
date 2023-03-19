@@ -90,6 +90,23 @@ $userNip = $_SESSION['NIP'];
         washing.addEventListener("click",()=>{
             changeLocation("Operator/washing.php")
         })
+        weighing.addEventListener("click",()=>{
+            changeLocation("Operator/weighing.php")
+        })
+        kupas.addEventListener("click",()=>{
+            changeLocation("Operator/washing.php")
+        })
+        pressing.addEventListener("click",()=>{
+            changeLocation("Operator/washing.php")
+        })
+        angel.addEventListener("click",()=>{
+            changeLocation("Operator/washing.php")
+        })
+        filling.addEventListener("click",()=>{
+            changeLocation("Operator/washing.php")
+        })
+        
+        
     </script>
 </body>
 
