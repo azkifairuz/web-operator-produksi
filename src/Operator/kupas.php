@@ -29,7 +29,7 @@ $data = mysqli_fetch_array($getDataOperator);
 
       <div class="mainPage mt-20 container w-1/2 ml-20 ">
         <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
-          Washing
+          kupas
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -63,16 +63,12 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Nama Item</h1>
                           <select name="item"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option>Washing 1</option>
-                            <option>Washing 2</option>
-                            <option>Washing 3</option>
-                            <option>Spinner 1</option>
-                            <option>Spinner 1</option>
-                            <option>Convayer 1 dan 2</option>
-                            <option>Bak stainless steel</option>
-                            <option>Container</option>
-                            <option>Saringan</option>
-                            <option>Dosing pump klorin</option>
+                            <option>Timbangan 120kg</option>
+                            <option>Pisau</option>
+                            <option>Container 120 L</option>
+                            <option>Container 50 L</option>
+                            <option>Talenan</option>
+                            <option>Meja</option>
                             <option>Selang air</option>
                           </select>
                         </div>
@@ -198,12 +194,12 @@ $data = mysqli_fetch_array($getDataOperator);
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_washing_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_kupas_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
                   ?>
                   <div
-                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
+                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold"> berhasil Input</strong>
+                    <strong class="font-bold">Berhasil Input</strong>
                   </div>
                   <?php
                 }
@@ -220,11 +216,12 @@ $data = mysqli_fetch_array($getDataOperator);
                         <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
                       </div>
                       <div class="flex flex-col text-white">
-                        <h1>Nama Mesin</h1>
-                        <select name="namaMesin"
+                        <h1>Namaa Material</h1>
+                        <select name="namaMaterial"
                           class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                          <option>washing</option>
-                          <option>spiner</option>
+                          <option>Nanas</option>
+                          <option>Jeruk</option>
+                          <option>Jambu</option>
                         </select>
                       </div>
                       <div class="flex flex-col text-white">
@@ -242,15 +239,11 @@ $data = mysqli_fetch_array($getDataOperator);
                     </div>
                     <div>
                       <div class="flex flex-col text-white">
-                        <label for="old">jumlah</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="number" name="jumlah" value="">
+                        <label for="old">hasil kg</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="hasilKg" value="">
                       </div>
                       <div class="flex flex-col text-white">
-                        <label for="new">total RM</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="number" name="total_RM" value="">
-                      </div>
-                      <div class="flex flex-col text-white">
-                        <label for="new">waste</label>
+                        <label for="new">waste kg</label>
                         <input type="number" class="py-2 px-4 text-black rounded-md" type="number" name="waste"
                           value="">
                       </div>
@@ -271,33 +264,32 @@ $data = mysqli_fetch_array($getDataOperator);
               <?php
               if (isset($_POST['btn-mesin'])) {
                 $kode = htmlspecialchars($_POST['kode']);
-                $TotalRm = htmlspecialchars($_POST['total_RM']);
                 $Operator = htmlspecialchars($_POST['operator']);
                 $waste = htmlspecialchars($_POST['waste']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
                 $mulai = htmlspecialchars($_POST['mulai']);
                 $berakhir = htmlspecialchars($_POST['berakhir']);
                 $durasi = htmlspecialchars($_POST['durasi']);
-                $jumlah = htmlspecialchars($_POST['jumlah']);
-                $Mesin = htmlspecialchars($_POST['namaMesin']);
+                $hasilKg = htmlspecialchars($_POST['hasilKg']);
+                $Material = htmlspecialchars($_POST['namaMaterial']);
                 if ($kode === "" && $waste === "" && $mulai === "") {
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold">tidak boleh kosong</strong>
-                    <meta http-equiv="refresh" content="2; url=preparation.php">
+                    <meta http-equiv="refresh" content="2; url=kupas.php">
                   </div>
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_washing_produksi`(`kode_supplier`, `nama_mesin`, `mulai`, `berakhir`, `durasi`, `jumlah`, `total_RM`, `waste`, `operator`, `tanggal`) VALUES ('$kode','$Mesin','$mulai','$berakhir','$durasi','$jumlah','$TotalRm','$waste','$Operator','$tanggal')");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_kupas_produksi`(`nama_material`, `kode_supplier`, `mulai`, `berakhir`, `durasi`, `hasil_kg`, `waste_kg`, `operator`, `tanggal`) VALUES ('$Material','$kode','$mulai','$berakhir','$durasi','$hasilKg','$waste','$Operator','$tanggal')");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold"> berhasil Input</strong>
-                    <meta http-equiv="refresh" content="2; url=preparation.php">
+                    <meta http-equiv="refresh" content="2; url=kupas.php">
                   </div>
                   <?php
                 }
