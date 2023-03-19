@@ -218,40 +218,38 @@ $data = mysqli_fetch_array($getDataOperator);
                   <div class="flex flex-row gap-4">
                     <div>
                       <div class="flex flex-col text-white">
-                        <label for="new">kode suplier</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
-                      </div>
-                      <div class="flex flex-col text-white">
-                        <h1>Namaa Material</h1>
-                        <select name="namaMaterial"
+                        <select name="kodeMesin"
                           class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                          <option>Nanas</option>
-                          <option>Jeruk</option>
-                          <option>Jambu</option>
+                          <option>X6</option>
+                          <option>X1</option>
                         </select>
                       </div>
                       <div class="flex flex-col text-white">
-                        <label for="new">mulai</label>
-                        <input type="time" class="py-2 px-4 text-black rounded-md" name="mulai" value="">
+                      <label for="new">Nama Produk</label>
+                        <input type="text" class="py-2 px-4 text-black rounded-md" name="namaProduk" value="">
                       </div>
                       <div class="flex flex-col text-white">
-                        <label for="new">berakhir</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="">
+                        <label for="new">batch</label>
+                        <input type="number" class="py-2 px-4 text-black rounded-md" name="batch" value="">
                       </div>
                       <div class="flex flex-col text-white">
-                        <label for="new">durasi</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="">
+                        <label for="new">Jam Mulai</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="time" name="jamMulai" value="">
+                      </div>
+                      <div class="flex flex-col text-white">
+                        <label for="new">Jam Keluar</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="time" name="jamKeluar" value="">
                       </div>
                     </div>
                     <div>
                       <div class="flex flex-col text-white">
-                        <label for="old">hasil kg</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="number" name="hasilKg" value="">
+                        <label for="old">Berat Juice kg</label>
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="beratJuiceKg" value="">
                       </div>
                       <div class="flex flex-col text-white">
-                        <label for="new">waste kg</label>
-                        <input type="number" class="py-2 px-4 text-black rounded-md" type="number" name="waste"
-                          value="">
+                        <label for="new">keterangan</label>
+                        <textarea cols="10" rows="4" type="text" class="py-2 px-4 text-black rounded-md" name="keterangan"
+                          value=""></textarea>
                       </div>
                       <div class="flex flex-col text-white">
                         <label for="old">Operator</label>
@@ -269,16 +267,16 @@ $data = mysqli_fetch_array($getDataOperator);
               </div>
               <?php
               if (isset($_POST['btn-mesin'])) {
-                $kode = htmlspecialchars($_POST['kode']);
-                $Operator = htmlspecialchars($_POST['operator']);
-                $waste = htmlspecialchars($_POST['waste']);
+                $kode = htmlspecialchars($_POST['kodeMesin']);
+                $namaProduk = htmlspecialchars($_POST['namaProduk']);
+                $batch = htmlspecialchars($_POST['batch']);
+                $jamMulai = htmlspecialchars($_POST['jamMulai']);
+                $jamKeluar = htmlspecialchars($_POST['jamKeluar']);
+                $beratJuiceKg = htmlspecialchars($_POST['beratJuiceKg']);
+                $keterangan = htmlspecialchars($_POST['keterangan']);
+                $operator = htmlspecialchars($_POST['operator']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
-                $mulai = htmlspecialchars($_POST['mulai']);
-                $berakhir = htmlspecialchars($_POST['berakhir']);
-                $durasi = htmlspecialchars($_POST['durasi']);
-                $hasilKg = htmlspecialchars($_POST['hasilKg']);
-                $Material = htmlspecialchars($_POST['namaMaterial']);
-                if ($kode === "" && $waste === "" && $mulai === "") {
+                if ($kode === "" || $batch === "" && $mulai === "") {
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
@@ -289,7 +287,7 @@ $data = mysqli_fetch_array($getDataOperator);
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_kupas_produksi`(`nama_material`, `kode_supplier`, `mulai`, `berakhir`, `durasi`, `hasil_kg`, `waste_kg`, `operator`, `tanggal`) VALUES ('$Material','$kode','$mulai','$berakhir','$durasi','$hasilKg','$waste','$Operator','$tanggal')");
+                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_pressing_produksi`(`kode_mesin`, `nama_produk`, `batch`, `jam_mulai`, `jam_keluar`, `berat_juice_kg`, `keterangan`, `operator`, `tanggal`) VALUES ('$kode','$namaProduk','$batch','$jamMulai','$jamKeluar','$beratJuiceKg','$keterangan','[$operator','$tanggal')");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
