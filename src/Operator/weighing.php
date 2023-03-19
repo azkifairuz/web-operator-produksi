@@ -44,7 +44,7 @@ $data = mysqli_fetch_array($getDataOperator);
                             </li>
                             <li
                                 class="btnPassword bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                                Laporan mesin brushing
+                                Perendaman Apel
                             </li>
                         </ul>
                     </div>
