@@ -46,7 +46,7 @@ $userNip = $_SESSION['NIP'];
 
                 </div>
                 <div class="absolute hidden listLaporan bg-purple-900 text-white">
-                    <ul class="relative">
+                    <ul class="relative border border-purple-900">
                         <li class="py-1 hover:bg-purple-500 px-4 preparation">preparation</li>
                         <li class="py-1 hover:bg-purple-500 px-4 washing">washing</li>
                         <li class="py-1 hover:bg-purple-500 px-4 weighing">weighing</li>
