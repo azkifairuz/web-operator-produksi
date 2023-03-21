@@ -56,8 +56,8 @@ $data = mysqli_fetch_array($getDataOperator);
                     src="../../item/<?php echo $data['gambar'] ?>"
                     alt="profil" />
                 </div>
-                <div class="bg-white  w-1/2">
-                  <table class="border-2 w-ful text-left  table-auto">
+                <div class="bg-white w-full">
+                  <table class="border-2 w-[1000px] text-left  table-auto">
                     <?php
                     if ($cekUser == 0) {
                       ?>
@@ -69,7 +69,7 @@ $data = mysqli_fetch_array($getDataOperator);
 
                       ?>
                       <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">NIP</th>
+                        <th class="border p-2 bg-black text-white">NIP</th>
                         <td class="p-2 ">
                           <?php echo $data['NIP'] ?>
                         </td>

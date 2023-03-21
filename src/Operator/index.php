@@ -51,16 +51,16 @@ $data = mysqli_fetch_array($getDataOperator);
               </li>
             </ul>
           </div>
-          <div class="bg-pink-400 w-fit lg:h-full lg:w-full flex  gap-2 items-center h-5/6">
-            <section class="profil ">
-              <div class=" w-full m-10 flex justify-around gap-5  ">
-                <div class="w-20 lg:w-52 lg:h-20 h-20 bg-white">
-                  <img class="w-20 lg:w-52 lg:h-52 h-20 text-center"
+          <div class="bg-pink-400 shadow w-fit rounded-b-lg lg:h-full lg:w-full flex  gap-2 items-center h-5/6">
+            <section class="profil p-10 w-full">
+              <div class=" w-full flex justify-between   ">
+                <div class="w-52 h-52  bg-white">
+                  <img class="w-52 h-52 text-center"
                     src="../../item/<?php echo $data['gambar'] ?>"
                     alt="profil" />
                 </div>
-                <div class="bg-white  w-1/2">
-                  <table class="border-2 w-ful text-left  table-auto">
+                <div class=" w-[600px] ">
+                  <table class="w-full rounded-lg shadow text-left  table-auto">
                     <?php
                     if ($cekUser == 0) {
                       ?>
@@ -72,44 +72,44 @@ $data = mysqli_fetch_array($getDataOperator);
 
                       ?>
                       <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">NIP</th>
-                        <td class="p-2 ">
+                        <th class=" p-2 bg-black  text-white">NIP</th>
+                        <td class="p-2  bg-white">
                           <?php echo $data['NIP'] ?>
                         </td>
                       </tr>
                       <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">Nama</th>
-                        <td class="p-2 w-full ">
+                        <th class=" w-1/2  bg-black p-2  text-white">Nama</th>
+                        <td class="p-2 w-1/2 bg-white ">
                           <?php echo $data['nama'] ?>
                         </td>
                       </tr>
-                      <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">Departemen</th>
-                        <td class="p-2">
+                      <tr class="border  border-black">
+                        <th class=" w-1/2 p-2 bg-black text-white">Departemen</th>
+                        <td class="p-2 w-1/2 bg-white">
                           <?php echo $data['departemen'] ?>
                         </td>
                       </tr>
                       <tr class="border border-black">
-                        <th class="border w-fit p-2 bg-black text-white">Hire_date</th>
-                        <td class="p-2">
+                        <th class=" w-1/2 p-2  bg-black text-white">Hire_date</th>
+                        <td class="p-2 w-1/2 bg-white">
                           <?php echo $data['hire_date'] ?>
                         </td>
                       </tr>
                       <tr class="border border-black">
-                        <th class="border  p-2 bg-black text-white">Lokasi</th>
-                        <td class="p-2">
+                        <th class=" w-1/2  p-2 bg-black text-white">Lokasi</th>
+                        <td class="p-2 w-1/2 bg-white">
                           <?php echo $data['lokasi'] ?>
                         </td>
                       </tr>
-                      <tr class="border border-black">
-                        <th class="border p-2 bg-black text-white">NPWP</th>
-                        <td class="p-2">
+                      <tr class="border w-1/2 border-black">
+                        <th class=" p-2 w-1/2 bg-black text-white">NPWP</th>
+                        <td class="p-2 bg-white">
                           <?php echo $data['NPWP'] ?>
                         </td>
                       </tr>
                       <tr class="border border-black">
-                        <th class="border p-2 bg-black text-white">title</th>
-                        <td class="p-2">
+                        <th class=" p-2 w-1/2 bg-black text-white">title</th>
+                        <td class="p-2 w-1/2 bg-white">
                           <?php echo $data['title'] ?>
                         </td>
                       </tr>
@@ -121,7 +121,7 @@ $data = mysqli_fetch_array($getDataOperator);
               </div>
             </section>
             <section class="ubahProfil hidden ">
-              <div class=" items-center justify-evenly m-2 gap-4 w-full">
+              <div class=" items-center justify-evenly p-2 gap-4 w-full">
                 <form action="" method="post" enctype="multipart/form-data"
                   class="form auto flex w-full  justify-around  gap-4">
 
