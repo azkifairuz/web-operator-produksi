@@ -48,7 +48,7 @@ $data = mysqli_fetch_array($getDataOperator);
               </li>
             </ul>
           </div>
-          <div class="bg-pink-400 w-fit rounded-b-lg   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
+          <div class="bg-pink-400 w-fit rounded-b-lg  rounded-b-g shadow lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
             <section class="cekList">
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <form action="" method="post" enctype="multipart/form-data" class="p-4  w-full ">

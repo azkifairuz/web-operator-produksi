@@ -45,8 +45,8 @@ $userNip = $_SESSION['NIP'];
                     </svg>
 
                 </div>
-                <div class="absolute hidden listLaporan bg-purple-900 text-white">
-                    <ul class="relative border border-purple-900">
+                <div class=" hidden listLaporan w-fit bg-purple-900 text-white">
+                    <ul class=" border border-purple-900">
                         <li class="py-1 hover:bg-purple-500 px-4 preparation">preparation</li>
                         <li class="py-1 hover:bg-purple-500 px-4 washing">washing</li>
                         <li class="py-1 hover:bg-purple-500 px-4 weighing">weighing</li>
@@ -57,8 +57,26 @@ $userNip = $_SESSION['NIP'];
                     </ul>
                 </div>
             </div>
-            <button class="hasilLaporan1 bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 text-white py-2 px-4 cursor-pointer">
-                Hasil Laporan
+            <button class="hasilLaporan1 mt-20 bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2  cursor-pointer">
+                Hasil Laporan Preparation
+            </button>
+            <button class="hasilLaporan2  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2  cursor-pointer">
+                Hasil Laporan washing
+            </button>
+            <button class="hasilLaporan3  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+                Hasil Laporan weighing
+            </button>
+            <button class="hasilLaporan4  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+                Hasil Laporan kupas
+            </button>
+            <button class="hasilLaporan5  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+                Hasil Laporan pressing
+            </button>
+            <button class="hasilLaporan6  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+                Hasil Laporan angel
+            </button>
+            <button class="hasilLaporan7  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-lg hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+                Hasil Laporan filling
             </button>
             
         </div>
@@ -77,6 +95,12 @@ $userNip = $_SESSION['NIP'];
         const angel = document.querySelector(".angel")
         const filling = document.querySelector(".filling")
         const hasilLaporan1 = document.querySelector(".hasilLaporan1")
+        const hasilLaporan2 = document.querySelector(".hasilLaporan2")
+        const hasilLaporan3 = document.querySelector(".hasilLaporan3")
+        const hasilLaporan4 = document.querySelector(".hasilLaporan4")
+        const hasilLaporan5 = document.querySelector(".hasilLaporan5")
+        const hasilLaporan6 = document.querySelector(".hasilLaporan6")
+        const hasilLaporan7 = document.querySelector(".hasilLaporan7")
         function changeLocation(url) {
             window.location.href = `http://localhost/web-operator-produksi/src/${url}`;
         }
@@ -111,8 +135,25 @@ $userNip = $_SESSION['NIP'];
             changeLocation("Operator/filling.php")
         })
         hasilLaporan1.addEventListener("click",()=>{
-            alert("tes")
-            changeLocation("Operator/filling.php")
+            changeLocation("Operator/laporanPreparation.php")
+        })
+        hasilLaporan2.addEventListener("click",()=>{
+            changeLocation("Operator/laporanWashing.php")
+        })
+        hasilLaporan3.addEventListener("click",()=>{
+            changeLocation("Operator/laporanWeighing.php")
+        })
+        hasilLaporan4.addEventListener("click",()=>{
+            changeLocation("Operator/laporanKupas.php")
+        })
+        hasilLaporan5.addEventListener("click",()=>{
+            changeLocation("Operator/laporanPressing.php")
+        })
+        hasilLaporan6.addEventListener("click",()=>{
+            changeLocation("Operator/laporanAngel.php")
+        })
+        hasilLaporan7.addEventListener("click",()=>{
+            changeLocation("Operator/laporanFilling.php")
         })
         
         
