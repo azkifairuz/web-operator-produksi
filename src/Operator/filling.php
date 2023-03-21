@@ -255,8 +255,6 @@ $data = mysqli_fetch_array($getDataOperator);
                                                 <input class="py-2 px-4 text-black rounded-md" type="text"
                                                     name="line" value="">
                                             </div>
-                                        </div>
-                                        <div>
                                             <div class="flex flex-col text-white">
                                             <h1>plan</h1>
                                                 <select name="plan"
@@ -274,6 +272,9 @@ $data = mysqli_fetch_array($getDataOperator);
                                                 <input class="py-2 px-4 text-black rounded-md" type="number"
                                                     name="noPlan" value="">
                                             </div>
+                                        </div>
+                                        <div>
+                                           
                                             <div class="flex flex-col text-white">
                                             <h1>Hasil</h1>
                                                 <select name="hasil"
@@ -314,7 +315,7 @@ $data = mysqli_fetch_array($getDataOperator);
                                         </div>
                                     </div>
                                     <button name="btn-mesin"
-                                        class=" w-full mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                                        class=" w-full mt-2 py-2 px-4 rounded-sm hover:bg-blue-800 text-white bg-blue-500">Ubah</button>
                                 </form>
                             </div>
                             <?php

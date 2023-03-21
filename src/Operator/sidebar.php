@@ -26,10 +26,10 @@ $userNip = $_SESSION['NIP'];
         </div>
         <div class="w-11/12 flex flex-col gap-5 items-center justify-center  cursor-pointer">
             <button
-                class="btnMain bg-purple-900 focus:bg-purple-600 active:bg-purple-600 w-full   hover:bg-purple-600 text-white py-2 px-4 cursor-pointer">
+                class="btnMain bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 text-white py-2 px-4 cursor-pointer">
                 Halaman Utama
             </button>
-            <div>
+            <div class="w-full">
                 <div
                     class=" laporan bg-purple-900 w-full text-white p-4 hover:bg-purple-600 px-4 items-center justify-center cursor-pointer flex">
                     <button type="button" class="text-sm   ">
@@ -57,6 +57,9 @@ $userNip = $_SESSION['NIP'];
                     </ul>
                 </div>
             </div>
+            <button class="hasilLaporan1 bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 text-white py-2 px-4 cursor-pointer">
+                Hasil Laporan
+            </button>
             
         </div>
     </div>
@@ -73,6 +76,7 @@ $userNip = $_SESSION['NIP'];
         const pressing = document.querySelector(".pressing")
         const angel = document.querySelector(".angel")
         const filling = document.querySelector(".filling")
+        const hasilLaporan1 = document.querySelector(".hasilLaporan1")
         function changeLocation(url) {
             window.location.href = `http://localhost/web-operator-produksi/src/${url}`;
         }
@@ -104,6 +108,10 @@ $userNip = $_SESSION['NIP'];
             changeLocation("Operator/angel.php")
         })
         filling.addEventListener("click",()=>{
+            changeLocation("Operator/filling.php")
+        })
+        hasilLaporan1.addEventListener("click",()=>{
+            alert("tes")
             changeLocation("Operator/filling.php")
         })
         
