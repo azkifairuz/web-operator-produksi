@@ -4,8 +4,10 @@ $userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getDataCekList = mysqli_query($con ,"SELECT * FROM `form_washing_inspeksi_area`  ");
-$getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
+$getDataCekList = mysqli_query($con ,"SELECT * FROM `form_weighing_inspeksi_area`");
+$getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_weighing_produksi`");
+$getDataPerendaman = mysqli_query($con ,"SELECT * FROM `form_weighing_perendaman_apel`  ");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +29,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
 
       <div class="mainPage container mt-20 w-1/2 ml-20 ">
         <h1 class="text-2xl -ml-10 mb-5 text-purple-700 font-bold">
-          Hasil Laporan Washing
+          Hasil Laporan Weighing
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -40,7 +42,10 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
                 class="btnUbah bg-purple-400 hover:bg-purple-600  h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Laporan produksi
               </li>
-
+              <li
+                class="btnPassword bg-purple-400 hover:bg-purple-600  h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                Laporan Perendaman Apel
+              </li>
             </ul>
           </div>
           <div class="bg-pink-400 shadow w-fit rounded-b-lg  flex  justify-center p-2">
@@ -48,8 +53,8 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <table>
                     <tr class="bg-black text-white p-2">
-                        <th class="p-2">no_washing</th>
-                        <th class="p-2">inspeksi_mesin/peralatan</th>
+                        <th class="p-2">no_weighing</th>
+                        <th class="p-2">inspeksi_mesin/peralatan </th>
                         <th class="p-2">nama_item </th>
                         <th class="p-2">kondisi_mesin/peralatan</th>
                         <th class="p-2">keterangan_mesin/peralatan</th>
@@ -109,7 +114,8 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
                             
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
-                            </td>                            
+                            </td>
+                            
                         </tr>
                         <?php
                         $no++;
@@ -123,16 +129,13 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
             <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <table>
                     <tr class="bg-black text-white p-2">
-                        <th class="p-2">no_washing</th>
-                        <th class="p-2">kode_supplier</th>
-                        <th class="p-2">nama_mesin</th>
-                        <th class="p-2">mulai</th>
-                        <th class="p-2">berakhir</th>
-                        <th class="p-2">durasi</th>
-                        <th class="p-2">jumlah</th>
-                        <th class="p-2">total_RM</th>
+                        <th class="p-2">no_weighing</th>
+                        <th class="p-2">varian_produk</th>
+                        <th class="p-2">jam_mulai </th>
+                        <th class="p-2">jam_selesai</th>
+                        <th class="p-2">jumlah_batch</th>
+                        <th class="p-2">keterangan</th>
                         <th class="p-2">waste</th>
-                        <th class="p-2">operator</th>
                         <th class="p-2">tanggal</th>
                     </tr>
                     <?php
@@ -140,40 +143,30 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
                     while ($data = mysqli_fetch_array($getDataProduksi)) {
                         ?>
                         <tr class="text-xs bg-white border  ">
-                           
                             <td class=" p-2 border border-black ">
                                 <?php echo $no; ?>
                             </td>
-                            
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['kode_supplier']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['nama_mesin']; ?>
+                                <?php echo $data['varian_produk']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['mulai']; ?>
+                                <?php echo $data['jam_mulai']; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jam_selesai']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['berakhir']; ?>
+                                <?php echo $data['jumlah_batch']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['durasi']; ?>
+                                <?php echo $data['keterangan']; ?>
                             </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['jumlah']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['total_RM']; ?>
-                            </td>
+                            
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['waste']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['operator']; ?>
                             </td>
                             
                             
@@ -189,7 +182,73 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
                 </table>
               </div>
             </section>
-            
+            <section class="laporanMesin hidden w-full">
+            <div class=" items-center justify-evenly m-2 gap-4 w-full">
+                <table>
+                    <tr class="bg-black text-white p-2">
+                        <th class="p-2">no_weighing</th>
+                        <th class="p-2">nama_produk</th>
+                        <th class="p-2">jumlah_apel</th>
+                        <th class="p-2">jumlah_batch</th>
+                        <th class="p-2">jumlah_garam</th>
+                        <th class="p-2">jumlah_air_RO</th>
+                        <th class="p-2">jam_mulai</th>
+                        <th class="p-2">jam_selesai</th>
+                        <th class="p-2">suhu air</th>
+                        <th class="p-2">operator</th>
+                        <th class="p-2">tanggal</th>
+                    </tr>
+                    <?php
+                    $no = 1;
+                    while ($data = mysqli_fetch_array($getDataPerendaman)) {
+                        ?>
+                        <tr class="text-xs bg-white border  ">
+                            <td class=" p-2 border border-black ">
+                                <?php echo $no; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['nama_produk']; ?>
+                            </td>
+                            
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jumlah_apel']; ?>
+                            </td>
+                            
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jumlah_batch']; ?>
+                            </td>
+                            
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jumlah_garam']; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jumlah_air_RO']; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jam_mulai']; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['jam_selesai']; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['suhu air']; ?>
+                            </td>
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['operator']; ?>
+                            </td>
+
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['tanggal']; ?>
+                            </td>
+                            
+                        </tr>
+                        <?php
+                        $no++;
+                    }
+                    ?>
+                </table>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -209,13 +268,19 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_washing_produksi` ");
     btnProfil.addEventListener("click", () => {
       cekList.classList.remove("hidden")
       produksi.classList.add("hidden")
+      laporanMesin.classList.add("hidden")
       
     })
     btnUbah.addEventListener("click", () => {
       cekList.classList.add("hidden")
       produksi.classList.remove("hidden")
+      laporanMesin.classList.add("hidden")
     })
-
+    btnPassword.addEventListener("click", () => {
+      cekList.classList.add("hidden")
+      produksi.classList.add("hidden")
+      laporanMesin.classList.remove("hidden")
+    })
     
   </script>
 </body>

@@ -71,48 +71,48 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     while ($data = mysqli_fetch_array($getDataCekList)) {
                         ?>
                         <tr class="text-xs bg-white border  ">
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $no; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['inspeksi_mesin/peralatan']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['nama_item']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['kondisi_mesin/peralatan']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['keterangan_mesin/peralatan']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['inpeksi_area']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['kondisi_area']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['keterangan_area']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['inspeksi_alat_cleaning']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['kondisi_alat_cleaning']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['keterangan_alat_cleaning']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
                             
@@ -143,34 +143,34 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     while ($data = mysqli_fetch_array($getDataProduksi)) {
                         ?>
                         <tr class="text-xs bg-white border  ">
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $no; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['kode_supplier']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['raw_material']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['QTY']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['jam_keluar']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['total_RM']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['waste']; ?>
                             </td>
                             
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
                             
@@ -204,45 +204,45 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     while ($data = mysqli_fetch_array($getDataMesin)) {
                         ?>
                         <tr class="text-xs bg-white border  ">
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $no; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['operator']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['kode_supplier']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['raw_material']; ?>
                             </td>
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['QTY']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['kg']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['mulai']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['berakhir']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['jumlah']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['total_RM']; ?>
                             </td>
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['waste(kg)'] ?> KG
                             </td>
                             
                             
-                            <td class=" p2 border border-black ">
+                            <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
                             
