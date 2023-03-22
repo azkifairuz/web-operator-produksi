@@ -78,7 +78,10 @@ $userNip = $_SESSION['NIP'];
             <button class="hasilLaporan7  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
                 Hasil Laporan filling
             </button>
-            
+            <button class="tentang  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+              Tentang
+            </button>
+          
         </div>
     </div>
     <script>
@@ -101,6 +104,7 @@ $userNip = $_SESSION['NIP'];
         const hasilLaporan5 = document.querySelector(".hasilLaporan5")
         const hasilLaporan6 = document.querySelector(".hasilLaporan6")
         const hasilLaporan7 = document.querySelector(".hasilLaporan7")
+        const tentang = document.querySelector(".tentang")
         function changeLocation(url) {
             window.location.href = `http://localhost/web-operator-produksi/src/${url}`;
         }
@@ -154,6 +158,10 @@ $userNip = $_SESSION['NIP'];
         })
         hasilLaporan7.addEventListener("click",()=>{
             changeLocation("Operator/laporanFilling.php")
+        })
+        tentang.addEventListener("click",()=>{
+            alert("tes")
+            changeLocation("Operator/tentang.php")
         })
         
         
