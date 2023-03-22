@@ -4,10 +4,8 @@ $userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getDataCekList = mysqli_query($con ,"SELECT * FROM `form_preparation_inspeksi_area` ");
-$getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_preparation_produksi`");
-$getDataMesin = mysqli_query($con ,"SELECT * FROM `form_preparation_mesin_brushing` ");
-$dataCeklist = mysqli_fetch_array($getDataCekList);
+$getDataCekList = mysqli_query($con ,"SELECT * FROM `form_kupas_inspeksi_area`");
+$getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_kupas_produksi` ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +27,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
 
       <div class="mainPage container mt-20 w-1/2 ml-20 ">
         <h1 class="text-2xl -ml-10 mb-5 text-purple-700 font-bold">
-          Hasil Laporan Preparation
+          Hasil Laporan Kupas
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -42,10 +40,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                 class="btnUbah bg-purple-400 hover:bg-purple-600  h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Laporan produksi
               </li>
-              <li
-                class="btnPassword bg-purple-400 hover:bg-purple-600  h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan mesin brushing
-              </li>
+
             </ul>
           </div>
           <div class="bg-pink-400 shadow w-fit rounded-b-lg  flex  justify-center p-2">
@@ -53,8 +48,8 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <table>
                     <tr class="bg-black text-white p-2">
-                        <th class="p-2">no_preparation</th>
-                        <th class="p-2">inspeksi_mesin/peralatan </th>
+                        <th class="p-2">no_kupas</th>
+                        <th class="p-2">inspeksi_mesin/peralatan</th>
                         <th class="p-2">nama_item </th>
                         <th class="p-2">kondisi_mesin/peralatan</th>
                         <th class="p-2">keterangan_mesin/peralatan</th>
@@ -114,8 +109,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                             
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
-                            </td>
-                            
+                            </td>                            
                         </tr>
                         <?php
                         $no++;
@@ -129,13 +123,15 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
             <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <table>
                     <tr class="bg-black text-white p-2">
-                        <th class="p-2">no_preparation</th>
+                        <th class="p-2">no_kupas</th>
+                        <th class="p-2">nama_material</th>
                         <th class="p-2">kode_supplier</th>
-                        <th class="p-2">raw_material </th>
-                        <th class="p-2">QTY</th>
-                        <th class="p-2">jam_keluar</th>
-                        <th class="p-2">total_RM</th>
-                        <th class="p-2">waste</th>
+                        <th class="p-2">mulai</th>
+                        <th class="p-2">berakhir</th>
+                        <th class="p-2">durasi</th>
+                        <th class="p-2">hasil_kg</th>
+                        <th class="p-2">waste_kg</th>
+                        <th class="p-2">operator</th>
                         <th class="p-2">tanggal</th>
                     </tr>
                     <?php
@@ -143,103 +139,41 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     while ($data = mysqli_fetch_array($getDataProduksi)) {
                         ?>
                         <tr class="text-xs bg-white border  ">
+                           
                             <td class=" p-2 border border-black ">
                                 <?php echo $no; ?>
+                            </td>
+                            
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['nama_material']; ?>
                             </td>
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['kode_supplier']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['raw_material']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['QTY']; ?>
+                                <?php echo $data['mulai']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['jam_keluar']; ?>
+                                <?php echo $data['berakhir']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['total_RM']; ?>
+                                <?php echo $data['durasi']; ?>
                             </td>
-                            
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['waste']; ?>
+                                <?php echo $data['hasil_kg']; ?>
                             </td>
-                            
-                            
+                          
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['tanggal']; ?>
-                            </td>
-                            
-                        </tr>
-                        <?php
-                        $no++;
-                    }
-                    ?>
-                </table>
-              </div>
-            </section>
-            <section class="laporanMesin hidden w-full">
-            <div class=" items-center justify-evenly m-2 gap-4 w-full">
-                <table>
-                    <tr class="bg-black text-white p-2">
-                        <th class="p-2">no_preparation</th>
-                        <th class="p-2">operator</th>
-                        <th class="p-2">kode_supplier</th>
-                        <th class="p-2">raw_material</th>
-                        <th class="p-2">QTY</th>
-                        <th class="p-2">kg</th>
-                        <th class="p-2">mulai</th>
-                        <th class="p-2">berakhir</th>
-                        <th class="p-2">jumlah</th>
-                        <th class="p-2">total_RM</th>
-                        <th class="p-2">waste(kg)</th>
-                        <th class="p-2">tanggal</th>
-                    </tr>
-                    <?php
-                    $no = 1;
-                    while ($data = mysqli_fetch_array($getDataMesin)) {
-                        ?>
-                        <tr class="text-xs bg-white border  ">
-                            <td class=" p-2 border border-black ">
-                                <?php echo $no; ?>
+                                <?php echo $data['waste_kg']; ?>
                             </td>
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['operator']; ?>
                             </td>
                             
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['kode_supplier']; ?>
-                            </td>
                             
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['raw_material']; ?>
-                            </td>
-                            
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['QTY']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['kg']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['mulai']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['berakhir']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['jumlah']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['total_RM']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['waste(kg)'] ?> KG
-                            </td>
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
@@ -252,6 +186,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                 </table>
               </div>
             </section>
+            
           </div>
         </div>
       </div>
@@ -271,19 +206,13 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
     btnProfil.addEventListener("click", () => {
       cekList.classList.remove("hidden")
       produksi.classList.add("hidden")
-      laporanMesin.classList.add("hidden")
       
     })
     btnUbah.addEventListener("click", () => {
       cekList.classList.add("hidden")
       produksi.classList.remove("hidden")
-      laporanMesin.classList.add("hidden")
     })
-    btnPassword.addEventListener("click", () => {
-      cekList.classList.add("hidden")
-      produksi.classList.add("hidden")
-      laporanMesin.classList.remove("hidden")
-    })
+
     
   </script>
 </body>
