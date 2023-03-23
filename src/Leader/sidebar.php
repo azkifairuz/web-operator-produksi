@@ -50,7 +50,7 @@ $userNip = $_SESSION['NIP'];
             changeLocation("Leader/index.php")
         })
         kelola.addEventListener("click",()=>{
-            changeLocation("Leader/kelola.php")
+            changeLocation("Leader/kelolaLaporan.php")
         })
         hasilLaporan.addEventListener("click",()=>{
             changeLocation("Leader/hasilLaporan.php")
