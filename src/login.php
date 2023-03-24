@@ -14,10 +14,10 @@ require("koneksi.php")
     <link rel="stylesheet" href="../dist/output.css">
 </head>
 
-<body>
+<body style=" background-image: url('../item/hero.jpg');" class="bg-no-repeat bg-center bg-cover">
     <div class="flex p-5 items-center flex-col bg-slate-400 w-[500px] mt-20 h-[500px] m-auto gap-10 mb-5">
         <div class="mt-5 mb-5">
-            <img class="w-24 h-24 rounded-full text-center bg-cover bg-white" src="../item/logo.jpeg" alt="">
+            <img class="w-24 h-24 rounded-full text-center bg-cover bg-white" src="../item/Logo.jpeg" alt="">
         </div>
         <div class="flex flex-col w-10/12 gap-5">
             <h1 class="bg-purple-500 p-1 text-white">PT Sewu Sentral Primatama.</h1>
