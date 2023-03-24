@@ -33,7 +33,7 @@ $data = mysqli_fetch_array($getDataOperator);
                     <div class="inline">
                         <ul class="flex">
                             <li
-                                class="btnProfil bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
+                                class="btnProfil bg-purple-400 hover:bg-purple-600 hover:text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                                 Kelola Laporan
                             </li>
                         </ul>
