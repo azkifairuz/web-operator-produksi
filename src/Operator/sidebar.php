@@ -26,12 +26,12 @@ $userNip = $_SESSION['NIP'];
         </div>
         <div class="w-11/12 flex flex-col gap-5 items-center justify-center  cursor-pointer">
             <button
-                class="btnMain bg-purple-900 w-full hover:shadow-sm rounded-md focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 text-white py-2 px-4 cursor-pointer">
+                class="btnMain bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2  cursor-pointer">
                 Halaman Utama
             </button>
             <div class="w-full">
                 <div
-                    class=" laporan bg-purple-900 w-full text-white p-4 hover:bg-purple-600 px-4 items-center justify-center cursor-pointer flex">
+                    class=" laporan bg-[#bd68ee] w-full  p-4 focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white   cursor-pointer px-4 items-center justify-center flex">
                     <button type="button" class="text-sm   ">
                         Laporan Departemen
                     </button>
@@ -45,40 +45,40 @@ $userNip = $_SESSION['NIP'];
                     </svg>
 
                 </div>
-                <div class=" hidden listLaporan w-fit bg-purple-900 text-white">
+                <div class=" hidden listLaporan w-fit bg-[#bd68ee] text-white">
                     <ul class=" border border-purple-900">
-                        <li class="py-1 hover:bg-purple-500 px-4 preparation">preparation</li>
-                        <li class="py-1 hover:bg-purple-500 px-4 washing">washing</li>
-                        <li class="py-1 hover:bg-purple-500 px-4 weighing">weighing</li>
-                        <li class="py-1 hover:bg-purple-500 px-4 kupas">kupas</li>
-                        <li class="py-1 hover:bg-purple-500 px-4 pressing">pressing</li>
-                        <li class="py-1 hover:bg-purple-500 px-4 angel">angel</li>
-                        <li class="py-1 hover:bg-purple-500 px-4 filling">filling</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 preparation">preparation</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 washing">washing</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 weighing">weighing</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 kupas">kupas</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 pressing">pressing</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 angel">angel</li>
+                        <li class="py-1 hover:bg-[#8338EC] px-4 filling">filling</li>
                     </ul>
                 </div>
             </div>
-            <button class="hasilLaporan1 mt-20 bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2  cursor-pointer">
+            <button class="hasilLaporan1 mt-20 bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2  cursor-pointer">
                 Hasil Laporan Preparation
             </button>
-            <button class="hasilLaporan2  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2  cursor-pointer">
+            <button class="hasilLaporan2  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2  cursor-pointer">
                 Hasil Laporan washing
             </button>
-            <button class="hasilLaporan3  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+            <button class="hasilLaporan3  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
                 Hasil Laporan weighing
             </button>
-            <button class="hasilLaporan4  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+            <button class="hasilLaporan4  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
                 Hasil Laporan kupas
             </button>
-            <button class="hasilLaporan5  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+            <button class="hasilLaporan5  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
                 Hasil Laporan pressing
             </button>
-            <button class="hasilLaporan6  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+            <button class="hasilLaporan6  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
                 Hasil Laporan angel
             </button>
-            <button class="hasilLaporan7  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+            <button class="hasilLaporan7  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
                 Hasil Laporan filling
             </button>
-            <button class="tentang  bg-purple-900 w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
+            <button class="tentang  bg-[#bd68ee] w-full focus:bg-purple-600 active:bg-purple-600    hover:bg-purple-600 hover:shadow-sm hover:shadow-black rounded-md text-white py-2 cursor-pointer">
               Tentang
             </button>
           
@@ -160,7 +160,6 @@ $userNip = $_SESSION['NIP'];
             changeLocation("Operator/laporanFilling.php")
         })
         tentang.addEventListener("click",()=>{
-            alert("tes")
             changeLocation("Operator/tentang.php")
         })
         

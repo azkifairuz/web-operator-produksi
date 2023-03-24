@@ -3,9 +3,10 @@ session_start();
 if (!isset($_SESSION['NIP'])){
     header("Location: ../login.php");
 }
-if(isset($_SESSION['NIP'])){
-    $userNip = $_SESSION['NIP'];
+if ($_SESSION['status'] != 'Leader'){
+  header("Location: ../login.php");
 }
+$userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
@@ -40,15 +41,15 @@ $data = mysqli_fetch_array($getDataOperator);
           <div class="inline">
             <ul class="flex">
               <li
-                class="btnProfil bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
+                class="btnProfil bg-purple-400 hover:bg-purple-500 hover:text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                 profil
               </li>
               <li
-                class="btnUbah bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnUbah bg-purple-400 hover:bg-purple-500 hover:text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Ubah Profil
               </li>
               <li
-                class="btnPassword bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnPassword bg-purple-400 hover:bg-purple-500 hover:text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Ubah Sandi
               </li>
             </ul>

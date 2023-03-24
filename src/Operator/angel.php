@@ -35,11 +35,11 @@ $data = mysqli_fetch_array($getDataOperator);
           <div class="inline">
             <ul class="flex">
               <li
-                class="btnProfil bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
+                class="btnProfil bg-[#8338EC] hover:bg-purple-400  text-white hover:text-black h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                 Cek list dan inpeksi area
               </li>
               <li
-                class="btnUbah bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnUbah bg-[#8338EC] hover:bg-purple-400 text-white hover:text-black h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Laporan produksi
               </li>
             </ul>

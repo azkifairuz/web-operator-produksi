@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['NIP'])){
+if (!isset($_SESSION['NIP']) ){
+    header("Location: ../login.php");
+}
+if ($_SESSION['status'] != 'Operator'){
     header("Location: ../login.php");
 }
 $userNip = $_SESSION['NIP'];
@@ -28,6 +31,7 @@ $data = mysqli_fetch_array($getDataOperator);
     <div class="flex">
       <?php
       include("sidebar.php");
+     
       ?>
 
       <div class="mainPage container w-1/2 ml-20 mt-20">
@@ -38,15 +42,15 @@ $data = mysqli_fetch_array($getDataOperator);
           <div class="inline">
             <ul class="flex">
               <li
-                class="btnProfil bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
+                class="btnProfil bg-[#8338EC] hover:bg-purple-400 hover:text-black  text-white  h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                 profil
               </li>
               <li
-                class="btnUbah bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnUbah bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Ubah Profil
               </li>
               <li
-                class="btnPassword bg-purple-400 h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
+                class="btnPassword bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
                 Ubah Sandi
               </li>
             </ul>
