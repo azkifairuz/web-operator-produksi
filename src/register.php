@@ -17,7 +17,7 @@ require("koneksi.php")
 <body>
     <div class="flex p-5 items-center flex-col bg-slate-400 w-[500px] mt-20 h-fit m-auto gap-10 mb-5">
         <div class="mt-5 mb-5">
-            <img class="w-24 h-24 rounded-full text-center bg-cover bg-white" src="../item/logo.jpeg" alt="">
+            <img class="w-24 h-24 rounded-full text-center bg-cover bg-white" src="../item/Logo.jpeg" alt="">
         </div>
         <div class="flex flex-col w-10/12 gap-5">
             <h1 class="bg-purple-500 p-1 text-center text-white">REGISTER.</h1>
@@ -45,7 +45,7 @@ require("koneksi.php")
 
                     $data[6] = chr(ord($data[6]) & 0x0f | 0x40); // set version to 0100
                     $data[8] = chr(ord($data[8]) & 0x3f | 0x80); // set bits 6-7 to 10
-
+                    //return randomm char buat uuid
                     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
                 }
                 // menambil inputan dari user
