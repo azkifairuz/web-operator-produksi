@@ -45,7 +45,7 @@ require("koneksi.php")
 
                 if ($isUser > 0) {
                     if ($password === $user['user_password']) {
-                        $_SESSION['NIP'] = $user['user_nip'];
+                        $_SESSION['NIP'] = $$NIP;
                         $_SESSION['login'] = true;
                         $_SESSION['status'] = $user['user_status'];
 

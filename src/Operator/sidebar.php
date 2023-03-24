@@ -160,7 +160,6 @@ $userNip = $_SESSION['NIP'];
             changeLocation("Operator/laporanFilling.php")
         })
         tentang.addEventListener("click",()=>{
-            alert("tes")
             changeLocation("Operator/tentang.php")
         })
         
