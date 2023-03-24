@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['NIP'])){
+if (!isset($_SESSION['NIP']) ){
+    header("Location: ../login.php");
+}
+if ($_SESSION['status'] != 'Operator'){
     header("Location: ../login.php");
 }
 $userNip = $_SESSION['NIP'];
@@ -28,6 +31,7 @@ $data = mysqli_fetch_array($getDataOperator);
     <div class="flex">
       <?php
       include("sidebar.php");
+     
       ?>
 
       <div class="mainPage container w-1/2 ml-20 mt-20">

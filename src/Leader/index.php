@@ -3,9 +3,10 @@ session_start();
 if (!isset($_SESSION['NIP'])){
     header("Location: ../login.php");
 }
-if(isset($_SESSION['NIP'])){
-    $userNip = $_SESSION['NIP'];
+if ($_SESSION['status'] != 'Operator'){
+  header("Location: ../login.php");
 }
+$userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
