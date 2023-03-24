@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav class="fixed text-white p-2 text-2xl top-0 left-0 right-0 h-fit z-20 bg-purple-800">
+    <nav class="fixed text-white p-2 text-2xl top-0 left-0 right-0 h-fit z-20 bg-[#8338EC]">
         <ul class="flex justify-between">
             <li>
                 Laporan Leader
