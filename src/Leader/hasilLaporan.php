@@ -4,8 +4,8 @@ $userNip = $_SESSION['NIP'];
 include("navbar.php");
 include("../koneksi.php");
 $getDataLeader = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getLeader = mysqli_query($con ,"SELECT * FROM `leader_kelola_operator`  ");
-$getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
+$getLeader = mysqli_query($con, "SELECT * FROM `leader_kelola_operator`  ");
+$getDataProduksi = mysqli_query($con, "SELECT * FROM `form_angel_produksi` ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,48 +40,52 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
             </ul>
           </div>
           <div class="bg-pink-400 shadow w-full rounded-b-lg  h-5/6 flex  justify-center p-2">
-          <section class="cekList">
+            <section class="cekList">
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <table>
-                    <tr class="bg-black text-white p-2">
-                        <th class="p-2">no</th>
-                        <th class="p-2">departemen</th>
-                        <th class="p-2">jenis_laporan</th>
-                        <th class="p-2">verifikasi</th>
-                        <th class="p-2">leader</th>
+                  <tr class="bg-black text-white p-2">
+                    <th class="p-2">no</th>
+                    <th class="p-2">departemen</th>
+                    <th class="p-2">jenis_laporan</th>
+                    <th class="p-2">verifikasi</th>
+                    <th class="p-2">leader</th>
+                    <th class="p-2">action</th>
+                  </tr>
+                  <?php
+                  $no = 1;
+                  while ($data = mysqli_fetch_array($getLeader)) {
+                    ?>
+                    <tr class="text-xs bg-white border  ">
+                      <td class=" p-2 border border-black ">
+                        <?php echo $no; ?>
+                      </td>
+                      <td class=" p-2 border border-black ">
+                        <?php echo $data['departemen']; ?>
+                      </td>
+
+                      <td class=" p-2 border border-black ">
+                        <?php echo $data['jenis_laporan']; ?>
+                      </td>
+
+                      <td class=" p-2 border border-black ">
+                        <?php echo $data['verifikasi']; ?>
+                      </td>
+                      <td class=" p-2 border border-black ">
+                        <?php echo $data['leader']; ?>
+                      </td>
+                      <td class="py-2 px-6 text-center">
+                        <a href="edit-laporan.php?p=<?php echo $data['no']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                      </td>
                     </tr>
                     <?php
-                    $no = 1;
-                    while ($data = mysqli_fetch_array($getLeader)) {
-                        ?>
-                        <tr class="text-xs bg-white border  ">
-                            <td class=" p-2 border border-black ">
-                                <?php echo $no; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['departemen']; ?>
-                            </td>
-                            
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['jenis_laporan']; ?>
-                            </td>
-                            
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['verifikasi']; ?>
-                            </td>
-                            <td class=" p-2 border border-black ">
-                                <?php echo $data['leader']; ?>
-                            </td>                    
-                        </tr>
-                        <?php
-                        $no++;
-                    }
-                    ?>
+                    $no++;
+                  }
+                  ?>
                 </table>
               </div>
-              
+
             </section>
-            
+
           </div>
         </div>
       </div>
@@ -101,14 +105,14 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
     btnProfil.addEventListener("click", () => {
       cekList.classList.remove("hidden")
       produksi.classList.add("hidden")
-      
+
     })
     btnUbah.addEventListener("click", () => {
       cekList.classList.add("hidden")
       produksi.classList.remove("hidden")
     })
 
-    
+
   </script>
 </body>
 
