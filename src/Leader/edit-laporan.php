@@ -1,10 +1,10 @@
 <?php
     session_start();
+    include("navbar.php");
     include("../koneksi.php");
     $idUpdate = $_GET['p'];
     $query = mysqli_query($con,"SELECT * FROM `leader_kelola_operator` where `no`='$idUpdate' ");
     $data2 = mysqli_fetch_assoc($query);
-    var_dump($data2)
 ?>
 <!DOCTYPE html>
 <html lang="en">
