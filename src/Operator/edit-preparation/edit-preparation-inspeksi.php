@@ -2,8 +2,8 @@
     session_start();
     $userNip = $_SESSION['NIP'];
     $idPreparation = $_GET["p"];
-    include("navbar.php");
-    include("../koneksi.php");
+    include("../navbar.php");
+    include("../../koneksi.php");
     $queryInpeksiArea = mysqli_query($con,"SELECT * FROM `form_preparation_inspeksi_area` where `no_preparation`=$idPreparation ");
     $queryMesinBurshing = mysqli_query($con,"SELECT * FROM `form_preparation_mesin_brushing` where `no_preparation`=$idPreparation ");
     $queryProduksi = mysqli_query($con,"SELECT * FROM `form_preparation_produksi` where `no_preparation`=$idPreparation ");
@@ -19,38 +19,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="../../dist/output.css" />
+  <link rel="stylesheet" href="../../../dist/output.css" />
 </head>
 
 <body>
   <div>
     <div class="flex">
-      <?php
-      require "sidebar.php";
-      ?>
+      <?php include("sidebar.php") ?>
 
-      <div class="mainPage container mt-20 w-1/2 ml-20 ">
-        <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
-          Edit Preparation
+      <div class="mainPage container mt-20 mx-auto w-fit  ">
+        <h1 class="md:text-2xl ml-20 mb-5 text-purple-700 font-bold">
+          Edit Preparation Inspeksi 
         </h1>
-        <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
+        <div class="maincontainer ml-20 lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
             <ul class="flex">
               <li
                 class="btnProfil  bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
-                Cek list dan inpeksi area
-              </li>
-              <li
-                class="btnUbah  bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan produksi
-              </li>
-              <li
-                class="btnPassword  bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan mesin brushing
+                edit list dan inpeksi area
               </li>
             </ul>
           </div>
-          <div class="bg-pink-400 w-fit rounded-b-lg  rounded-b-g shadow lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
+          <div class="bg-pink-400  w-fit rounded-b-lg  rounded-b-g shadow lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
             <section class="cekList">
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <form action="" method="post" enctype="multipart/form-data" class="p-4  w-full ">
@@ -318,53 +308,54 @@
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">kode suplier</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="<?php echo $dataMesin['kode_supplier']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">raw material</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="<?php echo $dataMesin['raw_material']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">QTY</label>
-                    <input type="text" class="py-2 px-4 text-black rounded-md"  name="qty" value="">
+                    <input type="text" class="py-2 px-4 text-black rounded-md"  name="qty" value="<?php echo $dataMesin['QTY']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">kg</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kg" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kg" value="<?php echo $dataMesin['kg']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">mulai</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="time" name="mulai" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="time" name="mulai" value="<?php echo $dataMesin['mulai']?>">
                   </div>
                   </div>
                   <div>
                   <div class="flex flex-col text-white">
                     <label for="old">berakhir</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="<?php echo $dataMesin['berakhir']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">durasi</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="<?php echo $dataMesin['durasi']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">jumlah</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="jumlah" value="">
+                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="jumlah" value="<?php echo $dataMesin['jumlah']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">total_RM</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="totalRm" value="">
+                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="totalRm" value="<?php echo $dataMesin['total_RM']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">waste(kg)</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="<?php echo $dataMesin['waste(kg)']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="tgl" value="<?php echo date("Y-m-d") ?>">
                   </div>
                 </div>
                   </div>
                 <button name="btn-mesin" class=" w-full mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                <button name="btn-delete" class=" w-full mt-2 py-2 px-4 text-white bg-red-500">delete</button>
                 </form>
               </div>
               <?php
@@ -388,18 +379,18 @@
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold">tidak boleh kosong</strong>
+                    <strong class="font-bold">tidak boleh sama seperti sebelumnya</strong>
                   </div>
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_mesin_brushing`(`operator`, `kode_supplier`, `raw_material`, `QTY`, `kg`, `mulai`, `berakhir`, `durasi`, `jumlah`, `total_RM`, `waste(kg)`, `tanggal`) VALUES ('$Operator','$kode','$Raw','$Qty','$kg','$mulai','$berakhir','$durasi','$jumlah','$TotalRm','$waste','$tanggal')");
+                  $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_mesin_brushing` SET `operator`='$Operator',`kode_supplier`='$kode',`raw_material`='$Raw',`QTY`='$Qty',`kg`='$kg',`mulai`='$mulai',`berakhir`='$berakhir',`durasi`='$durasi',`jumlah`='$jumlah',`total_RM`='$TotalRm',`waste(kg)`='$$waste',`tanggal`='$tanggal' WHERE `no_preparation` = $idPreparation ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold"> berhasil Input</strong>
-                    <meta http-equiv="refresh" content="2; url=preparation.php">
+                    <strong class="font-bold"> berhasil Update</strong>
+                    <meta http-equiv="refresh" content="2; url=./LaporanPreparation.php">
                   </div>
                   <?php
                 }

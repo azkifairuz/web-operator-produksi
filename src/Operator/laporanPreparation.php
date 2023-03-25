@@ -118,7 +118,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                             </td>
 
                             <td class="py-2 px-6 text-center">
-                                <a href="edit-preparation.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                                <a href="./edit-preparation/edit-preparation-inspeksi.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
                             </td>
                             
                         </tr>
@@ -181,7 +181,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                             </td>
                             
                             <td class="py-2 px-6 text-center">
-                                <a href="edit-preparation.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                                <a href="./edit-preparation/edit-preparation-produksi.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
                             </td>
                         </tr>
                         <?php
@@ -254,7 +254,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                                 <?php echo $data['tanggal']; ?>
                             </td>
                             <td class="py-2 px-6 text-center">
-                                <a href="edit-preparation.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                                <a href="./edit-preparation/edit-preparation-mesin.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
                             </td>
                         </tr>
                         <?php

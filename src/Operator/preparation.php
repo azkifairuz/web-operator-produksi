@@ -165,12 +165,12 @@ $data = mysqli_fetch_array($getDataOperator);
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <label for="date">Tanggal</label>
-                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" />
+                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" value="<?php echo date("Y-m-d")?>"/>
                         </div>
                       </div>
                     </div>
                     <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
-                      Ubah</button>
+                      Submit</button>
                   </div>
                 </form>
               </div>
@@ -241,7 +241,7 @@ $data = mysqli_fetch_array($getDataOperator);
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">Tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="<?php echo date("Y-m-d")?>">
                   </div>
                   <button name="btn-produksi" class=" mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
                 </form>
@@ -300,11 +300,11 @@ $data = mysqli_fetch_array($getDataOperator);
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">QTY</label>
-                    <input type="text" class="py-2 px-4 text-black rounded-md"  name="qty" value="">
+                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="qty" value="">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">kg</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kg" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="kg" value="">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">mulai</label>
@@ -330,11 +330,11 @@ $data = mysqli_fetch_array($getDataOperator);
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">waste(kg)</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="waste" value="">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="<?php echo date("Y-m-d")?>">
                   </div>
                 </div>
                   </div>
