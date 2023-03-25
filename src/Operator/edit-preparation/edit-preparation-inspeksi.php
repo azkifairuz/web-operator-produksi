@@ -51,7 +51,7 @@
                           <h1>Inpeksi mesin/peralatan</h1>
                           <select name="mesin"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["inspeksi_mesin/peralatan"] ?>" >Saat Ini - <?php echo $dataInpeksi['inspeksi_mesin/peralatan'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["inspeksi_mesin/peralatan"] ?>" ><?php echo $dataInpeksi['inspeksi_mesin/peralatan'] ?></option>
                             <option value="mesin">Mesin</option>
                             <option value="Peralatan Produksi">Peralatan Produksi</option>
                           </select>
@@ -60,7 +60,7 @@
                           <h1>Nama Item</h1>
                           <select name="item"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["nama_item"] ?>" >Saat Ini - <?php echo $dataInpeksi['nama_item'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["nama_item"] ?>" ><?php echo $dataInpeksi['nama_item'] ?></option>
                             <option>Brushing</option>
                             <option>Conveyor 1</option>
                             <option>Conveyor 2</option>
@@ -75,7 +75,7 @@
                           <h1>kondisi mesin/peralatan</h1>
                           <select name="kondisiMesin"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_mesin/peralatan"] ?>" >Saat Ini - <?php echo $dataInpeksi['kondisi_mesin/peralatan'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_mesin/peralatan"] ?>" ><?php echo $dataInpeksi['kondisi_mesin/peralatan'] ?></option>
                             <option>Apakah Tercium bau cleaner atau chemical?</option>
                             <option>Apakah part berfungsi dengan baik?</option>
                             <option>apakah ada bagian berjamur?</option>
@@ -91,7 +91,7 @@
                           <h1>keterangan mesin/peralatan</h1>
                           <select name="keteranganMesin"
                             class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_mesin/peralatan"] ?>" >Saat Ini - <?php echo $dataInpeksi['keterangan_mesin/peralatan'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_mesin/peralatan"] ?>" ><?php echo $dataInpeksi['keterangan_mesin/peralatan'] ?></option>
                             <option value="Iya">Iya</option>
                             <option value="Tidak">tidak</option>
                           </select>
@@ -100,7 +100,7 @@
                           <h1>Inpeksi Area</h1>
                           <select name="area"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["inpeksi_area"] ?>" >Saat Ini - <?php echo $dataInpeksi['inpeksi_area'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["inpeksi_area"] ?>" ><?php echo $dataInpeksi['inpeksi_area'] ?></option>
                             <option value="Lantai">Lantai</option>
                             <option value="Dinding"> Dinding</option>
                             <option value="Plafond">Plafond</option>
@@ -113,7 +113,7 @@
                           <h1>Kondisi Area</h1>
                           <select name="kondisiArea"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_area"] ?>" >Saat Ini - <?php echo $dataInpeksi['kondisi_area'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_area"] ?>" ><?php echo $dataInpeksi['kondisi_area'] ?></option>
                             <option>Apakah area bersih?</option>
                             <option> Apakah ada area yang terkelupas?</option>
                             <option>Apakah ada area yang retak?</option>
@@ -127,7 +127,7 @@
                           <h1>keterangan area</h1>
                           <select name="keteranganArea"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_area"] ?>" >Saat Ini - <?php echo $dataInpeksi['keterangan_area'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_area"] ?>" ><?php echo $dataInpeksi['keterangan_area'] ?></option>
                             <option>Iya</option>
                             <option>Tidak</option>
                           </select>
@@ -136,7 +136,7 @@
                           <h1>Inpeksi alat cleaning</h1>
                           <select name="alat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["inspeksi_alat_cleaning"] ?>" >Saat Ini - <?php echo $dataInpeksi['inspeksi_alat_cleaning'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["inspeksi_alat_cleaning"] ?>" ><?php echo $dataInpeksi['inspeksi_alat_cleaning'] ?></option>
                             <option value="Alat pel">Alat pel</option>
                             <option value="Tarikan air"> Tarikan air</option>
                             <option value="Kuraray">Kuraray</option>
@@ -149,7 +149,7 @@
                           <h1>kondisi alat cleaning</h1>
                           <select name="kondisiAlat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_alat_cleaning"] ?>" >Saat Ini - <?php echo $dataInpeksi['kondisi_alat_cleaning'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_alat_cleaning"] ?>" ><?php echo $dataInpeksi['kondisi_alat_cleaning'] ?></option>
                             <option>Apakah alat bersih?</option>
                             <option> Apakah alat berfungsi normal?</option>
                             <option>Apakah alat ada identitas?</option>
@@ -160,7 +160,7 @@
                           <h1>keterangan Alat cleaning</h1>
                           <select name="keteranganAlat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_alat_cleaning"] ?>" >Saat Ini - <?php echo $dataInpeksi['keterangan_alat_cleaning'] ?></option>
+                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_alat_cleaning"] ?>" ><?php echo $dataInpeksi['keterangan_alat_cleaning'] ?></option>
                             <option>Iya</option>
                             <option>Tidak</option>
                           </select>
@@ -173,7 +173,7 @@
                     </div>
                     <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
                       Ubah</button>
-                    <button name="btn-delete" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
+                    <button name="btn-delete" id="btn-preparation" class="bg-red-500 w-full text-white px-4 py-2">
                       delete</button>
                   </div>
                 </form>
@@ -192,27 +192,15 @@
                 $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
 
-                if ($isMesin === "" && $namaItem === "" && $kondisiMesin === "") {
-
-                  ?>
-                  <div
-                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold"> tidak boleh sama seperti sebelumnya</strong>
-                  </div>
-
-                  <?php
-                } else {
                   $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`nama_item`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin/peralatan`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$ketereanganAlat',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_preparation`=$idPreparation ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold"> berhasil Update</strong>
-                    <meta http-equiv="refresh" content="2; url=./laporanPreparation.php" />
+                    <meta http-equiv="refresh" content="2; url=../laporanPreparation.php" />
                   </div>
                   <?php
-                }
               }
               if (isset($_POST['btn-delete'])) {
                 $deleteLaporan = mysqli_query($con ,"DELETE FROM `form_preparation_inspeksi_area` WHERE `no_preparation`=$idPreparation")
@@ -220,7 +208,7 @@
                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                         role="alert">
                         <strong class="font-bold"> berhasil Delete </strong>
-                        <meta http-equiv="refresh" content="2; url=./laporanPreparation.php" />
+                        <meta http-equiv="refresh" content="2; url=../laporanPreparation.php" />
                     </div>
 
                 <?php

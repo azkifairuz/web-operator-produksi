@@ -117,18 +117,7 @@
                 $durasi = htmlspecialchars($_POST['durasi']);
                 $jumlah = htmlspecialchars($_POST['jumlah']);
 
-                if ($kode === "" && $Raw === "" && $Qty === "") {
-
-                  ?>
-                  <div
-                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold">tidak boleh sama seperti sebelumnya</strong>
-                  </div>
-
-                  <?php
-                } else {
-                  $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_mesin_brushing` SET `operator`='$Operator',`kode_supplier`='$kode',`raw_material`='$Raw',`QTY`='$Qty',`kg`='$kg',`mulai`='$mulai',`berakhir`='$berakhir',`durasi`='$durasi',`jumlah`='$jumlah',`total_RM`='$TotalRm',`waste(kg)`='$$waste',`tanggal`='$tanggal' WHERE `no_preparation` = $idPreparation ");
+                  $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_mesin_brushing` SET `operator`='$Operator',`kode_supplier`=$kode,`raw_material`=$Raw,`QTY`=$Qty,`kg`=$kg,`mulai`='$mulai',`berakhir`='$berakhir',`durasi`=$durasi,`jumlah`=$jumlah,`total_RM`=$TotalRm,`waste(kg)`=$waste,`tanggal`='$tanggal' WHERE `no_preparation` = $idPreparation ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
@@ -137,7 +126,6 @@
                     <meta http-equiv="refresh" content="2; url=../LaporanPreparation.php">
                   </div>
                   <?php
-                }
               }
               if (isset($_POST['btn-delete'])) {
                 $deleteLaporan = mysqli_query($con ,"DELETE FROM `form_preparation_mesin_brushing` WHERE `no_preparation`=$idPreparation")

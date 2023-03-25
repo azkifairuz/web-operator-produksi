@@ -59,7 +59,7 @@
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">Jam Keluar</label>
-                    <input type="time" class="py-2 px-4 text-black rounded-md"  name="time" value="<?php echo $dataProduksi['jam_keluar'] ?>">
+                    <input type="time" class="py-2 px-4 text-black rounded-md"  name="time" value="<?php echo $dataProduksi['jam_keluar'] ?>" >
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">Total Rm</label>
@@ -74,6 +74,7 @@
                     <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="<?php echo date("Y-m-d") ?>">
                   </div>
                   <button name="btn-produksi" class=" mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                  <button name="btn-delete" class=" mt-2 py-2 px-4 text-white bg-red-500">delete</button>
                 </form>
               </div>
               <?php
@@ -86,29 +87,27 @@
                 $waste = htmlspecialchars($_POST['waste']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
 
-                if ($kode === "" && $Raw === "" && $Qty === "") {
-
-                  ?>
-                  <div
-                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold">tidak boleh kosong</strong>
-                  </div>
-                  <meta http-equiv="refresh" content="2; url=preparation.php">
-
-                  <?php
-                } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_produksi`( `kode_supplier`, `raw_material`, `QTY`, `jam_keluar`, `total_RM`, `waste`, `tanggal`) VALUES ('$kode','$Raw','$Qty','$JamKeluar','$TotalRm','$waste','$tanggal') ");
+                  $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_produksi` SET `kode_supplier`='$kode',`raw_material`='$Raw',`QTY`=$Qty,`jam_keluar`='$JamKeluar',`total_RM`=$TotalRm,`waste`=$waste,`tanggal`='$tanggal' WHERE `no_preparation` =$idPreparation ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold"> berhasil update</strong>
                   </div>
-                  <meta http-equiv="refresh" content="2; url=preparation.php">
+                  <meta http-equiv="refresh" content="2; url=../preparation.php">
                   <?php
-                }
               }
+              if (isset($_POST['btn-delete'])) {
+                $deleteLaporan = mysqli_query($con ,"DELETE FROM `form_preparation_produksi` WHERE `no_preparation`=$idPreparation")
+                ?>
+                    <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                        role="alert">
+                        <strong class="font-bold"> berhasil Delete </strong>
+                        <meta http-equiv="refresh" content="2; url=../laporanPreparation.php" />
+                    </div>
+
+                <?php
+            }
               ?>
             </section>
            

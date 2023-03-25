@@ -46,7 +46,7 @@
                                         <select name="departement"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
  
-                                            <option class="lowercase" value="<?php $data2["departemen"] ?>" >Saat Ini - <?php echo $data2['departemen'] ?></option>
+                                            <option class="lowercase" value="<?php $data2["departemen"] ?>" ><?php echo $data2['departemen'] ?></option>
                                             <option value="Preparation">Preparation</option>
                                             <option value="Washing">Washing</option>
                                             <option value="Weighing">Weighing</option>
@@ -60,7 +60,7 @@
                                         <h1>Jenis Laporan</h1>
                                         <select name="jenisLaporan"
                                             class="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                            <option class="lowercase" value="<?php $data2["jenis_laporan"] ?>"> Saat Ini - <?php echo $data2['jenis_laporan'] ?></option>
+                                            <option class="lowercase" value="<?php $data2["jenis_laporan"] ?>"> <?php echo $data2['jenis_laporan'] ?></option>
                                             <option>Form inspeksi area</option>
                                             <option>Form Produksi</option>
                                             <option>Form Mesin</option>
@@ -71,7 +71,7 @@
                                         <h1>verifikasi</h1>
                                         <select name="verifikasi"
                                             class="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                            <option class="normal-case" value="<?php $data2["verifikasi"] ?>">Saat Ini - <?php echo $data2['verifikasi'] ?></option>
+                                            <option class="normal-case" value="<?php $data2["verifikasi"] ?>"><?php echo $data2['verifikasi'] ?></option>
                                             <option>Approve</option>
                                             <option>Not Approve</option>
                                         </select>
@@ -101,13 +101,6 @@
                                         <meta http-equiv="refresh" content="2; url=./hasilLaporan.php" />
                                     </div>
 
-                                    <?php
-                                } else {
-                                    ?>
-                                    <div class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                                        role="alert">
-                                        <strong class="font-bold"> data msih sama seperti sebelumnya</strong>
-                                    </div>
                                     <?php
                                 }
                             }
