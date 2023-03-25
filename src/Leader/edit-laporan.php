@@ -26,14 +26,14 @@
 
             <div class="mainPage mt-20 container w-1/2 ml-20 ">
                 <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
-                    Kelola Laporan
+                    edit laporan
                 </h1>
                 <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
                     <div class="inline">
                         <ul class="flex">
                             <li
                                 class="btnProfil bg-purple-400 hover:bg-purple-600 hover:text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
-                                Kelola Laporan
+                                edit laporan
                             </li>
                         </ul>
                     </div>
@@ -81,11 +81,12 @@
                                         <input readonly class="py-2 px-4 text-black rounded-md normal-case " type="text"
                                             name="leader" value="<?php echo $data2["leader"] ?>">
                                     </div>
-                                    <button name="btnSubmit" class="py-2 px-4 text-white bg-blue-500">Submit</button>
+                                    <button name="btnUpdate" class="py-2 px-4 text-white bg-blue-500">Submit</button>
+                                    <button name="btnHapus" class="py-2 px-4 text-white bg-red-500">Hapus</button>
                                 </form>
                             </div>
                             <?php
-                            if (isset($_POST['btnSubmit'])) {
+                            if (isset($_POST['btnUpdate'])) {
                                 $null ="";
                                 $dept = htmlspecialchars($_POST['departement']);
                                 $verifikasi = htmlspecialchars($_POST['verifikasi']);
@@ -97,7 +98,7 @@
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
                                         <strong class="font-bold"> berhasil update </strong>
-                                        <meta http-equiv="refresh" content="2; url=./Leader/hasilLaporan.php" />
+                                        <meta http-equiv="refresh" content="2; url=./hasilLaporan.php" />
                                     </div>
 
                                     <?php
@@ -109,6 +110,17 @@
                                     </div>
                                     <?php
                                 }
+                            }
+                            if (isset($_POST['btnHapus'])) {
+                                $deleteLaporan = mysqli_query($con ,"DELETE FROM `leader_kelola_operator` WHERE `no`=$idUpdate")
+                                ?>
+                                    <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                                        role="alert">
+                                        <strong class="font-bold"> berhasil Delete </strong>
+                                        <meta http-equiv="refresh" content="2; url=./hasilLaporan.php" />
+                                    </div>
+
+                                <?php
                             }
                             ?>
                         </section>
