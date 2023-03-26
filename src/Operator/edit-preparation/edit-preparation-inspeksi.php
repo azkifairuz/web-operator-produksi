@@ -1,13 +1,15 @@
 <?php
-session_start();
-$userNip = $_SESSION['NIP'];
-include("navbar.php");
-include("../koneksi.php");
-$getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE `user_nip` ='$userNip' ");
-$oldPassword = mysqli_fetch_array($getOldPassword);
-$cekUser = mysqli_num_rows($getDataOperator);
-$data = mysqli_fetch_array($getDataOperator);
+    session_start();
+    $userNip = $_SESSION['NIP'];
+    $idPreparation = $_GET["p"];
+    include("../navbar.php");
+    include("../../koneksi.php");
+    $queryInpeksiArea = mysqli_query($con,"SELECT * FROM `form_preparation_inspeksi_area` where `no_preparation`=$idPreparation ");
+    $queryMesinBurshing = mysqli_query($con,"SELECT * FROM `form_preparation_mesin_brushing` where `no_preparation`=$idPreparation ");
+    $queryProduksi = mysqli_query($con,"SELECT * FROM `form_preparation_produksi` where `no_preparation`=$idPreparation ");
+    $dataInpeksi = mysqli_fetch_assoc($queryInpeksiArea);
+    $dataMesin = mysqli_fetch_assoc($queryMesinBurshing);
+    $dataProduksi = mysqli_fetch_assoc($queryProduksi);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,38 +19,28 @@ $data = mysqli_fetch_array($getDataOperator);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="../../dist/output.css" />
+  <link rel="stylesheet" href="../../../dist/output.css" />
 </head>
 
 <body>
   <div>
     <div class="flex">
-      <?php
-      require "sidebar.php";
-      ?>
+      <?php include("sidebar.php") ?>
 
-      <div class="mainPage container mt-20 w-1/2 ml-20 ">
-        <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
-          Preparation
+      <div class="mainPage container mt-20 mx-auto w-fit  ">
+        <h1 class="md:text-2xl ml-20 mb-5 text-purple-700 font-bold">
+          Edit Preparation Inspeksi 
         </h1>
-        <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
+        <div class="maincontainer ml-20 lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
             <ul class="flex">
               <li
                 class="btnProfil  bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
-                Cek list dan inpeksi area
-              </li>
-              <li
-                class="btnUbah  bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan produksi
-              </li>
-              <li
-                class="btnPassword  bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan mesin brushing
+                edit list dan inpeksi area
               </li>
             </ul>
           </div>
-          <div class="bg-pink-400 w-fit rounded-b-lg  rounded-b-g shadow lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
+          <div class="bg-pink-400  w-fit rounded-b-lg  rounded-b-g shadow lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
             <section class="cekList">
               <div class=" items-center justify-evenly m-2 gap-4 w-full">
                 <form action="" method="post" enctype="multipart/form-data" class="p-4  w-full ">
@@ -59,6 +51,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Inpeksi mesin/peralatan</h1>
                           <select name="mesin"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["inspeksi_mesin/peralatan"] ?>" ><?php echo $dataInpeksi['inspeksi_mesin/peralatan'] ?></option>
                             <option value="mesin">Mesin</option>
                             <option value="Peralatan Produksi">Peralatan Produksi</option>
                           </select>
@@ -67,6 +60,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Nama Item</h1>
                           <select name="item"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["nama_item"] ?>" ><?php echo $dataInpeksi['nama_item'] ?></option>
                             <option>Brushing</option>
                             <option>Conveyor 1</option>
                             <option>Conveyor 2</option>
@@ -81,6 +75,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>kondisi mesin/peralatan</h1>
                           <select name="kondisiMesin"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_mesin/peralatan"] ?>" ><?php echo $dataInpeksi['kondisi_mesin/peralatan'] ?></option>
                             <option>Apakah Tercium bau cleaner atau chemical?</option>
                             <option>Apakah part berfungsi dengan baik?</option>
                             <option>apakah ada bagian berjamur?</option>
@@ -96,6 +91,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>keterangan mesin/peralatan</h1>
                           <select name="keteranganMesin"
                             class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_mesin/peralatan"] ?>" ><?php echo $dataInpeksi['keterangan_mesin/peralatan'] ?></option>
                             <option value="Iya">Iya</option>
                             <option value="Tidak">tidak</option>
                           </select>
@@ -104,6 +100,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Inpeksi Area</h1>
                           <select name="area"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["inpeksi_area"] ?>" ><?php echo $dataInpeksi['inpeksi_area'] ?></option>
                             <option value="Lantai">Lantai</option>
                             <option value="Dinding"> Dinding</option>
                             <option value="Plafond">Plafond</option>
@@ -116,6 +113,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Kondisi Area</h1>
                           <select name="kondisiArea"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_area"] ?>" ><?php echo $dataInpeksi['kondisi_area'] ?></option>
                             <option>Apakah area bersih?</option>
                             <option> Apakah ada area yang terkelupas?</option>
                             <option>Apakah ada area yang retak?</option>
@@ -129,6 +127,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>keterangan area</h1>
                           <select name="keteranganArea"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_area"] ?>" ><?php echo $dataInpeksi['keterangan_area'] ?></option>
                             <option>Iya</option>
                             <option>Tidak</option>
                           </select>
@@ -137,6 +136,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>Inpeksi alat cleaning</h1>
                           <select name="alat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["inspeksi_alat_cleaning"] ?>" ><?php echo $dataInpeksi['inspeksi_alat_cleaning'] ?></option>
                             <option value="Alat pel">Alat pel</option>
                             <option value="Tarikan air"> Tarikan air</option>
                             <option value="Kuraray">Kuraray</option>
@@ -149,6 +149,7 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>kondisi alat cleaning</h1>
                           <select name="kondisiAlat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["kondisi_alat_cleaning"] ?>" ><?php echo $dataInpeksi['kondisi_alat_cleaning'] ?></option>
                             <option>Apakah alat bersih?</option>
                             <option> Apakah alat berfungsi normal?</option>
                             <option>Apakah alat ada identitas?</option>
@@ -159,18 +160,21 @@ $data = mysqli_fetch_array($getDataOperator);
                           <h1>keterangan Alat cleaning</h1>
                           <select name="keteranganAlat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option class="lowercase" value="<?php $dataInpeksi["keterangan_alat_cleaning"] ?>" ><?php echo $dataInpeksi['keterangan_alat_cleaning'] ?></option>
                             <option>Iya</option>
                             <option>Tidak</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <label for="date">Tanggal</label>
-                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" value="<?php echo date("Y-m-d")?>"/>
+                          <input class="py-2 px-4 text-black" type="text" readonly id="date" name="tgl" value="<?php echo date("Y-m-d") ?>" />
                         </div>
                       </div>
                     </div>
                     <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
-                      Submit</button>
+                      Ubah</button>
+                    <button name="btn-delete" id="btn-preparation" class="bg-red-500 w-full text-white px-4 py-2">
+                      delete</button>
                   </div>
                 </form>
               </div>
@@ -188,27 +192,27 @@ $data = mysqli_fetch_array($getDataOperator);
                 $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
 
-                if ($isMesin === "" && $namaItem === "" && $kondisiMesin === "") {
-
+                  $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`nama_item`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin/peralatan`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$ketereanganAlat',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_preparation`=$idPreparation ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold"> tidak boleh kosong</strong>
-                  </div>
-
-                  <?php
-                } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
-                  ?>
-                  <div
-                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold"> berhasil Input</strong>
+                    <strong class="font-bold"> berhasil Update</strong>
+                    <meta http-equiv="refresh" content="2; url=../laporanPreparation.php" />
                   </div>
                   <?php
-                }
               }
+              if (isset($_POST['btn-delete'])) {
+                $deleteLaporan = mysqli_query($con ,"DELETE FROM `form_preparation_inspeksi_area` WHERE `no_preparation`=$idPreparation")
+                ?>
+                    <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                        role="alert">
+                        <strong class="font-bold"> berhasil Delete </strong>
+                        <meta http-equiv="refresh" content="2; url=../laporanPreparation.php" />
+                    </div>
+
+                <?php
+            }
               ?>
             </section>
             <section class="produksi hidden w-full">
@@ -241,7 +245,7 @@ $data = mysqli_fetch_array($getDataOperator);
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">Tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="<?php echo date("Y-m-d")?>">
+                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
                   </div>
                   <button name="btn-produksi" class=" mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
                 </form>
@@ -271,9 +275,9 @@ $data = mysqli_fetch_array($getDataOperator);
                   $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_produksi`( `kode_supplier`, `raw_material`, `QTY`, `jam_keluar`, `total_RM`, `waste`, `tanggal`) VALUES ('$kode','$Raw','$Qty','$JamKeluar','$TotalRm','$waste','$tanggal') ");
                   ?>
                   <div
-                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
+                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold"> berhasil Input</strong>
+                    <strong class="font-bold"> berhasil update</strong>
                   </div>
                   <meta http-equiv="refresh" content="2; url=preparation.php">
                   <?php
@@ -292,53 +296,54 @@ $data = mysqli_fetch_array($getDataOperator);
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">kode suplier</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kode" value="<?php echo $dataMesin['kode_supplier']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">raw material</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="raw" value="<?php echo $dataMesin['raw_material']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">QTY</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="qty" value="">
+                    <input type="text" class="py-2 px-4 text-black rounded-md"  name="qty" value="<?php echo $dataMesin['QTY']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">kg</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="kg" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="kg" value="<?php echo $dataMesin['kg']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">mulai</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="time" name="mulai" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="time" name="mulai" value="<?php echo $dataMesin['mulai']?>">
                   </div>
                   </div>
                   <div>
                   <div class="flex flex-col text-white">
                     <label for="old">berakhir</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="time" name="berakhir" value="<?php echo $dataMesin['berakhir']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">durasi</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="number" name="durasi" value="<?php echo $dataMesin['durasi']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">jumlah</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="jumlah" value="">
+                    <input type="number" class="py-2 px-4 text-black rounded-md" type="text" name="jumlah" value="<?php echo $dataMesin['jumlah']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">total_RM</label>
-                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="totalRm" value="">
+                    <input type="number" class="py-2 px-4 text-black rounded-md"  name="totalRm" value="<?php echo $dataMesin['total_RM']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">waste(kg)</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="number" name="waste" value="">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="waste" value="<?php echo $dataMesin['waste(kg)']?>">
                   </div>
                   <div class="flex flex-col text-white">
                     <label for="new">tanggal</label>
-                    <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="<?php echo date("Y-m-d")?>">
+                    <input class="py-2 px-4 text-black rounded-md" type="text" name="tgl" value="<?php echo date("Y-m-d") ?>">
                   </div>
                 </div>
                   </div>
                 <button name="btn-mesin" class=" w-full mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                <button name="btn-delete" class=" w-full mt-2 py-2 px-4 text-white bg-red-500">delete</button>
                 </form>
               </div>
               <?php
@@ -362,18 +367,18 @@ $data = mysqli_fetch_array($getDataOperator);
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold">tidak boleh kosong</strong>
+                    <strong class="font-bold">tidak boleh sama seperti sebelumnya</strong>
                   </div>
 
                   <?php
                 } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_preparation_mesin_brushing`(`operator`, `kode_supplier`, `raw_material`, `QTY`, `kg`, `mulai`, `berakhir`, `durasi`, `jumlah`, `total_RM`, `waste(kg)`, `tanggal`) VALUES ('$Operator','$kode','$Raw','$Qty','$kg','$mulai','$berakhir','$durasi','$jumlah','$TotalRm','$waste','$tanggal')");
+                  $queryUpdate = mysqli_query($con, "UPDATE `form_preparation_mesin_brushing` SET `operator`='$Operator',`kode_supplier`='$kode',`raw_material`='$Raw',`QTY`='$Qty',`kg`='$kg',`mulai`='$mulai',`berakhir`='$berakhir',`durasi`='$durasi',`jumlah`='$jumlah',`total_RM`='$TotalRm',`waste(kg)`='$$waste',`tanggal`='$tanggal' WHERE `no_preparation` = $idPreparation ");
                   ?>
                   <div
                     class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold"> berhasil Input</strong>
-                    <meta http-equiv="refresh" content="2; url=preparation.php">
+                    <strong class="font-bold"> berhasil Update</strong>
+                    <meta http-equiv="refresh" content="2; url=./LaporanPreparation.php">
                   </div>
                   <?php
                 }

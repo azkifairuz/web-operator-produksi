@@ -50,7 +50,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
           </div>
           <div class="bg-pink-400 shadow w-fit rounded-b-lg  flex  justify-center p-2">
           <section class="cekList">
-              <div class=" items-center justify-evenly m-2 gap-4 w-full">
+              <div class="items-center justify-evenly m-2 gap-4 w-full">
                 <table>
                     <tr class="bg-black text-white p-2">
                         <th class="p-2">no_preparation</th>
@@ -65,6 +65,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                         <th class="p-2">kondisi_alat_cleaning </th>
                         <th class="p-2">keterangan_alat_cleaning</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -115,6 +116,10 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
+
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-preparation/edit-preparation-inspeksi.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>
                             
                         </tr>
                         <?php
@@ -137,6 +142,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                         <th class="p-2">total_RM</th>
                         <th class="p-2">waste</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -174,6 +180,9 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                                 <?php echo $data['tanggal']; ?>
                             </td>
                             
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-preparation/edit-preparation-produksi.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>
                         </tr>
                         <?php
                         $no++;
@@ -198,6 +207,7 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                         <th class="p-2">total_RM</th>
                         <th class="p-2">waste(kg)</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -243,7 +253,9 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
-                            
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-preparation/edit-preparation-mesin.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>
                         </tr>
                         <?php
                         $no++;
