@@ -27,7 +27,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
 
       <div class="mainPage container mt-20 w-1/2 ml-20 ">
         <h1 class="text-2xl -ml-10 mb-5 text-purple-700 font-bold">
-          Hasil Laporan Kupas
+          Hasil Laporan Angel
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">

@@ -174,7 +174,7 @@ $data = mysqli_fetch_array($getDataOperator);
                                         </div>
                                         <button name="btn-preparation" id="btn-preparation"
                                             class="bg-blue-500 w-full text-white px-4 py-2">
-                                            Ubah</button>
+                                            Submit</button>
                                     </div>
                                 </form>
                             </div>
