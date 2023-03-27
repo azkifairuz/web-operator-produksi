@@ -60,6 +60,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
                         <th class="p-2">kondisi_alat_cleaning </th>
                         <th class="p-2">keterangan_alat_cleaning</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">Action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -109,7 +110,10 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
                             
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
-                            </td>                            
+                            </td> 
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-angel/ceklist.php?p=<?php echo $data['no_angel']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>                           
                         </tr>
                         <?php
                         $no++;
@@ -135,6 +139,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
                         <th class="p-2">keterangan</th>
                         <th class="p-2">operator</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -158,9 +163,12 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['kode_supplier ']; ?>
+                                <?php echo $data['kode_supplier']; ?>
                             </td>
                             
+                            <td class=" p-2 border border-black ">
+                                <?php echo $data['batch']; ?>
+                            </td>
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['jam_mulai']; ?>
                             </td>
@@ -176,13 +184,13 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_angel_produksi` ");
                             </td>
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['operator']; ?>
-                            </td>
-                            
-                            
+                            </td>                    
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
-                            
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-angel/laporan-produksi.php?p=<?php echo $data['no_angel']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>    
                         </tr>
                         <?php
                         $no++;
