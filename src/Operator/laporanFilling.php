@@ -27,7 +27,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_filling_produksi`");
 
       <div class="mainPage container mt-20 w-1/2 ml-20 ">
         <h1 class="text-2xl -ml-10 mb-5 text-purple-700 font-bold">
-          Hasil Laporan Kupas
+          Hasil Laporan Filling
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -60,6 +60,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_filling_produksi`");
                         <th class="p-2">kondisi_alat_cleaning </th>
                         <th class="p-2">keterangan_alat_cleaning</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -109,7 +110,10 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_filling_produksi`");
                             
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
-                            </td>                            
+                            </td>  
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-filling/ceklist.php?p=<?php echo $data['no_filling']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>                          
                         </tr>
                         <?php
                         $no++;
@@ -136,6 +140,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_filling_produksi`");
                         <th class="p-2">waste</th>
                         <th class="p-2">operator</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">Action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -159,7 +164,7 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_filling_produksi`");
                             </td>
                             
                             <td class=" p-2 border border-black ">
-                                <?php echo $data['line ']; ?>
+                                <?php echo $data['line']; ?>
                             </td>
                             
                             <td class=" p-2 border border-black ">
@@ -189,6 +194,9 @@ $getDataProduksi = mysqli_query($con ,"SELECT * FROM `form_filling_produksi`");
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-filling/laporan-produksi.php?p=<?php echo $data['no_filling']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>  
                             
                         </tr>
                         <?php

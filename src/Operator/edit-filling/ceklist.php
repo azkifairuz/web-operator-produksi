@@ -1,13 +1,10 @@
 <?php
-session_start();
-$userNip = $_SESSION['NIP'];
-include("navbar.php");
-include("../koneksi.php");
-$getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE `user_nip` ='$userNip' ");
-$oldPassword = mysqli_fetch_array($getOldPassword);
-$cekUser = mysqli_num_rows($getDataOperator);
-$data = mysqli_fetch_array($getDataOperator);
+    session_start();
+    $userNip = $_SESSION['NIP'];
+    $idFilling = $_GET['p'];
+    include("../navbar.php");
+    include("../../koneksi.php");
+    $getDataFilling = mysqli_query($con,"SELECT * FROM `form_filling_inspeksi_area` where `no_filling`= $idFilling")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +14,7 @@ $data = mysqli_fetch_array($getDataOperator);
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../dist/output.css" />
+    <link rel="stylesheet" href="../../../dist/output.css" />
 </head>
 
 <body>
@@ -26,7 +23,6 @@ $data = mysqli_fetch_array($getDataOperator);
             <?php
             require "sidebar.php";
             ?>
-
             <div class="mainPage mt-20 container w-1/2 ml-20 ">
                 <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
                     Filling
@@ -37,10 +33,6 @@ $data = mysqli_fetch_array($getDataOperator);
                             <li
                                 class="btnProfil bg-[#8338EC] hover:bg-purple-400  text-white hover:text-black h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                                 Cek list dan inpeksi area
-                            </li>
-                            <li
-                                class="btnUbah bg-[#8338EC] hover:bg-purple-400 text-white hover:text-black h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                                Laporan produksi
                             </li>
                         </ul>
                     </div>
@@ -84,10 +76,10 @@ $data = mysqli_fetch_array($getDataOperator);
                                                     <select name="kondisiMesin"
                                                         class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                                         <option>Apakah berbau bahan kimia?</option>
-                                                        <option>Apakah part berfungsi dengan baik?</option>
-                                                        <option>Apakah ada yang berjamur dan berkarat?</option>
+                                                        <option>Apakah ada berjamur dan berkarat?</option>
                                                         <option>Apakah sudah diberi pelumas?</option>
                                                         <option>Apakah ada bagian yang kendor/part hilang?</option>
+                                                        <option>Apakah ada bagian pecah/sobek/bocor/patah?</option>
                                                         <option>Apakah ada bagian pecah/sobek/bocor/patah?</option>
                                                         <option>Apakah berfungsi normal?</option>
                                                     </select>
@@ -168,13 +160,16 @@ $data = mysqli_fetch_array($getDataOperator);
                                                 <div class="flex flex-col capitalize text-white">
                                                     <label for="date">Tanggal</label>
                                                     <input class="py-2 px-4 text-black" type="date" id="date"
-                                                        name="tgl" />
+                                                        name="tgl" value="<?php echo date("Y-m-d") ?>" />
                                                 </div>
                                             </div>
                                         </div>
                                         <button name="btn-preparation" id="btn-preparation"
                                             class="bg-blue-500 w-full text-white px-4 py-2">
-                                            Submit</button>
+                                            Ubah</button>
+                                        <button name="btn-delete" id="btn-delete"
+                                            class="bg-red-500 w-full text-white px-4 py-2">
+                                            Delete</button>
                                     </div>
                                 </form>
                             </div>
@@ -192,165 +187,25 @@ $data = mysqli_fetch_array($getDataOperator);
                                 $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
                                 $tanggal = htmlspecialchars($_POST['tgl']);
 
-                                if ($isMesin === "" && $namaItem === "" && $kondisiMesin === "") {
-
-                                    ?>
-                                    <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                                        role="alert">
-                                        <strong class="font-bold"> tidak boleh kosong</strong>
-                                    </div>
-
-                                    <?php
-                                } else {
-                                    $queryUpdate = mysqli_query($con, "INSERT INTO `form_filling_inspeksi_area`(`inspeksi_mesin/peralatan`, `part_mesin/peralatan`, `kondisi_mesin/peralatan`, `keterangan_mesin`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
+                                    $queryUpdate = mysqli_query($con, "UPDATE `form_filling_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`part_mesin/peralatan`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin`='$ketereanganAlat',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$keteranganArea',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_filling` = $idFilling ");
                                     ?>
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
                                         <strong class="font-bold">Berhasil Input</strong>
+                                        <meta http-equiv="refresh" content="2; url=../laporanFilling.php" />
                                     </div>
                                     <?php
-                                }
                             }
-                            ?>
-                        </section>
-                        <section class="produksi hidden  w-full">
-                            <div class="mx-auto w-1/2">
-                                <form action="" method="post" class="flex flex-col gap-4">
-                                    <div class="flex flex-row gap-4">
-                                        <div>
-                                            <div class="flex flex-col text-white">
-                                                <h1>varian produk</h1>
-                                                <select name="variant"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                                    <option>Asian green</option>
-                                                    <option>Beat that</option>
-                                                    <option>Classic green</option>
-                                                    <option>Green glory</option>
-                                                    <option>I glow</option>
-                                                    <option>Golden apple</option>
-                                                    <option>Golden orange</option>
-                                                    <option>U glow</option>
-                                                    <option>Glowing apple</option>
-                                                    <option>Minty Apple</option>
-                                                    <option>Firey Apple</option>
-                                                    <option>Crush watermelon</option>
-                                                    <option>Glowing Golden</option>
-                                                    <option>Tropic golden</option>
-                                                    <option>Glowing calamansi</option>
-                                                    <option>Tropic calamansit</option>
-                                                </select>
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">Jam Mulai</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="time"
-                                                    name="jamMulai" value="">
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">Jam Selesai</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="time"
-                                                    name="jamSelesai" value="">
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">line</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="text"
-                                                    name="line" value="">
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                            <h1>plan</h1>
-                                                <select name="plan"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                                    <option>5000ML</option>
-                                                    <option>1350ML</option>
-                                                    <option>435ML</option>
-                                                    <option>330ML</option>
-                                                    <option>250ML</option>
-                                                    <option>50ML</option>            
-                                                </select>
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">no plan</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="number"
-                                                    name="noPlan" value="">
-                                            </div>
-                                        </div>
-                                        <div>
-                                           
-                                            <div class="flex flex-col text-white">
-                                            <h1>Hasil</h1>
-                                                <select name="hasil"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                                    <option>5000ML</option>
-                                                    <option>1350ML</option>
-                                                    <option>435ML</option>
-                                                    <option>330ML</option>
-                                                    <option>250ML</option>
-                                                    <option>50ML</option>            
-                                                </select>
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">No Hasil</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="number"
-                                                    name="noHasil" value="">
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label cols="5" rows="10" for="new">keterangan</label>
-                                                <textarea class="py-2 px-4 text-black rounded-md" type="text"
-                                                    name="keterangan" value=""></textarea>
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">waste</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="text"
-                                                    name="waste" value="">
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="old">Operator</label>
-                                                <input readonly class="py-2 px-4 text-black rounded-md" type="text"
-                                                    name="operator" value="<?php echo $data["nama"] ?>">
-                                            </div>
-                                            <div class="flex flex-col text-white">
-                                                <label for="new">tanggal</label>
-                                                <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl"
-                                                    value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button name="btn-mesin"
-                                        class=" w-full mt-2 py-2 px-4 rounded-sm hover:bg-blue-800 text-white bg-blue-500">Ubah</button>
-                                </form>
-                            </div>
-                            <?php
-                            if (isset($_POST['btn-mesin'])) {
-                                $variant = htmlspecialchars($_POST['variant']);
-                                $jamMulai = htmlspecialchars($_POST['jamMulai']);
-                                $jamSelesai = htmlspecialchars($_POST['jamSelesai']);
-                                $line = htmlspecialchars($_POST['line']);
-                                $plan = htmlspecialchars($_POST['plan']);
-                                $noPlan = htmlspecialchars($_POST['noPlan']);
-                                $hasil = htmlspecialchars($_POST['hasil']);
-                                $noHasil = htmlspecialchars($_POST['noHasil']);
-                                $waste = htmlspecialchars($_POST['waste']);
-                                $keterangan = htmlspecialchars($_POST['keterangan']);
-                                $operator = htmlspecialchars($_POST['operator']);
-                                $tanggal = htmlspecialchars($_POST['tgl']);
-                                if ($variant === "" || $waste === "" && $jamMulai === "") {
-                                    ?>
+                            if (isset($_POST['btn-delete'])) {
+                                $deleteLaporan = mysqli_query($con ,"DELETE FROM `form_filling_inspeksi_area` WHERE `no_filling`=$idFilling")
+                                ?>
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
-                                        <strong class="font-bold">tidak boleh kosong</strong>
-                                        <meta http-equiv="refresh" content="2; url=angel.php">
+                                        <strong class="font-bold"> berhasil Delete </strong>
+                                        <meta http-equiv="refresh" content="2; url=../laporanFilling.php" />
                                     </div>
-
-                                    <?php
-                                } else {
-                                    $queryUpdate = mysqli_query($con, "INSERT INTO `form_filling_produksi`(`varian_produk`, `jam_mulai`, `jam_selesai`, `line`, `plan`, `no_plan`, `hasil`, `no_hasil`, `keterangan`, `waste`, `operator`, `tanggal`) VALUES ('$variant','$jamMulai','$jamSelesai','$line','$plan','$noPlan','$hasil','$noHasil','$keterangan','$waste','$operator','$tanggal')");
-                                    ?>
-                                    <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                                        role="alert">
-                                        <strong class="font-bold"> berhasil Input</strong>
-                                        <meta http-equiv="refresh" content="2; url=filling.php">
-                                    </div>
-                                    <?php
-                                }
+                
+                                <?php
                             }
                             ?>
                         </section>
