@@ -235,7 +235,7 @@ $data = mysqli_fetch_array($getDataOperator);
                       </div>
                       <div class="flex flex-col text-white">
                         <label for="new">kode suplier</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="number" name="kodeSupllier" value="">
+                        <input class="py-2 px-4 text-black rounded-md" type="number" name="kodeSuplier" value="">
                       </div>
                       <div class="flex flex-col text-white">
                         <label for="new">batch</label>
@@ -279,7 +279,7 @@ $data = mysqli_fetch_array($getDataOperator);
                 $kode = htmlspecialchars($_POST['kodeMesin']);
                 $rawMaterial = htmlspecialchars($_POST['raw']);
                 $untukProduk = htmlspecialchars($_POST['untukProduk']);
-                $kodeSuplier = htmlspecialchars($_POST['beratJuiceKg']);
+                $kodeSuplier = htmlspecialchars($_POST['kodeSuplier']);
                 $batch = htmlspecialchars($_POST['batch']);
                 $jamMulai = htmlspecialchars($_POST['jamMulai']);
                 $jamKeluar = htmlspecialchars($_POST['jamKeluar']);
