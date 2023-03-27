@@ -36,10 +36,6 @@
                 class="btnProfil bg-[#8338EC] hover:bg-purple-400  text-white hover:text-black h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                 Cek list dan inpeksi area
               </li>
-              <li
-                class="btnUbah bg-[#8338EC] hover:bg-purple-400 text-white hover:text-black h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan produksi
-              </li>
             </ul>
           </div>
           <div class="bg-pink-400 w-fit   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
@@ -52,7 +48,7 @@
                         <div class="flex flex-col capitalize text-white">
                           <h1>Inpeksi mesin/peralatan</h1>
                           <select name="mesin"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option value="Mesin">Mesin</option>
                             <option value="Peralatan Produksi">Peralatan Produksi</option>
                           </select>
@@ -162,50 +158,50 @@
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <label for="date">Tanggal</label>
-                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" />
+                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" value="<?php echo date("Y-m-d") ?>" />
                         </div>
                       </div>
                     </div>
-                    <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
-                      Ubah</button>
+                    <button name="btn-update" id="btn-update" class="bg-blue-500 w-full text-white px-4 py-2">Update</button>
+                    <button name="btn-delete" id="btn-delete" class="bg-red-500 w-full text-white px-4 py-2">Hapus</button>
                   </div>
                 </form>
               </div>
               <?php
-              if (isset($_POST['btn-preparation'])) {
-                $isMesin = htmlspecialchars($_POST['mesin']);
-                $namaItem = htmlspecialchars($_POST['item']);
-                $kondisiMesin = htmlspecialchars($_POST['kondisiMesin']);
-                $keteranganMesin = htmlspecialchars($_POST['keteranganMesin']);
-                $inpeskiArea = htmlspecialchars($_POST['area']);
-                $kondisiArea = htmlspecialchars($_POST['kondisiArea']);
-                $keteranganArea = htmlspecialchars($_POST['keteranganArea']);
-                $inpeksiAlat = htmlspecialchars($_POST['alat']);
-                $kondisiAlat = htmlspecialchars($_POST['kondisiAlat']);
-                $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
-                $tanggal = htmlspecialchars($_POST['tgl']);
+              if (isset($_POST['btn-update'])) {
+                    $isMesin = htmlspecialchars($_POST['mesin']);
+                    $namaItem = htmlspecialchars($_POST['item']);
+                    $kondisiMesin = htmlspecialchars($_POST['kondisiMesin']);
+                    $keteranganMesin = htmlspecialchars($_POST['keteranganMesin']);
+                    $inpeskiArea = htmlspecialchars($_POST['area']);
+                    $kondisiArea = htmlspecialchars($_POST['kondisiArea']);
+                    $keteranganArea = htmlspecialchars($_POST['keteranganArea']);
+                    $inpeksiAlat = htmlspecialchars($_POST['alat']);
+                    $kondisiAlat = htmlspecialchars($_POST['kondisiAlat']);
+                    $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
+                    $tanggal = htmlspecialchars($_POST['tgl']);
 
-                if ($isMesin === "" && $namaItem === "" && $kondisiMesin === "") {
-
-                  ?>
-                  <div
-                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold"> tidak boleh kosong</strong>
-                  </div>
-
-                  <?php
-                } else {
-                  $queryUpdate = mysqli_query($con, "INSERT INTO `form_angel_inspeksi_area`(`inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES ('$isMesin','$namaItem','$kondisiMesin','$keteranganMesin','$inpeskiArea','$kondisiArea','$keteranganArea','$inpeksiAlat','$kondisiAlat','$ketereanganAlat','$tanggal') ");
-                  ?>
-                  <div
-                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                    role="alert">
-                    <strong class="font-bold">Berhasil Input</strong>
-                  </div>
-                  <?php
+                    $queryUpdate = mysqli_query($con, " UPDATE `form_angel_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`nama_item`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin/peralatan`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$keteranganArea',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_angel`=$idAngel ");
+                    ?>
+                    <div
+                        class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                        role="alert">
+                        <strong class="font-bold">Berhasil update</strong>
+                        <meta http-equiv="refresh" content="2; url=../laporanAngel.php" />
+                    </div>
+                    <?php
                 }
-              }
+                if (isset($_POST['btn-delete'])) {
+                    $deleteLaporan = mysqli_query($con ,"DELETE FROM `form_angel_inspeksi_area` WHERE `no_angel`=$idAngel")
+                    ?>
+                        <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                            role="alert">
+                            <strong class="font-bold"> berhasil Delete </strong>
+                            <meta http-equiv="refresh" content="2; url=../laporanAngel.php" />
+                        </div>
+    
+                    <?php
+                }
               ?>
             </section>
             <section class="produksi hidden w-full">
@@ -216,7 +212,7 @@
                       <div class="flex flex-col text-white">
                         <h1>kode mesin</h1>
                         <select name="kodeMesin"
-                          class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                          class="bg-gray-50 border border-gray-300 capitalize text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 ">
                           <option>AJ.A</option>
                           <option>AJ.B</option>
                           <option>AG.A</option>
@@ -269,7 +265,7 @@
                       </div>
                     </div>
                   </div>
-                  <button name="btn-mesin" class=" w-full mt-2 py-2 px-4 text-white bg-blue-500">Ubah</button>
+                  <button name="btn-mesin" class=" w-full mt-2 py-2 px-4 text-white bg-red-500">Ubah</button>
                 </form>
               </div>
               <?php
