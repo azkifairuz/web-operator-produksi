@@ -1,14 +1,11 @@
 <?php
     session_start();
     $userNip = $_SESSION['NIP'];
-    $idPreparation = $_GET["p"];
+    $idAngel = $_GET["p"];
     include("../navbar.php");
     include("../../koneksi.php");
-$getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
-$getOldPassword = mysqli_query($con, "SELECT `user_password` FROM `user` WHERE `user_nip` ='$userNip' ");
-$oldPassword = mysqli_fetch_array($getOldPassword);
-$cekUser = mysqli_num_rows($getDataOperator);
-$data = mysqli_fetch_array($getDataOperator);
+    $getDataAngel = mysqli_query($con,"SELECT * FROM `form_angel_inspeksi_area` where `no_angel`= $idAngel");
+    $dataAngel = mysqli_fetch_assoc($getDataAngel);
 ?>
 <!DOCTYPE html>
 <html lang="en">
