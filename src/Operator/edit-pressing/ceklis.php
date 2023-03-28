@@ -36,10 +36,6 @@ include("../../koneksi.php");
                 class="btnProfil bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
                 Cek list dan inpeksi area
               </li>
-              <li
-                class="btnUbah bg-[#8338EC] hover:bg-purple-400 hover:text-black text-white h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan produksi
-              </li>
             </ul>
           </div>
           <div class="bg-pink-400 w-fit   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
