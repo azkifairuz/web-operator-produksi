@@ -65,6 +65,7 @@ $getDataPerendaman = mysqli_query($con ,"SELECT * FROM `form_weighing_perendaman
                         <th class="p-2">kondisi_alat_cleaning </th>
                         <th class="p-2">keterangan_alat_cleaning</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -115,6 +116,9 @@ $getDataPerendaman = mysqli_query($con ,"SELECT * FROM `form_weighing_perendaman
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-weighing/ceklist.php?p=<?php echo $data['no_weighing']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>  
                             
                         </tr>
                         <?php
@@ -137,6 +141,7 @@ $getDataPerendaman = mysqli_query($con ,"SELECT * FROM `form_weighing_perendaman
                         <th class="p-2">keterangan</th>
                         <th class="p-2">waste</th>
                         <th class="p-2">tanggal</th>
+                        <th class="p-2">action</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -173,6 +178,10 @@ $getDataPerendaman = mysqli_query($con ,"SELECT * FROM `form_weighing_perendaman
                             <td class=" p-2 border border-black ">
                                 <?php echo $data['tanggal']; ?>
                             </td>
+
+                            <td class="py-2 px-6 text-center">
+                                <a href="./edit-weighing/laporan-produksi.php?p=<?php echo $data['no_weighing']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
+                            </td>  
                             
                         </tr>
                         <?php
