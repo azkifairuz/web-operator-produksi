@@ -164,7 +164,7 @@ $data = mysqli_fetch_array($getDataOperator);
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <label for="date">Tanggal</label>
-                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" />
+                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" value="<?php echo date("Y-m-d")?>" />
                         </div>
                       </div>
                     </div>
@@ -267,7 +267,7 @@ $data = mysqli_fetch_array($getDataOperator);
                       </div>
                       <div class="flex flex-col text-white">
                         <label for="new">tanggal</label>
-                        <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="">
+                        <input class="py-2 px-4 text-black rounded-md" type="date" name="tgl" value="<?php echo date("Y-m-d")?>">
                       </div>
                     </div>
                   </div>

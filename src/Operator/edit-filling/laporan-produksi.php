@@ -161,7 +161,7 @@
                                 $keterangan = htmlspecialchars($_POST['keterangan']);
                                 $operator = htmlspecialchars($_POST['operator']);
                                 $tanggal = htmlspecialchars($_POST['tgl']);
-                                    $queryUpdate = mysqli_query($con, "UPDATE `form_filling_produksi` SET `varian_produk`='$variant',`jam_mulai`='$jamMulai',`jam_selesai`='$jamSelesai',`line`='$jamSelesai',`plan`='$plan',`no_plan`='$noPlan',`hasil`='$hasil',`no_hasil`='$noHasil',`keterangan`='$keterangan',`waste`='$waste',`operator`='$operator',`tanggal`='$tanggal' WHERE `no_filling` =$idFilling ");
+                                    $queryUpdate = mysqli_query($con, "UPDATE `form_filling_produksi` SET `varian_produk`='$variant',`jam_mulai`='$jamMulai',`jam_selesai`='$jamSelesai',`line`='$jamSelesai',`plan`='$plan',`no_plan`='$noPlan',`hasil`='$hasil',`no_hasil`='$noHasil',`keterangan`='$keterangan',`waste`='$waste',`operator`='$operator',`tanggal`='$tanggal' WHERE `no_filling` =$idFillingnpm ");
                                     ?>
                                     <div class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
                                         role="alert">
