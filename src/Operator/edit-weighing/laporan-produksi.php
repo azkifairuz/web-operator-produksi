@@ -4,7 +4,7 @@ $userNip = $_SESSION['NIP'];
 $idWeighing = $_GET['p'];
 include("../navbar.php");
 include("../../koneksi.php");
-$getDataWeighing = mysqli_query($con,"SELECT * FROM `form_weighing_produksi` `no_Weighing` = $idWeighing ");
+$getDataWeighing = mysqli_query($con,"SELECT * FROM `form_weighing_produksi` where `no_weighing` = $idWeighing ");
 $dataWeighing = mysqli_fetch_assoc($getDataWeighing);
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $dataWeighing = mysqli_fetch_assoc($getDataWeighing);
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weighing</title>
-    <link rel="stylesheet" href="../../dist/output.css" />
+    <link rel="stylesheet" href="../../../dist/output.css" />
 </head>
 
 <body>
@@ -119,7 +119,7 @@ $dataWeighing = mysqli_fetch_assoc($getDataWeighing);
                                 
                             }
                             if(isset($_POST['btn-delete'])){
-                                $queryDelete = mysqli_query($con,"DELETE FROM `form_weighing_produksi` WHERE `no_washing` =$idWeighing ");
+                                $queryDelete = mysqli_query($con,"DELETE FROM `form_weighing_produksi` WHERE `no_weighing` =$idWeighing ");
                                 ?>
                                 <div
                                 class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"

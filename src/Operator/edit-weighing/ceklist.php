@@ -12,7 +12,7 @@ include("../../koneksi.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weighing</title>
-    <link rel="stylesheet" href="../../dist/output.css" />
+    <link rel="stylesheet" href="../../../dist/output.css" />
 </head>
 
 <body>
@@ -180,11 +180,12 @@ include("../../koneksi.php");
                                 $kondisiAlat = htmlspecialchars($_POST['kondisiAlat']);
                                 $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
                                 $tanggal = htmlspecialchars($_POST['tgl']);
-                                    $queryUpdate = mysqli_query($con, "UPDATE `form_weighing_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`nama_item`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin/peralatan`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$keteranganArea',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_washing` = $idWeighing");
+                                    $queryUpdate = mysqli_query($con, "UPDATE `form_weighing_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`nama_item`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin/peralatan`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$keteranganArea',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_weighing` = $idWeighing");
                                     ?>
                                     <div class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
                                         role="alert">
                                         <strong class="font-bold"> berhasil Update</strong>
+                                        <meta http-equiv="refresh" content="2; url=../laporanWeighing.php">
                                     </div>
                                     <?php
                                 
