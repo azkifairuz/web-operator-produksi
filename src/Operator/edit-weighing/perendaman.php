@@ -49,7 +49,7 @@ $data = mysqli_fetch_array($getDataOperator);
                         </ul>
                     </div>
                     <div class="bg-pink-400 w-fit   lg:h-fit lg:w-full flex  gap-2 items-center h-fit p-5">
-                        <section class="cekList">
+                        <section class="cekList hidden">
                             <div class=" items-center justify-evenly m-2 gap-4 w-full">
                                 <form action="" method="post" enctype="multipart/form-data" class="p-4  w-full ">
                                     <div class="p-4 mx-auto flex flex-col gap-5">
@@ -212,7 +212,7 @@ $data = mysqli_fetch_array($getDataOperator);
                             }
                             ?>
                         </section>
-                        <section class="produksi hidden  w-full">
+                        <section class="produksi  w-full">
                             <div class="mx-auto w-1/2">
                                 <form action="" method="post" class="flex flex-col gap-4">
                                 
