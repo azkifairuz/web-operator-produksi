@@ -1,7 +1,7 @@
 <?php
 session_start();
 $userNip = $_SESSION['NIP'];
-$idWashing = $_get['p'];
+$idWashing = $_GET['p'];
 include("../navbar.php");
 include("../../koneksi.php");
 
@@ -14,7 +14,7 @@ include("../../koneksi.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="../../dist/output.css" />
+  <link rel="stylesheet" href="../../../dist/output.css" />
 </head>
 
 <body>
@@ -163,6 +163,8 @@ include("../../koneksi.php");
                     </div>
                     <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
                       Ubah</button>
+                    <button name="btn-delete" id="btn-preparation" class="bg-red-500 w-full text-white px-4 py-2">
+                      Hapus</button>
                   </div>
                 </form>
               </div>
@@ -186,9 +188,22 @@ include("../../koneksi.php");
                     class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
                     role="alert">
                     <strong class="font-bold"> berhasil Input</strong>
+                    <meta http-equiv="refresh" content="2; url=../laporanWashing.php">
+
                   </div>
                   <?php
                 
+              }
+              if(isset($_POST['btn-delete'])){
+                $queryDelete = mysqli_query($con,"DELETE FROM `form_washing_inspeksi_area` WHERE `no_washing` =$idWashing ");
+                ?>
+                <div
+                class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                role="alert">
+                  <strong class="font-bold"> berhasil delete</strong>
+                  <meta http-equiv="refresh" content="2; url=../laporanWashing.php">
+                </div>
+              <?php
               }
               ?>
             </section>
