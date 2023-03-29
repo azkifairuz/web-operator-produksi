@@ -1,10 +1,9 @@
 <?php
 session_start();
 $userNip = $_SESSION['NIP'];
-$idPressing = $_GET['p'];
+$idWashing = $_GET['p'];
 include("../navbar.php");
 include("../../koneksi.php");
-
 
 ?>
 <!DOCTYPE html>
@@ -27,7 +26,7 @@ include("../../koneksi.php");
 
       <div class="mainPage mt-20 container w-1/2 ml-20 ">
         <h1 class="md:text-5xl -ml-10 mb-5 text-purple-700 font-bold">
-          pressing
+          Washing
         </h1>
         <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
           <div class="inline">
@@ -49,40 +48,38 @@ include("../../koneksi.php");
                           <h1>Inpeksi mesin/peralatan</h1>
                           <select name="mesin"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option value="X6">X6</option>
-                            <option value="X1">X1</option>
+                            <option value="mesin">Mesin</option>
+                            <option value="Peralatan Produksi">Peralatan Produksi</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <h1>Nama Item</h1>
                           <select name="item"
-                            class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">                            
-                            <option>HOPPER</option>
-                            <option>GRINDER</option>
-                            <option>MOVING PLATE</option>
-                            <option>PRESS RACK</option>
-                            <option>BAG PRESS</option>
-                            <option>SAFETY GUARD</option>
-                            <option>JUICE TRAY</option>
-                            <option>START/STOP SWITCH BOX</option>
-                            <option>PRESSURE GAUGE DAN FLOW CONTROL</option>
-                            <option>DIRECTIONAL CONTROL VALVE</option>
-                            <option>MOTOR HYDRAULIC DAN RESERVOIR</option>
-                            <option>AS MOVING PLATE</option>
-                            <option>SHIMS DAN RAIL</option>
-                            <option>CASTER</option>
+                            class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option>Washing 1</option>
+                            <option>Washing 2</option>
+                            <option>Washing 3</option>
+                            <option>Spinner 1</option>
+                            <option>Spinner 1</option>
+                            <option>Convayer 1 dan 2</option>
+                            <option>Bak stainless steel</option>
+                            <option>Container</option>
+                            <option>Saringan</option>
+                            <option>Dosing pump klorin</option>
+                            <option>Selang air</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <h1>kondisi mesin/peralatan</h1>
                           <select name="kondisiMesin"
                             class="bg-gray-50 border capitalize border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                            <option>Apakah berbau bahan kimia?</option>
-                            <option>Apakah ada berjamur dan berkarat?</option>
-                            <option>Apakah sudah diberi pelumas?</option>
-                            <option>Apakah ada bagian yang kendor/part hilang?</option>
-                            <option>apakah ada bagian pecah/sobek/bocor/patah</option>
+                            <option>Apakah Tercium bau cleaner atau chemical?</option>
                             <option>Apakah part berfungsi dengan baik?</option>
+                            <option>apakah ada bagian berjamur?</option>
+                            <option>Apakah ada bagian berkarat?</option>
+                            <option>apakah ada bagian yang kendor?</option>
+                            <option>apakah ada bagian pecah/sobek/bocor/patah</option>
+                            <option>apakah ada bagian yang hilang</option>
                           </select>
                         </div>
                       </div>
@@ -100,7 +97,7 @@ include("../../koneksi.php");
                           <select name="area"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option value="Lantai">Lantai</option>
-                            <option value="Dinding">Dinding</option>
+                            <option value="Dinding"> Dinding</option>
                             <option value="Plafond">Plafond</option>
                             <option value="pintu">pintu</option>
                             <option value="Plastic Curtain">Plastic Curtain</option>
@@ -134,10 +131,10 @@ include("../../koneksi.php");
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option value="Alat pel">Alat pel</option>
                             <option value="Tarikan air"> Tarikan air</option>
-                            <option value="Kuraray">Ember rendaman bag press</option>
+                            <option value="Kuraray">Kuraray</option>
                             <option value="Sikat">Sikat</option>
                             <option value="Sikat gagang">Sikat gagang</option>
-                            <option value="Sponges">Pembersih dinding</option>
+                            <option value="Sponges">Sponges</option>
                           </select>
                         </div>
                         <div class="flex flex-col capitalize text-white">
@@ -160,14 +157,14 @@ include("../../koneksi.php");
                         </div>
                         <div class="flex flex-col capitalize text-white">
                           <label for="date">Tanggal</label>
-                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" value="<?php echo date("Y-m-d") ?>" />
+                          <input class="py-2 px-4 text-black" type="date" id="date" name="tgl" value="<?php echo date("Y-m-d") ?>"/>
                         </div>
                       </div>
                     </div>
                     <button name="btn-preparation" id="btn-preparation" class="bg-blue-500 w-full text-white px-4 py-2">
-                      Update</button>
+                      Ubah</button>
                     <button name="btn-delete" id="btn-preparation" class="bg-red-500 w-full text-white px-4 py-2">
-                      delete</button>
+                      Hapus</button>
                   </div>
                 </form>
               </div>
@@ -185,31 +182,31 @@ include("../../koneksi.php");
                 $ketereanganAlat = htmlspecialchars($_POST['keteranganAlat']);
                 $tanggal = htmlspecialchars($_POST['tgl']);
 
-                  $queryUpdate = mysqli_query($con, "UPDATE `form_pressing_inspeksi_area` SET `kode_mesin`='$isMesin',`part_mesin`='$namaItem',`kondisi_mesin`='$kondisiMesin',`keterangan_mesin`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$keteranganArea',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_pressing`=$idPressing ");
+                  $queryUpdate = mysqli_query($con, "UPDATE `form_washing_inspeksi_area` SET `inspeksi_mesin/peralatan`='$isMesin',`nama_item`='$namaItem',`kondisi_mesin/peralatan`='$kondisiMesin',`keterangan_mesin/peralatan`='$keteranganMesin',`inpeksi_area`='$inpeskiArea',`kondisi_area`='$kondisiArea',`keterangan_area`='$keteranganArea',`inspeksi_alat_cleaning`='$inpeksiAlat',`kondisi_alat_cleaning`='$kondisiAlat',`keterangan_alat_cleaning`='$ketereanganAlat',`tanggal`='$tanggal' WHERE `no_washing`=$idWashing");
                   ?>
                   <div
-                    class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                    class="bg-red-100 mx-auto border text-center text-sm border-red-400 mt-5 w-60 text-red-700 px-5 py-3 rounded relative"
                     role="alert">
-                    <strong class="font-bold">Berhasil update</strong>
-                    <meta http-equiv="refresh" content="2; url=../laporanPressing.php" />
+                    <strong class="font-bold"> berhasil Input</strong>
+                    <meta http-equiv="refresh" content="2; url=../laporanWashing.php">
+
                   </div>
                   <?php
                 
               }
               if(isset($_POST['btn-delete'])){
-                $queryDelete = mysqli_query($con, "DELETE FROM `form_pressing_inspeksi_area` WHERE `no_pressing` = $idPressing");
+                $queryDelete = mysqli_query($con,"DELETE FROM `form_washing_inspeksi_area` WHERE `no_washing` =$idWashing ");
                 ?>
                 <div
-                  class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
-                  role="alert">
-                  <strong class="font-bold">Berhasil Delete</strong>
-                  <meta http-equiv="refresh" content="2; url=../laporanPressing.php" />
+                class="bg-green-100 mx-auto border text-center text-sm border-green-400 mt-5 w-60 text-green-700 px-5 py-3 rounded relative"
+                role="alert">
+                  <strong class="font-bold"> berhasil delete</strong>
+                  <meta http-equiv="refresh" content="2; url=../laporanWashing.php">
                 </div>
-                <?php
+              <?php
               }
               ?>
             </section>
-           
           </div>
         </div>
       </div>
