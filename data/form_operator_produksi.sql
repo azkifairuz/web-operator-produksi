@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2023 at 02:19 PM
+-- Generation Time: Mar 29, 2023 at 08:20 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -74,7 +74,7 @@ CREATE TABLE `form_angel_inspeksi_area` (
 --
 
 INSERT INTO `form_angel_inspeksi_area` (`no_angel`, `inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES
-(1, 'Mesin', 'Timbangan 5 kg', 'apakah ada bagian yang hilang', 'Iya', 'Lantai', 'Apakah ada sisa buah atau sayur?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '0000-00-00');
+(1, 'Mesin', 'Timbangan 5 kg', 'Apakah ada bagian berkarat?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -102,8 +102,8 @@ CREATE TABLE `form_angel_produksi` (
 --
 
 INSERT INTO `form_angel_produksi` (`no_angel`, `kode_mesin`, `raw_material`, `untuk_produk`, `kode_supplier`, `batch`, `jam_mulai`, `jam_keluar`, `berat_setelah_angel`, `keterangan`, `operator`, `tanggal`) VALUES
-(1, 'AJ.A', '', 'asd', 0, 123, '12:03:00', '12:21:00', 321, 'wdadsdads', 'asu', '2023-03-30'),
-(2, 'AJ.A', 'eqw', 'asd', 0, 12, '12:03:00', '03:21:00', 123, 'asdadsd', 'asu', '2023-03-30');
+(1, 'AJ.A', '123', 'asd', 0, 123, '12:03:00', '12:21:00', 321, 'wdadsdads', 'asa', '2023-03-27'),
+(2, 'AJ.A', 'eqw', 'asd', 0, 12, '12:03:00', '03:21:00', 123, 'asdadsd', 'asa', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE `form_filling_inspeksi_area` (
   `no_filling` int NOT NULL,
   `inspeksi_mesin/peralatan` set('Mesin','Peralatan') COLLATE utf8mb4_general_ci NOT NULL,
   `part_mesin/peralatan` set('Body tank','Motor agilator','Pipa dan selang product','Conveyor','Nozzle','Mesin digital filling','Kaki mesin','Kabel selang angin','Krat','Slat','Jar 29L','Jar 5L','Selang air','Gelas ukur') COLLATE utf8mb4_general_ci NOT NULL,
-  `kondisi_mesin/peralatan` set('Apakah berbau bahan kimia?','Apakah ada berjamur dan berkarat?','Apakah sudah diberi pelumas?','Apakah ada bagian yang kendor/part hilang?','Apakah ada bagian pecah/sobek/bocor/patah?','Apakah berfungsi normal?') COLLATE utf8mb4_general_ci NOT NULL,
+  `kondisi_mesin/peralatan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `keterangan_mesin` enum('Iya','Tidak') COLLATE utf8mb4_general_ci NOT NULL,
   `inpeksi_area` set('Lantai','Dinding','Gutter','Convayor','Wastafel stainless','pipa dan selang air') COLLATE utf8mb4_general_ci NOT NULL,
   `kondisi_area` set('Apakah area bersih?','Apakah ada area yang terkelupas?','Apakah ada area yang retak?','Apakah ada area yang berjamur?','Apakah ada sisa buah atau sayur?') COLLATE utf8mb4_general_ci NOT NULL,
@@ -131,7 +131,8 @@ CREATE TABLE `form_filling_inspeksi_area` (
 --
 
 INSERT INTO `form_filling_inspeksi_area` (`no_filling`, `inspeksi_mesin/peralatan`, `part_mesin/peralatan`, `kondisi_mesin/peralatan`, `keterangan_mesin`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES
-(1, 'Mesin', 'Body tank', 'Apakah berbau bahan kimia?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-31');
+(1, 'Mesin', 'Body tank', 'Apakah sudah diberi pelumas?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-27'),
+(2, 'Mesin', 'Body tank', 'Apakah ada yang berjamur dan berkarat?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-30');
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,7 @@ CREATE TABLE `form_filling_produksi` (
 --
 
 INSERT INTO `form_filling_produksi` (`no_filling`, `varian_produk`, `jam_mulai`, `jam_selesai`, `line`, `plan`, `no_plan`, `hasil`, `no_hasil`, `keterangan`, `waste`, `operator`, `tanggal`) VALUES
-(9, 'Classic green', '12:03:00', '12:31:00', 'wqe', '5000ML', 2132, '5000ML', 3213, 'wewe', '23', 'asu', '2023-03-31');
+(9, 'Asian green', '12:03:00', '12:31:00', '12:31:00', '5000ML', 2132, '5000ML', 3213, 'adsads', '23', 'asa', '2023-03-27');
 
 -- --------------------------------------------------------
 
@@ -188,7 +189,7 @@ CREATE TABLE `form_kupas_inspeksi_area` (
 --
 
 INSERT INTO `form_kupas_inspeksi_area` (`no_kupas`, `inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES
-(1, 'Mesin', 'Timbangan 120kg', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '0000-00-00');
+(1, 'Mesin', 'Timbangan 120kg', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah ada area yang terkelupas?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-31');
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,7 @@ CREATE TABLE `form_kupas_produksi` (
 --
 
 INSERT INTO `form_kupas_produksi` (`no_kupas`, `nama_material`, `kode_supplier`, `mulai`, `berakhir`, `durasi`, `hasil_kg`, `waste_kg`, `operator`, `tanggal`) VALUES
-(1, 'Nanas', 'qwe', '12:03:00', '13:02:00', 12, 123, 121, 'asu', '2023-03-30');
+(1, 'Nanas', 'qwe', '12:03:00', '13:02:00', 12, 123, 121, 'asu', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -248,7 +249,9 @@ INSERT INTO `form_preparation_inspeksi_area` (`no_preparation`, `inspeksi_mesin/
 (24, 'Mesin', '', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '0000-00-00'),
 (25, 'Mesin', 'Conveyor 1', 'Apakah tercium bau cleaner atau chemical?', 'Tidak', 'Lantai', 'Apakah ada area yang terkelupas?', 'Iya', 'Tarikan air', 'Apakah alat bersih?', 'Iya', '2023-03-25'),
 (27, 'Mesin', 'Brushing', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-07'),
-(28, 'Mesin', 'Conveyor 2', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-25');
+(28, 'Mesin', 'Conveyor 2', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-25'),
+(30, 'Mesin', 'Brushing', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-28'),
+(31, 'Mesin', 'Conveyor 1', 'Apakah part berfungsi dengan baik?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -335,7 +338,7 @@ CREATE TABLE `form_pressing_inspeksi_area` (
 --
 
 INSERT INTO `form_pressing_inspeksi_area` (`no_pressing`, `kode_mesin`, `part_mesin`, `kondisi_mesin`, `keterangan_mesin`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES
-(1, 'X1', 'SHIMS DAN RAIL', 'Apakah berbau bahan kimia?', 'Iya', 'Dinding', 'Apakah area bersih?', 'Tidak', '', 'Apakah alat ada identitas?', 'Iya', '2023-03-31');
+(1, 'X6', 'HOPPER', 'Apakah berbau bahan kimia?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -361,7 +364,7 @@ CREATE TABLE `form_pressing_produksi` (
 --
 
 INSERT INTO `form_pressing_produksi` (`no_pressing`, `kode_mesin`, `nama_produk`, `batch`, `jam_mulai`, `jam_keluar`, `berat_juice_kg`, `keterangan`, `operator`, `tanggal`) VALUES
-(1, 'X6', 'qwe', 213, '21:03:00', '21:03:00', 12, 'wqeq', '[asu', '2023-03-24');
+(1, 'X6', 'qwe', 213, '21:03:00', '21:03:00', 12, 'wqeq', 'asa', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -390,7 +393,8 @@ CREATE TABLE `form_washing_inspeksi_area` (
 
 INSERT INTO `form_washing_inspeksi_area` (`no_washing`, `inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES
 (1, 'Mesin', 'Washing 1', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-22'),
-(2, 'Mesin', 'Washing 1', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '0000-00-00');
+(2, 'Mesin', 'Washing 1', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah ada area yang retak?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-29'),
+(3, 'Mesin', 'Washing 1', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-29');
 
 -- --------------------------------------------------------
 
@@ -447,7 +451,7 @@ CREATE TABLE `form_weighing_inspeksi_area` (
 --
 
 INSERT INTO `form_weighing_inspeksi_area` (`no_weighing`, `inspeksi_mesin/peralatan`, `nama_item`, `kondisi_mesin/peralatan`, `keterangan_mesin/peralatan`, `inpeksi_area`, `kondisi_area`, `keterangan_area`, `inspeksi_alat_cleaning`, `kondisi_alat_cleaning`, `keterangan_alat_cleaning`, `tanggal`) VALUES
-(1, 'Mesin', 'Timbangan 120 kg', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '0000-00-00');
+(1, 'Mesin', 'Timbangan 120 kg', 'Apakah tercium bau cleaner atau chemical?', 'Iya', 'Lantai', 'Apakah area bersih?', 'Iya', 'Alat pel', 'Apakah alat bersih?', 'Iya', '2023-03-29');
 
 -- --------------------------------------------------------
 
@@ -474,7 +478,7 @@ CREATE TABLE `form_weighing_perendaman_apel` (
 --
 
 INSERT INTO `form_weighing_perendaman_apel` (`no_weighing`, `nama_produk`, `jumlah_apel`, `jumlah_batch`, `jumlah_garam`, `jumlah_air_RO`, `jam_mulai`, `jam_selesai`, `suhu air`, `operator`, `tanggal`) VALUES
-(1, 'dsas', 23, 32, 32, 32, '13:02:00', '21:03:00', '3121', 'asu', '2023-03-30');
+(1, 'dsas', 23, 32, 32, 32, '13:02:00', '21:03:00', '', 'asa', '2023-03-29');
 
 -- --------------------------------------------------------
 
@@ -498,7 +502,7 @@ CREATE TABLE `form_weighing_produksi` (
 --
 
 INSERT INTO `form_weighing_produksi` (`no_weighing`, `varian_produk`, `jam_mulai`, `jam_selesai`, `jumlah_batch`, `keterangan`, `waste`, `tanggal`) VALUES
-(1, 'Beat that', '12:03:00', '13:01:00', 211, 'adasads', '23', '2023-03-31');
+(1, 'Asian green', '12:03:00', '13:01:00', 211, 'diubah', '23', '2023-03-29');
 
 -- --------------------------------------------------------
 
@@ -695,7 +699,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `form_angel_inspeksi_area`
 --
 ALTER TABLE `form_angel_inspeksi_area`
-  MODIFY `no_angel` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no_angel` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `form_angel_produksi`
@@ -707,7 +711,7 @@ ALTER TABLE `form_angel_produksi`
 -- AUTO_INCREMENT for table `form_filling_inspeksi_area`
 --
 ALTER TABLE `form_filling_inspeksi_area`
-  MODIFY `no_filling` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no_filling` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `form_filling_produksi`
@@ -731,7 +735,7 @@ ALTER TABLE `form_kupas_produksi`
 -- AUTO_INCREMENT for table `form_preparation_inspeksi_area`
 --
 ALTER TABLE `form_preparation_inspeksi_area`
-  MODIFY `no_preparation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `no_preparation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `form_preparation_mesin_brushing`
@@ -761,7 +765,7 @@ ALTER TABLE `form_pressing_produksi`
 -- AUTO_INCREMENT for table `form_washing_inspeksi_area`
 --
 ALTER TABLE `form_washing_inspeksi_area`
-  MODIFY `no_washing` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `no_washing` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `form_washing_produksi`
