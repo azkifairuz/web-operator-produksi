@@ -1,7 +1,6 @@
 <?php
 session_start();
 $userNip = $_SESSION['NIP'];
-include("navbar.php");
 include("../koneksi.php");
 $getDataOperator = mysqli_query($con, "SELECT * FROM `data_operator_produksi` WHERE NIP ='$userNip' ");
 $getDataCekList = mysqli_query($con ,"SELECT * FROM `form_preparation_inspeksi_area` ");
@@ -16,62 +15,43 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Cetak preprataion 1</title>
   <link rel="stylesheet" href="../../dist/output.css" />
 </head>
 
 <body>
   <div>
     <div class="flex">
-      <?php
-      require "sidebar.php";
-      ?>
-
-      <div class="mainPage container mt-20 w-1/2 ml-20 ">
-        <h1 class="text-2xl -ml-10 mb-5 text-purple-700 font-bold">
-          Hasil Laporan Preparation
+      <div class="mainPage container mt-20 w-full ml-20 ">
+        <h1 class="text-2xl text-center -ml-10 mb-5  font-bold">
+          Hasil Laporan Preparation 1
         </h1>
-        <div class="maincontainer lg:w-[1000px] lg:h-[400px] container h-[300px] w-[600px]">
-          <div class="inline">
-            <ul class="flex">
-              <li
-                class="btnProfil bg-purple-400 hover:bg-purple-600 h-12 w-fit p-2 text-md border-2 border-black text-center items-center flex justify-center cursor-pointer">
-                Cek list dan inpeksi area
-              </li>
-              <li
-                class="btnUbah bg-purple-400 hover:bg-purple-600  h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan produksi
-              </li>
-              <li
-                class="btnPassword bg-purple-400 hover:bg-purple-600  h-12 w-fit p-2 text-md border-2 border-black text-center items-center text-sm flex justify-center cursor-pointer">
-                Laporan mesin brushing
-              </li>
-            </ul>
-          </div>
-          <div class="bg-pink-400 shadow w-fit rounded-b-lg  flex  justify-center p-2">
+        <div class="maincontainer">
+
+          <div class=" shadow w-fit rounded-b-lg  flex  justify-center p-2">
           <section class="cekList">
               <div class="items-center justify-evenly m-2 gap-4 w-full">
                 <table>
-                    <tr class="bg-black text-white p-2">
-                        <th class="p-2">no_preparation</th>
-                        <th class="p-2">inspeksi_mesin/peralatan </th>
-                        <th class="p-2">nama_item </th>
-                        <th class="p-2">kondisi_mesin/peralatan</th>
-                        <th class="p-2">keterangan_mesin/peralatan</th>
-                        <th class="p-2">inpeksi_area</th>
-                        <th class="p-2">kondisi_area </th>
-                        <th class="p-2">keterangan_area </th>
-                        <th class="p-2">inspeksi_alat_cleaning </th>
-                        <th class="p-2">kondisi_alat_cleaning </th>
-                        <th class="p-2">keterangan_alat_cleaning</th>
-                        <th class="p-2">tanggal</th>
-                        <th class="p-2">action</th>
+                    <tr class=" p-2 border border-black">
+                        <th class="p-2 border border-black">no_preparation</th>
+                        <th class="p-2 border border-black">inspeksi_mesin/peralatan </th>
+                        <th class="p-2 border border-black">nama_item </th>
+                        <th class="p-2 border border-black">kondisi_mesin/peralatan</th>
+                        <th class="p-2 border border-black">keterangan_mesin/peralatan</th>
+                        <th class="p-2 border border-black">inpeksi_area</th>
+                        <th class="p-2 border border-black">kondisi_area </th>
+                        <th class="p-2 border border-black">keterangan_area </th>
+                        <th class="p-2 border border-black">inspeksi_alat_cleaning </th>
+                        <th class="p-2 border border-black">kondisi_alat_cleaning </th>
+                        <th class="p-2 border border-black">keterangan_alat_cleaning</th>
+                        <th class="p-2 border border-black">tanggal</th>
+                        <th class="p-2 border border-black">action</th>
                     </tr>
                     <?php
                     $no = 1;
                     while ($data = mysqli_fetch_array($getDataCekList)) {
                         ?>
-                        <tr class="text-xs bg-white border  ">
+                        <tr class="text-xs bg-white border border-black  ">
                             <td class=" p-2 border border-black ">
                                 <?php echo $no; ?>
                             </td>
@@ -117,10 +97,6 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                                 <?php echo $data['tanggal']; ?>
                             </td>
 
-                            <td class="py-2 px-6 text-center">
-                                <a href="./edit-preparation/edit-preparation-inspeksi.php?p=<?php echo $data['no_preparation']; ?>" class=" cursor-pointer text-center rounded-md  bg-blue-400 text-white p-[0.30rem] w-7 h-7">GO</a>
-                            </td>
-                            
                         </tr>
                         <?php
                         $no++;
@@ -128,7 +104,6 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     ?>
                 </table>
               </div>
-              <a class="py-2 px-4 bg-black m-10  rounded-lg text-white" href="cetakPreparation1.php">Print1</a>  
               
             </section>
             <section class="produksi hidden  w-full">
@@ -191,7 +166,6 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     ?>
                 </table>
               </div>
-              <a class="py-2 px-4 bg-black m-10  rounded-lg text-white" href="cetakPreparation2.php">Print2</a>  
             </section>
             <section class="laporanMesin hidden w-full">
             <div class=" items-center justify-evenly m-2 gap-4 w-full">
@@ -265,7 +239,6 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
                     ?>
                 </table>
               </div>
-              <a class="py-2 px-4 bg-black m-10  rounded-lg text-white" href="cetakPreparation3.php">Print3</a>  
             </section>
           </div>
         </div>
@@ -274,32 +247,9 @@ $dataCeklist = mysqli_fetch_array($getDataCekList);
   </div>
 
   <script>
+    var delayInMilliseconds = 1000;
 
-    const btnProfil = document.querySelector(".btnProfil")
-    const btnUbah = document.querySelector(".btnUbah")
-    const btnPassword = document.querySelector(".btnPassword")
-
-    const cekList = document.querySelector(".cekList")
-    const produksi = document.querySelector(".produksi")
-    const laporanMesin = document.querySelector(".laporanMesin")
-
-    btnProfil.addEventListener("click", () => {
-      cekList.classList.remove("hidden")
-      produksi.classList.add("hidden")
-      laporanMesin.classList.add("hidden")
-      
-    })
-    btnUbah.addEventListener("click", () => {
-      cekList.classList.add("hidden")
-      produksi.classList.remove("hidden")
-      laporanMesin.classList.add("hidden")
-    })
-    btnPassword.addEventListener("click", () => {
-      cekList.classList.add("hidden")
-      produksi.classList.add("hidden")
-      laporanMesin.classList.remove("hidden")
-    })
-    
+    setTimeout( window.print(), delayInMilliseconds);
   </script>
 </body>
 
